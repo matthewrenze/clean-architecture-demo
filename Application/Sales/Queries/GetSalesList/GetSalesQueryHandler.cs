@@ -22,7 +22,13 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
                 .Select(p => new SalesListItemDto()
                 {
                     Id = p.Id, 
-                    DateTime = p.DateTime
+                    Date = p.Date,
+                    CustomerName = p.Customer.Name,
+                    EmployeeName = p.Employee.Name,
+                    ProductName = p.Product.Name,
+                    UnitPrice = p.UnitPrice,
+                    Quantity = p.Quantity,
+                    TotalPrice = p.TotalPrice
                 });
 
             return sales.ToList();

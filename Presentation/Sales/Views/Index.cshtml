@@ -1,8 +1,39 @@
-﻿@{
+﻿@model IEnumerable<CleanArchitecture.Application.Sales.Queries.GetSalesList.SalesListItemDto>
+
+@{
     ViewBag.Title = "Sales";
 }
 
 <h2>Sales</h2>
 
-<p>Sales transactions go here.</p>
+<h2>Products</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Employee</th>
+            <th>Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sale in Model)
+        {
+            <tr>
+                <td>@sale.Id</td>
+                <td>@sale.Date</td>
+                <td>@sale.CustomerName</td>
+                <td>@sale.EmployeeName</td>
+                <td>@sale.ProductName</td>
+                <td>@sale.UnitPrice</td>
+                <td>@sale.Quantity</td>
+                <td>@sale.TotalPrice</td>
+            </tr>
+        }
+    </tbody>
+</table>
 

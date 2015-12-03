@@ -6,7 +6,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
     {
         public int Id { get; set; }
 
-        public DateTime DateTime { get; set; }
+        public DateTime Date { get; set; }
 
         public string CustomerName { get; set; }
 
@@ -16,7 +16,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
 
         public decimal UnitPrice { get; set; }
 
-        public int ItemCount { get; set; }
+        public int Quantity { get; set; }
 
         public decimal TotalPrice { get; set; }
     }

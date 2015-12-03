@@ -86,7 +86,7 @@ namespace CleanArchitecture.Persistance
 
             database.Sales.Add(new Sale()
             {
-                DateTime = DateTime.Now.Date.AddDays(-2),
+                Date = DateTime.Now.Date.AddDays(-2),
                 Customer = customers[0],
                 Employee = employees[0],
                 Product = products[0],
@@ -97,7 +97,7 @@ namespace CleanArchitecture.Persistance
 
             database.Sales.Add(new Sale()
             {
-                DateTime = DateTime.Now.Date.AddDays(-2),
+                Date = DateTime.Now.Date.AddDays(-2),
                 Customer = customers[1],
                 Employee = employees[1],
                 Product = products[1],
@@ -108,9 +108,9 @@ namespace CleanArchitecture.Persistance
 
             database.Sales.Add(new Sale()
             {
-                DateTime = DateTime.Now.Date.AddDays(-1),
+                Date = DateTime.Now.Date.AddDays(-1),
                 Customer = customers[2],
-                Employee = employees[2],
+                Employee = employees[1],
                 Product = products[2],
                 UnitPrice = 15m,
                 Quantity = 2,
@@ -119,7 +119,7 @@ namespace CleanArchitecture.Persistance
 
             database.Sales.Add(new Sale()
             {
-                DateTime = DateTime.Now.Date.AddDays(-1),
+                Date = DateTime.Now.Date.AddDays(-1),
                 Customer = customers[2],
                 Employee = employees[2],
                 Product = products[3],

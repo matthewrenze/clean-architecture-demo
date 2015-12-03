@@ -15,7 +15,7 @@ namespace CleanArchitecture.Persistance.Sales
         {
             HasKey(p => p.Id);
 
-            Property(p => p.DateTime)
+            Property(p => p.Date)
                 .IsRequired();
 
             HasRequired(p => p.Customer);
