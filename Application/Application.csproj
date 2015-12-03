@@ -66,23 +66,31 @@
     <Compile Include="Core\Queries\IQueryBus.cs" />
     <Compile Include="Core\Queries\IQueryHandler.cs" />
     <Compile Include="Core\Queries\QueryBus.cs" />
+    <Compile Include="Customers\Queries\GetCustomerList\CustomerListItemDto.cs" />
+    <Compile Include="Customers\Queries\GetCustomerList\GetCustomerListQuery.cs" />
+    <Compile Include="Customers\Queries\GetCustomerList\GetCustomerListQueryHandler.cs" />
+    <Compile Include="Employees\Queries\GetEmployeesList\EmployeesListItemDto.cs" />
+    <Compile Include="Employees\Queries\GetEmployeesList\GetEmployeesListQueryHandler.cs" />
+    <Compile Include="Employees\Queries\GetEmployeesList\GetEmployeesListQuery.cs" />
     <Compile Include="Interfaces\IDatabaseContext.cs" />
+    <Compile Include="Products\Queries\GetProductsList\GetProductListItemQueryHandler.cs" />
+    <Compile Include="Products\Queries\GetProductsList\GetProductsListQuery.cs" />
+    <Compile Include="Products\Queries\GetProductsList\ProductListItemDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sales\Commands\AddSaleCommand.cs" />
-    <Compile Include="Sales\Commands\AddSaleCommandHandler.cs" />
-    <Compile Include="Sales\Queries\GetSalesQuery\GetSalesQuery.cs" />
-    <Compile Include="Sales\Queries\GetSalesQuery\GetSalesQueryHandler.cs" />
-    <Compile Include="Sales\Queries\GetSalesQuery\SalesListItemDto.cs" />
+    <Compile Include="Sales\Commands\AddSale\AddSaleCommand.cs" />
+    <Compile Include="Sales\Commands\AddSale\AddSaleCommandHandler.cs" />
+    <Compile Include="Sales\Queries\GetSalesList\GetSalesQuery.cs" />
+    <Compile Include="Sales\Queries\GetSalesList\GetSalesQueryHandler.cs" />
+    <Compile Include="Sales\Queries\GetSalesList\SalesListItemDto.cs" />
+    <Compile Include="Vendors\Queries\GetVendorsList\GetVendorsListQuery.cs" />
+    <Compile Include="Vendors\Queries\GetVendorsList\GetVendorsListQueryHandler.cs" />
+    <Compile Include="Vendors\Queries\GetVendorsList\VendorsListItemDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Customers\Commands\" />
-    <Folder Include="Customers\Queries\" />
     <Folder Include="Employees\Commands\" />
-    <Folder Include="Employees\Queries\" />
     <Folder Include="Products\Commands\" />
-    <Folder Include="Products\Queries\" />
     <Folder Include="Vendors\Commands\" />
-    <Folder Include="Vendors\Queries\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

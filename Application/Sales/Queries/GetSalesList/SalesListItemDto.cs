@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CleanArchitecture.Application.Sales.Queries.GetSalesQuery
+namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
 {
     public class SalesListItemDto
     {

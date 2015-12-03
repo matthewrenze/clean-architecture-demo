@@ -1,8 +1,26 @@
-﻿@{
+﻿@model IEnumerable<CleanArchitecture.Application.Customers.Queries.GetCustomerList.CustomerListItemDto>
+
+@{
     ViewBag.Title = "Customers";
 }
 
 <h2>Customers</h2>
 
-<p>Customer data goes here.</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td>@customer.Id</td>
+            <td>@customer.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>
 

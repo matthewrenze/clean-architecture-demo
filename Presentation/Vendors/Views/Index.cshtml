@@ -4,5 +4,21 @@
 
 <h2>Vendors</h2>
 
-<p>Vendor data goes here.</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vendors in Model)
+        {
+            <tr>
+                <td>@vendors.Id</td>
+                <td>@vendors.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
 

@@ -4,7 +4,7 @@ using System.Linq;
 using CleanArchitecture.Application.Core.Queries;
 using CleanArchitecture.Application.Interfaces;
 
-namespace CleanArchitecture.Application.Sales.Queries.GetSalesQuery
+namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
 {
     public class GetSalesQueryHandler 
         : IQueryHandler<GetSalesQuery, List<SalesListItemDto>>
