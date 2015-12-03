@@ -18,7 +18,7 @@ using CleanArchitecture.Persistance.Vendors;
 
 namespace CleanArchitecture.Persistance
 {
-    public class Database : DbContext, IDatabase
+    public class DatabaseContext : DbContext, IDatabaseContext
     {
         public DbSet<Customer> Customers { get; set; }
 
@@ -30,9 +30,9 @@ namespace CleanArchitecture.Persistance
 
         public DbSet<Vendor> Vendors { get; set; }
 
-        public Database() : base("CleanArchitecture")
+        public DatabaseContext() : base("CleanArchitecture")
         {
-            
+            Database.SetInitializer(new DatabaseInitializer());
         }
 
         public void Save()
@@ -48,7 +48,6 @@ namespace CleanArchitecture.Persistance
             modelBuilder.Configurations.Add(new EmployeeConfiguration());
             modelBuilder.Configurations.Add(new ProductConfiguration());
             modelBuilder.Configurations.Add(new SaleConfiguration());
-            modelBuilder.Configurations.Add(new SaleLineItemConfiguration());
             modelBuilder.Configurations.Add(new VendorConfiguration());
         }
     }

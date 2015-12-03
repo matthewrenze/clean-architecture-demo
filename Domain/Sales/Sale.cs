@@ -16,8 +16,12 @@ namespace CleanArchitecture.Domain.Sales
 
         public Employee Employee { get; set; }
 
-        public List<SaleLineItem> LineItems { get; set; }
+        public Product Product { get; set; }
 
-        public decimal TotalAmount { get; set; }
+        public decimal UnitPrice { get; set; }
+
+        public int Quantity { get; set; }
+
+        public decimal TotalPrice { get; set; }
     }
 }

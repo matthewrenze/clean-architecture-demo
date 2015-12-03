@@ -22,9 +22,9 @@ namespace CleanArchitecture.Persistance.Sales
 
             HasRequired(p => p.Employee);
 
-            HasMany(p => p.LineItems);
+            HasRequired(p => p.Product);
 
-            Property(p => p.TotalAmount)
+            Property(p => p.TotalPrice)
                 .IsRequired()
                 .HasPrecision(5, 2);
         }

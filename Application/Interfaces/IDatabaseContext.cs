@@ -7,7 +7,7 @@ using CleanArchitecture.Domain.Vendors;
 
 namespace CleanArchitecture.Application.Interfaces
 {
-    public interface IDatabase
+    public interface IDatabaseContext
     {
         DbSet<Customer> Customers { get; set; }
 

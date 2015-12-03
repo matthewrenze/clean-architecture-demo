@@ -2,7 +2,7 @@
 
 namespace CleanArchitecture.Application.Sales.Queries.GetSalesQuery
 {
-    public class SalesListModel
+    public class SalesListItemDto
     {
         public int Id { get; set; }
 
@@ -11,6 +11,10 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesQuery
         public string CustomerName { get; set; }
 
         public string EmployeeName { get; set; }
+
+        public string ProductName { get; set; }
+
+        public decimal UnitPrice { get; set; }
 
         public int ItemCount { get; set; }
 

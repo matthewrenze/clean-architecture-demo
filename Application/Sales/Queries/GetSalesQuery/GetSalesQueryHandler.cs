@@ -1,15 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CleanArchitecture.Application.Core.Queries;
+using CleanArchitecture.Application.Interfaces;
 
 namespace CleanArchitecture.Application.Sales.Queries.GetSalesQuery
 {
     public class GetSalesQueryHandler 
-        : IQueryHandler<GetSalesQuery, List<SalesListModel>>
+        : IQueryHandler<GetSalesQuery, List<SalesListItemDto>>
     {
-        public List<SalesListModel> Execute(GetSalesQuery query)
+        private readonly IDatabaseContext _database;
+
+        public GetSalesQueryHandler(IDatabaseContext database)
         {
-            throw new NotImplementedException();
+            _database = database;
+        }
+
+        public List<SalesListItemDto> Execute(GetSalesQuery query)
+        {
+            var sales = _database.Sales
+                .Select(p => new SalesListItemDto()
+                {
+                    Id = p.Id, 
+                    DateTime = p.DateTime
+                });
+
+            return sales.ToList();
         }
     }
 }
