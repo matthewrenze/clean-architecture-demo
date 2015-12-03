@@ -36,6 +36,12 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4">
+      <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -46,8 +52,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Commands\CommandBus.cs" />
+    <Compile Include="Core\Commands\ICommand.cs" />
+    <Compile Include="Core\Commands\ICommandBus.cs" />
+    <Compile Include="Core\Commands\ICommandHandler.cs" />
+    <Compile Include="Core\Events\EventBus.cs" />
+    <Compile Include="Core\Events\IEvent.cs" />
+    <Compile Include="Core\Events\IEventBus.cs" />
+    <Compile Include="Core\Events\IEventHandler.cs" />
+    <Compile Include="Core\MessageBus\IMessageBus.cs" />
+    <Compile Include="Core\MessageBus\MessageBus.cs" />
+    <Compile Include="Core\Queries\IQuery.cs" />
+    <Compile Include="Core\Queries\IQueryBus.cs" />
+    <Compile Include="Core\Queries\IQueryHandler.cs" />
+    <Compile Include="Core\Queries\QueryBus.cs" />
     <Compile Include="Interfaces\IDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sales\Commands\AddSaleCommand.cs" />
+    <Compile Include="Sales\Commands\AddSaleCommandHandler.cs" />
+    <Compile Include="Sales\Queries\GetSalesQuery\GetSalesQuery.cs" />
+    <Compile Include="Sales\Queries\GetSalesQuery\GetSalesQueryHandler.cs" />
+    <Compile Include="Sales\Queries\GetSalesQuery\SalesListModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Customers\Commands\" />
@@ -56,8 +81,6 @@
     <Folder Include="Employees\Queries\" />
     <Folder Include="Products\Commands\" />
     <Folder Include="Products\Queries\" />
-    <Folder Include="Sales\Commands\" />
-    <Folder Include="Sales\Queries\" />
     <Folder Include="Vendors\Commands\" />
     <Folder Include="Vendors\Queries\" />
   </ItemGroup>

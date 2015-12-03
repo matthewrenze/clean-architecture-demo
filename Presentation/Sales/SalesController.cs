@@ -1,13 +1,24 @@
 ﻿using System;
 using System.Web.Mvc;
+using CleanArchitecture.Application.Core.MessageBus;
+using CleanArchitecture.Application.Sales.Queries.GetSalesQuery;
 
 namespace CleanArchitecture.Presentation.Sales
 {
     public class SalesController : Controller
     {
+        private readonly IMessageBus _messageBus;
+
+        public SalesController(IMessageBus messageBus)
+        {
+            _messageBus = messageBus;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var sales = _messageBus.Execute(new GetSalesQuery());
+
+            return View(sales);
         }
     }
 }
