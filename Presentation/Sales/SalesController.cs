@@ -69,7 +69,7 @@ namespace CleanArchitecture.Presentation.Sales
                 .Select(p => new SelectListItem()
                 {
                     Value = p.Id.ToString(), 
-                    Text = p.Name
+                    Text = p.Name + " ($" + p.UnitPrice + ")"
                 })
                 .ToList();
 

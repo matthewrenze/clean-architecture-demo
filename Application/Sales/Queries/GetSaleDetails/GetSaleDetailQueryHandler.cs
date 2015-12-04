@@ -10,7 +10,7 @@ using CleanArchitecture.Application.Sales.Queries.GetSalesList;
 namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetails
 {
     public class GetSaleDetailQueryHandler
-        : IQueryHandler<GetSaleDetailQuery, SaleDetailDto>
+        : IQueryHandler<GetSaleDetailQuery, SaleDetailModel>
     {
         private readonly IDatabaseContext _database;
 
@@ -19,12 +19,12 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetails
             _database = database;
         }
 
-        public SaleDetailDto Execute(GetSaleDetailQuery query)
+        public SaleDetailModel Execute(GetSaleDetailQuery query)
         {
             var sale = _database.Sales
                 .Where(p => p.Id == query.SaleId)
                 .Take(1)
-                .Select(p => new SaleDetailDto()
+                .Select(p => new SaleDetailModel()
                 {
                     Id = p.Id, 
                     Date = p.Date,

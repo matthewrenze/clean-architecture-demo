@@ -9,7 +9,7 @@ using CleanArchitecture.Application.Interfaces;
 namespace CleanArchitecture.Application.Products.Queries.GetProductsList
 {
     public class GetProductListItemQueryHandler 
-        : IQueryHandler<GetProductsListQuery, List<ProductListItemDto>>
+        : IQueryHandler<GetProductsListQuery, List<ProductModel>>
     {
         private readonly IDatabaseContext _database;
 
@@ -18,13 +18,14 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
             _database = database;
         }
 
-        public List<ProductListItemDto> Execute(GetProductsListQuery query)
+        public List<ProductModel> Execute(GetProductsListQuery query)
         {
             var products = _database.Products
-                .Select(p => new ProductListItemDto
+                .Select(p => new ProductModel
                 {
                     Id = p.Id, 
-                    Name = p.Name
+                    Name = p.Name,
+                    UnitPrice = p.Price
                 });
 
             return products.ToList();

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CleanArchitecture.Application.Products.Queries.GetProductsList.ProductListItemDto>
+﻿@model IEnumerable<CleanArchitecture.Application.Products.Queries.GetProductsList.ProductModel>
 
 @{
     ViewBag.Title = "Products";
@@ -10,6 +10,7 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Price</th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
             <tr>
                 <td>@products.Id</td>
                 <td>@products.Name</td>
+                <td>@products.UnitPrice</td>
             </tr>
         }
     </tbody>

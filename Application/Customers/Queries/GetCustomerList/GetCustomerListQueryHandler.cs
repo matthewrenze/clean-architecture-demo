@@ -9,7 +9,7 @@ using CleanArchitecture.Application.Interfaces;
 namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
 {
     public class GetCustomerListQueryHandler 
-        : IQueryHandler<GetCustomerListQuery, List<CustomerListItemDto>>
+        : IQueryHandler<GetCustomerListQuery, List<CustomerModel>>
     {
         private readonly IDatabaseContext _database;
 
@@ -18,10 +18,10 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
             _database = database;
         }
 
-        public List<CustomerListItemDto> Execute(GetCustomerListQuery query)
+        public List<CustomerModel> Execute(GetCustomerListQuery query)
         {
             var customers = _database.Customers
-                .Select(p => new CustomerListItemDto()
+                .Select(p => new CustomerModel()
                 {
                     Id = p.Id, 
                     Name = p.Name

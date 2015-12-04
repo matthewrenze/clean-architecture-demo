@@ -8,7 +8,7 @@ using CleanArchitecture.Application.Core.Queries;
 namespace CleanArchitecture.Application.Products.Queries.GetProductsList
 {
     public class GetProductsListQuery 
-        : IQuery<List<ProductListItemDto>>
+        : IQuery<List<ProductModel>>
     {
 
     }

@@ -4,7 +4,7 @@ using CleanArchitecture.Application.Core.Queries;
 
 namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
 {
-    public class GetSalesQuery : IQuery<List<SalesListItemDto>>
+    public class GetSalesQuery : IQuery<List<SalesListItemModel>>
     {
 
     }

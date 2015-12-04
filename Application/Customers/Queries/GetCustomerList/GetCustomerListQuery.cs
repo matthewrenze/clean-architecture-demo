@@ -8,7 +8,7 @@ using CleanArchitecture.Application.Core.Queries;
 namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
 {
     public class GetCustomerListQuery 
-        : IQuery<List<CustomerListItemDto>>
+        : IQuery<List<CustomerModel>>
     {
 
     }

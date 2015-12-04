@@ -7,7 +7,7 @@ using CleanArchitecture.Application.Interfaces;
 namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
 {
     public class GetEmployeesListQueryHandler 
-        : IQueryHandler<GetEmployeesListQuery, List<EmployeesListItemDto>>
+        : IQueryHandler<GetEmployeesListQuery, List<EmployeeModel>>
     {
         private readonly IDatabaseContext _database;
 
@@ -16,10 +16,10 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
             _database = database;
         }
 
-        public List<EmployeesListItemDto> Execute(GetEmployeesListQuery query)
+        public List<EmployeeModel> Execute(GetEmployeesListQuery query)
         {
             var employees = _database.Employees
-                .Select(p => new EmployeesListItemDto
+                .Select(p => new EmployeeModel
                 {
                     Id = p.Id,
                     Name = p.Name

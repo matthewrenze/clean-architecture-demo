@@ -2,7 +2,7 @@
 
 namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetails
 {
-    public class SaleDetailDto
+    public class SaleDetailModel
     {
         public int Id { get; set; }
 

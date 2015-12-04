@@ -1,6 +1,6 @@
 ﻿namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
 {
-    public class CustomerListItemDto
+    public class CustomerModel
     {
         public int Id { get; set; }
 

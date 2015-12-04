@@ -137,7 +137,6 @@
     <Content Include="_ViewStart.cshtml" />
     <Content Include="Home\Views\Index.cshtml" />
     <Content Include="Products\Views\Index.cshtml" />
-    <Content Include="Products\Views\Details.cshtml" />
     <Content Include="Customers\Views\Index.cshtml" />
     <Content Include="Employees\Views\Index.cshtml" />
     <Content Include="Sales\Views\Index.cshtml" />

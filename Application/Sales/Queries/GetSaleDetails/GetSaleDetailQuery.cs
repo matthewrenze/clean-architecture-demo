@@ -7,7 +7,7 @@ using CleanArchitecture.Application.Core.Queries;
 
 namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetails
 {
-    public class GetSaleDetailQuery : IQuery<SaleDetailDto>
+    public class GetSaleDetailQuery : IQuery<SaleDetailModel>
     {
         private readonly int _saleId;
         

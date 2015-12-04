@@ -7,7 +7,7 @@ using CleanArchitecture.Application.Interfaces;
 namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
 {
     public class GetSalesQueryHandler 
-        : IQueryHandler<GetSalesQuery, List<SalesListItemDto>>
+        : IQueryHandler<GetSalesQuery, List<SalesListItemModel>>
     {
         private readonly IDatabaseContext _database;
 
@@ -16,10 +16,10 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
             _database = database;
         }
 
-        public List<SalesListItemDto> Execute(GetSalesQuery query)
+        public List<SalesListItemModel> Execute(GetSalesQuery query)
         {
             var sales = _database.Sales
-                .Select(p => new SalesListItemDto()
+                .Select(p => new SalesListItemModel()
                 {
                     Id = p.Id, 
                     Date = p.Date,
