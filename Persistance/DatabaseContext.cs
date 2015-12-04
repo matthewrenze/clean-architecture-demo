@@ -9,12 +9,11 @@ using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
-using CleanArchitecture.Domain.Vendors;
 using CleanArchitecture.Persistance.Customers;
 using CleanArchitecture.Persistance.Employees;
 using CleanArchitecture.Persistance.Products;
 using CleanArchitecture.Persistance.Sales;
-using CleanArchitecture.Persistance.Vendors;
+
 
 namespace CleanArchitecture.Persistance
 {
@@ -27,8 +26,6 @@ namespace CleanArchitecture.Persistance
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Sale> Sales { get; set; }
-
-        public DbSet<Vendor> Vendors { get; set; }
 
         public DatabaseContext() : base("CleanArchitecture")
         {
@@ -48,7 +45,6 @@ namespace CleanArchitecture.Persistance
             modelBuilder.Configurations.Add(new EmployeeConfiguration());
             modelBuilder.Configurations.Add(new ProductConfiguration());
             modelBuilder.Configurations.Add(new SaleConfiguration());
-            modelBuilder.Configurations.Add(new VendorConfiguration());
         }
     }
 }

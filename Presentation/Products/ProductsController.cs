@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using CleanArchitecture.Application.Core.MessageBus;
 using CleanArchitecture.Application.Products.Queries.GetProductsList;
-using CleanArchitecture.Presentation.Products.Models;
 
 namespace CleanArchitecture.Presentation.Products
 {

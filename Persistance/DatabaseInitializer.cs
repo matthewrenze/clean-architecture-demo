@@ -8,7 +8,6 @@ using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
-using CleanArchitecture.Domain.Vendors;
 
 namespace CleanArchitecture.Persistance
 {
@@ -22,8 +21,6 @@ namespace CleanArchitecture.Persistance
             CreateCustomers(database);
 
             CreateEmployees(database);
-
-            CreateVendors(database);
 
             CreateProducts(database);
             
@@ -52,26 +49,15 @@ namespace CleanArchitecture.Persistance
             database.SaveChanges();
         }
 
-        private void CreateVendors(DatabaseContext database)
-        {
-            database.Vendors.Add(new Vendor() { Name = "Italian Foods, Inc." });
-
-            database.Vendors.Add(new Vendor() { Name = "Sweet Treats, Inc." });
-
-            database.SaveChanges();
-        }
-
         private void CreateProducts(DatabaseContext database)
         {
-            var vendors = database.Vendors.ToList();
+            database.Products.Add(new Product() { Name = "Cake", Price = 5m });
 
-            database.Products.Add(new Product() { Name = "Cake", Vendor = vendors[0], Price = 5m });
+            database.Products.Add(new Product() { Name = "Ice Cream", Price = 10m });
 
-            database.Products.Add(new Product() { Name = "Ice Cream", Vendor = vendors[0], Price = 10m });
+            database.Products.Add(new Product() { Name = "Lasagna", Price = 15m });
 
-            database.Products.Add(new Product() { Name = "Lasagna", Vendor = vendors[1], Price = 15m });
-
-            database.Products.Add(new Product() { Name = "Spaghetti", Vendor = vendors[1], Price = 20m });
+            database.Products.Add(new Product() { Name = "Spaghetti", Price = 20m });
 
             database.SaveChanges();
         }
@@ -91,8 +77,8 @@ namespace CleanArchitecture.Persistance
                 Employee = employees[0],
                 Product = products[0],
                 UnitPrice = 5m,
-                Quantity = 4,
-                TotalPrice = 20m
+                Quantity = 1,
+                TotalPrice = 5m
             });
 
             database.Sales.Add(new Sale()
@@ -102,8 +88,8 @@ namespace CleanArchitecture.Persistance
                 Employee = employees[1],
                 Product = products[1],
                 UnitPrice = 10m,
-                Quantity = 3,
-                TotalPrice = 30m
+                Quantity = 2,
+                TotalPrice = 20m
             });
 
             database.Sales.Add(new Sale()
@@ -113,8 +99,8 @@ namespace CleanArchitecture.Persistance
                 Employee = employees[1],
                 Product = products[2],
                 UnitPrice = 15m,
-                Quantity = 2,
-                TotalPrice = 30m
+                Quantity = 3,
+                TotalPrice = 45m
             });
 
             database.Sales.Add(new Sale()
@@ -124,8 +110,8 @@ namespace CleanArchitecture.Persistance
                 Employee = employees[2],
                 Product = products[3],
                 UnitPrice = 20m,
-                Quantity = 1,
-                TotalPrice = 20m
+                Quantity = 4,
+                TotalPrice = 80m
             });
 
             database.SaveChanges();

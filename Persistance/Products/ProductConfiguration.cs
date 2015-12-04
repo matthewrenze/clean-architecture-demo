@@ -19,8 +19,6 @@ namespace CleanArchitecture.Persistance.Products
                 .IsRequired()
                 .HasMaxLength(50);
 
-            HasRequired(p => p.Vendor);
-
             Property(p => p.Price)
                 .IsRequired()
                 .HasPrecision(5, 2);

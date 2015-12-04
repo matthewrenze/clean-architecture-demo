@@ -23,13 +23,13 @@
         {
             <tr>
                 <td><a href="sales/@sale.Id">@sale.Id</a></td>
-                <td>@sale.Date</td>
+                <td>@sale.Date.ToString("d")</td>
                 <td>@sale.CustomerName</td>
                 <td>@sale.EmployeeName</td>
                 <td>@sale.ProductName</td>
-                <td>@sale.UnitPrice</td>
+                <td>$@sale.UnitPrice</td>
                 <td>@sale.Quantity</td>
-                <td>@sale.TotalPrice</td>
+                <td>$@sale.TotalPrice</td>
             </tr>
         }
     </tbody>

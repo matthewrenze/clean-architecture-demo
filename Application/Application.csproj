@@ -88,9 +88,6 @@
     <Compile Include="Sales\Queries\GetSalesList\GetSalesQuery.cs" />
     <Compile Include="Sales\Queries\GetSalesList\GetSalesQueryHandler.cs" />
     <Compile Include="Sales\Queries\GetSalesList\SalesListItemModel.cs" />
-    <Compile Include="Vendors\Queries\GetVendorsList\GetVendorsListQuery.cs" />
-    <Compile Include="Vendors\Queries\GetVendorsList\GetVendorsListQueryHandler.cs" />
-    <Compile Include="Vendors\Queries\GetVendorsList\VendorsListItemDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Customers\Commands\" />
@@ -98,7 +95,6 @@
     <Folder Include="Products\Commands\" />
     <Folder Include="Sales\Commands\DeleteSale\" />
     <Folder Include="Sales\Commands\UpdateSale\" />
-    <Folder Include="Vendors\Commands\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

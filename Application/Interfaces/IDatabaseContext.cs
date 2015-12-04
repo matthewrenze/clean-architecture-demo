@@ -3,7 +3,6 @@ using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
-using CleanArchitecture.Domain.Vendors;
 
 namespace CleanArchitecture.Application.Interfaces
 {
@@ -16,8 +15,6 @@ namespace CleanArchitecture.Application.Interfaces
         DbSet<Product> Products { get; set; }
         
         DbSet<Sale> Sales { get; set; }
-        
-        DbSet<Vendor> Vendors { get; set; }
 
         void Save();
     }
