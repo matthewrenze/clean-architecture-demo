@@ -21,9 +21,9 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
             var employees = _database.Employees
                 .Select(p => new EmployeesListItemDto
                 {
-                    Id = p.Id, 
+                    Id = p.Id,
                     Name = p.Name
-                });
+                });               
 
             return employees.ToList();
         }

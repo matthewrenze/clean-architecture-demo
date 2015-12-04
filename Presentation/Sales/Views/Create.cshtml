@@ -1,0 +1,30 @@
+﻿@model CleanArchitecture.Presentation.Sales.Models.CreateSaleViewModel
+
+@{
+    ViewBag.Title = "Create Sale";
+}
+
+<h2>Create Sale</h2>
+
+@using (Html.BeginForm("create", "sales", FormMethod.Post))
+{
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label">Customer</label>
+            @Html.DropDownListFor(p => p.Sale.CustomerId, Model.Customers, new { @class="form-control" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Employee</label>
+            @Html.DropDownListFor(p => p.Sale.EmployeeId, Model.Employees, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Product</label>
+            @Html.DropDownListFor(p => p.Sale.ProductId, Model.Products, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Quantity</label>
+            @Html.TextBoxFor(p => p.Sale.Quantity, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+}

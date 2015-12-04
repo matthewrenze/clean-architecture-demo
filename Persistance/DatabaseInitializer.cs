@@ -32,11 +32,11 @@ namespace CleanArchitecture.Persistance
 
         private void CreateCustomers(DatabaseContext database)
         {
+            database.Customers.Add(new Customer() { Name = "Jeff Palermo" });
+
             database.Customers.Add(new Customer() { Name = "Martin Fowler" });
 
             database.Customers.Add(new Customer() { Name = "Uncle Bob" });
-
-            database.Customers.Add(new Customer() { Name = "Jeff Palermo" });
 
             database.SaveChanges();
         }
@@ -65,13 +65,13 @@ namespace CleanArchitecture.Persistance
         {
             var vendors = database.Vendors.ToList();
 
-            database.Products.Add(new Product() { Name = "Spaghetti", Vendor = vendors[0], Price = 5m });
+            database.Products.Add(new Product() { Name = "Cake", Vendor = vendors[0], Price = 5m });
 
-            database.Products.Add(new Product() { Name = "Lasagna", Vendor = vendors[0], Price = 10m });
+            database.Products.Add(new Product() { Name = "Ice Cream", Vendor = vendors[0], Price = 10m });
 
-            database.Products.Add(new Product() { Name = "Ice Cream", Vendor = vendors[1], Price = 15m });
+            database.Products.Add(new Product() { Name = "Lasagna", Vendor = vendors[1], Price = 15m });
 
-            database.Products.Add(new Product() { Name = "Cake", Vendor = vendors[1], Price = 20m });
+            database.Products.Add(new Product() { Name = "Spaghetti", Vendor = vendors[1], Price = 20m });
 
             database.SaveChanges();
         }
