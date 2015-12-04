@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Application.Employees.Queries.GetEmployeeList
+﻿namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
 {
     public class EmployeesListItemDto
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using CleanArchitecture.Application.Core.MessageBus;
-using CleanArchitecture.Application.Employees.Queries.GetEmployeeList;
+using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
 
 namespace CleanArchitecture.Presentation.Employees
 {

@@ -1,0 +1,42 @@
+﻿@model CleanArchitecture.Application.Sales.Queries.GetSaleDetails.SaleDetailDto
+
+@{
+    ViewBag.Title = "Sale";
+}
+
+<h2>Sale</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <th>Date</th>
+        <td>@Model.Date.ToString("d")</td>
+    </tr>
+    <tr>
+        <th>Customer</th>
+        <td>@Model.CustomerName</td>
+    </tr>
+    <tr>
+        <th>Employee</th>
+        <td>@Model.EmployeeName</td>
+    </tr>
+    <tr>
+        <th>Product</th>
+        <td>@Model.ProductName</td>
+    </tr>
+    <tr>
+        <th>Unit Price</th>
+        <td>@Model.UnitPrice</td>
+    </tr>
+    <tr>
+        <th>Quantity</th>
+        <td>@Model.Quantity</td>
+    </tr>
+    <tr>
+        <th>Total Price</th>
+        <td>@Model.TotalPrice</td>
+    </tr>
+</table>
+

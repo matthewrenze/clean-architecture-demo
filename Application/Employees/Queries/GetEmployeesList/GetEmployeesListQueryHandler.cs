@@ -4,7 +4,7 @@ using System.Linq;
 using CleanArchitecture.Application.Core.Queries;
 using CleanArchitecture.Application.Interfaces;
 
-namespace CleanArchitecture.Application.Employees.Queries.GetEmployeeList
+namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
 {
     public class GetEmployeesListQueryHandler 
         : IQueryHandler<GetEmployeesListQuery, List<EmployeesListItemDto>>

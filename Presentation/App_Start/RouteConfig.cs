@@ -8,6 +8,10 @@ namespace CleanArchitecture.Presentation
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.LowercaseUrls = true;
+
+            routes.MapMvcAttributeRoutes();
+            
             routes.RouteExistingFiles = true;
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");

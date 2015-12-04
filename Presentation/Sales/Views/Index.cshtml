@@ -5,8 +5,6 @@
 }
 
 <h2>Sales</h2>
-
-<h2>Products</h2>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -24,7 +22,7 @@
         @foreach (var sale in Model)
         {
             <tr>
-                <td>@sale.Id</td>
+                <td><a href="sales/@sale.Id">@sale.Id</a></td>
                 <td>@sale.Date</td>
                 <td>@sale.CustomerName</td>
                 <td>@sale.EmployeeName</td>
