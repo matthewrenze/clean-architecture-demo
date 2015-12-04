@@ -77,5 +77,22 @@ namespace CleanArchitecture.Presentation.Sales
 
             return View(viewModel);
         }
+
+        [Route("create")]
+        [HttpPost]
+        public ActionResult Create(CreateSaleViewModel viewModel)
+        {
+            var model = new CreateSaleModel()
+            {
+                CustomerId = viewModel.Sale.CustomerId,
+                EmployeeId = viewModel.Sale.EmployeeId,
+                ProductId = viewModel.Sale.ProductId,
+                Quantity = viewModel.Sale.Quantity
+            };
+
+            _messageBus.Execute(new CreateSaleCommand(model));
+
+            return RedirectToAction("index", "sales");
+        }
     }
 }

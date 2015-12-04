@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CleanArchitecture.Domain.Customers;
+using CleanArchitecture.Domain.Employees;
+using CleanArchitecture.Domain.Products;
+using CleanArchitecture.Domain.Sales;
+
+namespace CleanArchitecture.Application.Sales.Commands.CreateSale
+{
+    public class SaleFactory : ISaleFactory
+    {
+        public Sale Create(DateTime date, Customer customer, Employee employee, Product product, int quantity)
+        {
+            var sale = new Sale();
+
+            sale.Date = date;
+
+            sale.Customer = customer;
+
+            sale.Employee = employee;
+
+            sale.Product = product;
+
+            sale.UnitPrice = sale.Product.Price;
+
+            sale.Quantity = quantity;
+
+            sale.TotalPrice = sale.UnitPrice * sale.Quantity;
+
+            return sale;
+        }
+    }
+}

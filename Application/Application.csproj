@@ -80,6 +80,8 @@
     <Compile Include="Sales\Commands\CreateSale\CreateSaleCommand.cs" />
     <Compile Include="Sales\Commands\CreateSale\CreateSaleCommandHandler.cs" />
     <Compile Include="Sales\Commands\CreateSale\CreateSaleModel.cs" />
+    <Compile Include="Sales\Commands\CreateSale\ISaleFactory.cs" />
+    <Compile Include="Sales\Commands\CreateSale\SaleFactory.cs" />
     <Compile Include="Sales\Queries\GetSaleDetails\SaleDetailDto.cs" />
     <Compile Include="Sales\Queries\GetSaleDetails\GetSaleDetailQuery.cs" />
     <Compile Include="Sales\Queries\GetSaleDetails\GetSaleDetailQueryHandler.cs" />
