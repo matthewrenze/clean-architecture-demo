@@ -28,7 +28,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
 
             sale.Quantity = quantity;
 
-            sale.TotalPrice = sale.UnitPrice * sale.Quantity;
+            // Note: Total price is calculated in domain logic
 
             return sale;
         }
