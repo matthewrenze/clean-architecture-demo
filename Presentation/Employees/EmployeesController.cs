@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Web.Mvc;
-using CleanArchitecture.Application.Core.MessageBus;
 using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
 
 namespace CleanArchitecture.Presentation.Employees
 {
     public class EmployeesController : Controller
     {
-        private readonly IMessageBus _messageBus;
+        private readonly IGetEmployeesListQuery _query;
 
-        public EmployeesController(IMessageBus messageBus)
+        public EmployeesController(IGetEmployeesListQuery query)
         {
-            _messageBus = messageBus;
+            _query = query;
         }
 
         public ActionResult Index()
         {
-            var employees = _messageBus.Execute(new GetEmployeesListQuery());
+            var employees = _query.Execute();
 
             return View(employees);
         }

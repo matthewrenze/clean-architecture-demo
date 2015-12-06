@@ -15,9 +15,6 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using CleanArchitecture.Application.Core.Commands;
-using CleanArchitecture.Application.Core.Events;
-using CleanArchitecture.Application.Core.Queries;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
 
@@ -34,12 +31,6 @@ namespace CleanArchitecture.Presentation.Dependencies {
                 scan.WithDefaultConventions();
 
 				scan.With(new ControllerConvention());
-
-                scan.ConnectImplementationsToTypesClosing(typeof(ICommandHandler<>));
-
-                scan.ConnectImplementationsToTypesClosing(typeof(IQueryHandler<,>));
-
-                scan.ConnectImplementationsToTypesClosing(typeof(IEventHandler<>));
             });
         }
 

@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Web.Mvc;
-using CleanArchitecture.Application.Core.MessageBus;
 using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
 
 namespace CleanArchitecture.Presentation.Customers
 {
     public class CustomersController : Controller
     {
-        private readonly IMessageBus _messageBus;
+        private readonly IGetCustomersListQuery _query;
 
-        public CustomersController(IMessageBus messageBus)
+        public CustomersController(IGetCustomersListQuery query)
         {
-            _messageBus = messageBus;
+            _query = query;
         }
 
         public ActionResult Index()
         {
-            var customers = _messageBus.Execute(new GetCustomerListQuery());
+            var customers = _query.Execute();
 
             return View(customers);
         }

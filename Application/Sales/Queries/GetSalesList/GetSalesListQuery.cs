@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CleanArchitecture.Application.Core.Queries;
 using CleanArchitecture.Application.Interfaces;
 
 namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
 {
-    public class GetSalesQueryHandler 
-        : IQueryHandler<GetSalesQuery, List<SalesListItemModel>>
+    public class GetSalesListQuery 
+        : IGetSalesListQuery
     {
         private readonly IDatabaseContext _database;
 
-        public GetSalesQueryHandler(IDatabaseContext database)
+        public GetSalesListQuery(IDatabaseContext database)
         {
             _database = database;
         }
 
-        public List<SalesListItemModel> Execute(GetSalesQuery query)
+        public List<SalesListItemModel> Execute()
         {
             var sales = _database.Sales
                 .Select(p => new SalesListItemModel()

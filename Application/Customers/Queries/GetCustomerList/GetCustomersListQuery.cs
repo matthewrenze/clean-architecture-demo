@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CleanArchitecture.Application.Core.Queries;
 using CleanArchitecture.Application.Interfaces;
 
 namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
 {
-    public class GetCustomerListQueryHandler 
-        : IQueryHandler<GetCustomerListQuery, List<CustomerModel>>
+    public class GetCustomersListQuery 
+        : IGetCustomersListQuery
     {
         private readonly IDatabaseContext _database;
 
-        public GetCustomerListQueryHandler(IDatabaseContext database)
+        public GetCustomersListQuery(IDatabaseContext database)
         {
             _database = database;
         }
 
-        public List<CustomerModel> Execute(GetCustomerListQuery query)
+        public List<CustomerModel> Execute()
         {
             var customers = _database.Customers
                 .Select(p => new CustomerModel()

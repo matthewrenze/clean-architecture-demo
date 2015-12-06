@@ -3,13 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CleanArchitecture.Application.Core.Queries;
+using CleanArchitecture.Application.Interfaces;
 
 namespace CleanArchitecture.Application.Products.Queries.GetProductsList
 {
     public class GetProductsListQuery 
-        : IQuery<List<ProductModel>>
+        : IGetProductsListQuery
     {
+        private readonly IDatabaseContext _database;
 
+        public GetProductsListQuery(IDatabaseContext database)
+        {
+            _database = database;
+        }
+
+        public List<ProductModel> Execute()
+        {
+            var products = _database.Products
+                .Select(p => new ProductModel
+                {
+                    Id = p.Id, 
+                    Name = p.Name,
+                    UnitPrice = p.Price
+                });
+
+            return products.ToList();
+        }
     }
 }

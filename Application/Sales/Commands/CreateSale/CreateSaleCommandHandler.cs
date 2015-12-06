@@ -1,18 +1,17 @@
 ﻿using System;
-using CleanArchitecture.Application.Core.Commands;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Dates;
 
 namespace CleanArchitecture.Application.Sales.Commands.CreateSale
 {
-    public class CreateSaleCommandHandler 
-        : ICommandHandler<CreateSaleCommand>
+    public class CreateSaleCommand
+        : ICreateSaleCommand
     {
         private readonly IDateService _dateService;
         private readonly IDatabaseContext _database;
         private readonly ISaleFactory _factory;
 
-        public CreateSaleCommandHandler(
+        public CreateSaleCommand(
             IDateService dateService,
             IDatabaseContext database,
             ISaleFactory factory)
@@ -22,10 +21,8 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
             _factory = factory;
         }
 
-        public void Execute(CreateSaleCommand command)
+        public void Execute(CreateSaleModel model)
         {
-            var model = command.Model;
-
             var date = _dateService.GetDate();
 
             var customer = _database.Customers

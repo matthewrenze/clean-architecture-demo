@@ -16,23 +16,12 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
-using CleanArchitecture.Application.Core.Commands;
-using CleanArchitecture.Application.Core.Events;
-using CleanArchitecture.Application.Core.Queries;
 using StructureMap;
 
 namespace CleanArchitecture.Presentation.Dependencies {
     public static class IoC {
         public static IContainer Initialize() {
-            var container = new Container(c => c.AddRegistry<DefaultRegistry>());
-
-            CommandBus.Container = container;
-
-            QueryBus.Container = container;
-
-            EventBus.Container = container;
-
-            return container;
+            return new Container(c => c.AddRegistry<DefaultRegistry>());
         }
     }
 }

@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using CleanArchitecture.Application.Core.MessageBus;
 using CleanArchitecture.Application.Products.Queries.GetProductsList;
 
 namespace CleanArchitecture.Presentation.Products
 {
     public class ProductsController : Controller
     {
-        private readonly IMessageBus _messageBus;
+        private readonly IGetProductsListQuery _query;
 
-        public ProductsController(IMessageBus messageBus)
+        public ProductsController(IGetProductsListQuery query)
         {
-            _messageBus = messageBus;
+            _query = query;
         }
 
         public ActionResult Index()
         {
-            var products = _messageBus.Execute(new GetProductsListQuery());
+            var products = _query.Execute();
 
             return View(products);
         }
