@@ -8,13 +8,13 @@ namespace CleanArchitecture.Application.Interfaces
 {
     public interface IDatabaseContext
     {
-        DbSet<Customer> Customers { get; set; }
+        IDbSet<Customer> Customers { get; set; }
 
-        DbSet<Employee> Employees { get; set; }
+        IDbSet<Employee> Employees { get; set; }
         
-        DbSet<Product> Products { get; set; }
+        IDbSet<Product> Products { get; set; }
         
-        DbSet<Sale> Sales { get; set; }
+        IDbSet<Sale> Sales { get; set; }
 
         void Save();
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Dates;
 
@@ -10,15 +11,18 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
         private readonly IDateService _dateService;
         private readonly IDatabaseContext _database;
         private readonly ISaleFactory _factory;
+        private readonly IInventoryClient _client;
 
         public CreateSaleCommand(
             IDateService dateService,
             IDatabaseContext database,
-            ISaleFactory factory)
+            ISaleFactory factory,
+            IInventoryClient client)
         {
             _dateService = dateService;
             _database = database;
             _factory = factory;
+            _client = client;
         }
 
         public void Execute(CreateSaleModel model)
@@ -26,13 +30,13 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
             var date = _dateService.GetDate();
 
             var customer = _database.Customers
-                .Find(model.CustomerId);
+                .First(p => p.Id == model.CustomerId);
 
             var employee = _database.Employees
-                .Find(model.EmployeeId);
+                .First(p => p.Id == model.EmployeeId);
 
             var product = _database.Products
-                .Find(model.ProductId);
+                .First(p => p.Id == model.ProductId);
 
             var quantity = model.Quantity;
 
@@ -46,6 +50,8 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
             _database.Sales.Add(sale);
 
             _database.Save();
+
+            _client.NotifySaleOcurred(product.Id, quantity);
         }
     }
 }

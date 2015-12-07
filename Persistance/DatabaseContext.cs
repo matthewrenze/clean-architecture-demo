@@ -19,13 +19,13 @@ namespace CleanArchitecture.Persistance
 {
     public class DatabaseContext : DbContext, IDatabaseContext
     {
-        public DbSet<Customer> Customers { get; set; }
+        public IDbSet<Customer> Customers { get; set; }
 
-        public DbSet<Employee> Employees { get; set; }
+        public IDbSet<Employee> Employees { get; set; }
 
-        public DbSet<Product> Products { get; set; }
+        public IDbSet<Product> Products { get; set; }
 
-        public DbSet<Sale> Sales { get; set; }
+        public IDbSet<Sale> Sales { get; set; }
 
         public DatabaseContext() : base("CleanArchitecture")
         {

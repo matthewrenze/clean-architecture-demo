@@ -27,9 +27,4 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
             return employees.ToList();
         }
     }
-
-    public interface IGetEmployeesListQuery
-    {
-        List<EmployeeModel> Execute();
-    }
 }
