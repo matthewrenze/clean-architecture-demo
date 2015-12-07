@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
-using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
-using CleanArchitecture.Application.Products.Queries.GetProductsList;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
 using CleanArchitecture.Application.Sales.Queries.GetSaleDetails;
 using CleanArchitecture.Application.Sales.Queries.GetSalesList;
 using CleanArchitecture.Presentation.Sales.Models;
+using CleanArchitecture.Presentation.Sales.Services;
 
 namespace CleanArchitecture.Presentation.Sales
 {
@@ -15,30 +13,24 @@ namespace CleanArchitecture.Presentation.Sales
     public class SalesController : Controller
     {
         private readonly IGetSalesListQuery _salesListQuery;
-        private readonly IGetSaleDetailQuery _salesDetailQuery;
-        private readonly IGetCustomersListQuery _customersQuery;
-        private readonly IGetEmployeesListQuery _employeesQuery;
-        private readonly IGetProductsListQuery _productsQuery;
+        private readonly IGetSaleDetailQuery _saleDetailQuery;
+        private readonly ICreateSaleViewModelFactory _factory;
         private readonly ICreateSaleCommand _createCommand;
 
         public SalesController(
             IGetSalesListQuery salesListQuery,
-            IGetSaleDetailQuery salesDetailQuery,
-            IGetCustomersListQuery customersQuery,
-            IGetEmployeesListQuery employeesQuery,
-            IGetProductsListQuery productsQuery,
+            IGetSaleDetailQuery saleDetailQuery,
+            ICreateSaleViewModelFactory factory,
             ICreateSaleCommand createCommand)
         {
             _salesListQuery = salesListQuery;
-            _salesDetailQuery = salesDetailQuery;
-            _customersQuery = customersQuery;
-            _employeesQuery = employeesQuery;
-            _productsQuery = productsQuery;
+            _saleDetailQuery = saleDetailQuery;
+            _factory = factory;
             _createCommand = createCommand;
         }
 
         [Route("")]
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var sales = _salesListQuery.Execute();
 
@@ -46,56 +38,24 @@ namespace CleanArchitecture.Presentation.Sales
         }
 
         [Route("{id:int}")]
-        public ActionResult Detail(int id)
+        public ViewResult Detail(int id)
         {
-            var sale = _salesDetailQuery.Execute(id);
+            var sale = _saleDetailQuery.Execute(id);
 
             return View(sale);
         }
 
         [Route("create")]
-        public ActionResult Create()
+        public ViewResult Create()
         {
-            var employees = _employeesQuery.Execute();
-
-            var customers = _customersQuery.Execute();
-
-            var products = _productsQuery.Execute();
-
-            var viewModel = new CreateSaleViewModel();
-            
-            viewModel.Employees = employees
-                .Select(p => new SelectListItem()
-                {
-                    Value = p.Id.ToString(), 
-                    Text = p.Name
-                })
-                .ToList();
-
-            viewModel.Customers = customers
-                .Select(p => new SelectListItem()
-                {
-                    Value = p.Id.ToString(), 
-                    Text = p.Name
-                })
-                .ToList();
-
-            viewModel.Products = products
-                .Select(p => new SelectListItem()
-                {
-                    Value = p.Id.ToString(), 
-                    Text = p.Name + " ($" + p.UnitPrice + ")"
-                })
-                .ToList();
-
-            viewModel.Sale = new CreateSaleModel();
+            var viewModel = _factory.Create();
 
             return View(viewModel);
         }
 
         [Route("create")]
         [HttpPost]
-        public ActionResult Create(CreateSaleViewModel viewModel)
+        public RedirectToRouteResult Create(CreateSaleViewModel viewModel)
         {
             var model = new CreateSaleModel()
             {
