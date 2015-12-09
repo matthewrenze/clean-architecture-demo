@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Extensions;
@@ -16,7 +14,7 @@ using NUnit.Framework;
 namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
 {
     [TestFixture]
-    public class GetSaleListQueryTests
+    public class GetSalesListQueryTests
     {
         private GetSalesListQuery _query;
         private AutoMoqer _mocker;

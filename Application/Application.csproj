@@ -103,7 +103,7 @@
     <Compile Include="Sales\Queries\GetSaleDetails\IGetSaleDetailQuery.cs" />
     <Compile Include="Sales\Queries\GetSaleDetails\SaleDetailModel.cs" />
     <Compile Include="Sales\Queries\GetSaleDetails\GetSaleDetailQuery.cs" />
-    <Compile Include="Sales\Queries\GetSalesList\GetSaleListQueryTests.cs" />
+    <Compile Include="Sales\Queries\GetSalesList\GetSalesListQueryTests.cs" />
     <Compile Include="Sales\Queries\GetSalesList\GetSalesListQuery.cs" />
     <Compile Include="Sales\Queries\GetSalesList\IGetSalesListQuery.cs" />
     <Compile Include="Sales\Queries\GetSalesList\SalesListItemModel.cs" />

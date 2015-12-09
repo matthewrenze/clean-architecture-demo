@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 using AutoMoq;
-using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
-using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
-using CleanArchitecture.Application.Products.Queries.GetProductsList;
 using CleanArchitecture.Application.Sales.Queries.GetSaleDetails;
 using CleanArchitecture.Application.Sales.Queries.GetSalesList;
 using CleanArchitecture.Presentation.Sales.Models;

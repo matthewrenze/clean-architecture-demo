@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
-using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
-using CleanArchitecture.Application.Products.Queries.GetProductsList;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
 
 namespace CleanArchitecture.Presentation.Sales.Models
