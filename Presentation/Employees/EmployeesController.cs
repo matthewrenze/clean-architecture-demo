@@ -13,7 +13,7 @@ namespace CleanArchitecture.Presentation.Employees
             _query = query;
         }
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var employees = _query.Execute();
 

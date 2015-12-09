@@ -83,13 +83,16 @@
   <ItemGroup>
     <Compile Include="Customers\Queries\GetCustomerList\CustomerModel.cs" />
     <Compile Include="Customers\Queries\GetCustomerList\GetCustomersListQuery.cs" />
+    <Compile Include="Customers\Queries\GetCustomerList\GetCustomersListQueryTests.cs" />
     <Compile Include="Customers\Queries\GetCustomerList\IGetCustomersListQuery.cs" />
     <Compile Include="Employees\Queries\GetEmployeesList\EmployeeModel.cs" />
+    <Compile Include="Employees\Queries\GetEmployeesList\GetEmployeesListQueryTests.cs" />
     <Compile Include="Employees\Queries\GetEmployeesList\GetEmployeesQuery.cs" />
     <Compile Include="Employees\Queries\GetEmployeesList\IGetEmployeesListQuery.cs" />
     <Compile Include="Interfaces\IDatabaseContext.cs" />
     <Compile Include="Interfaces\IInventoryClient.cs" />
     <Compile Include="Products\Queries\GetProductsList\GetProductsListQuery.cs" />
+    <Compile Include="Products\Queries\GetProductsList\GetProductsListQueryTests.cs" />
     <Compile Include="Products\Queries\GetProductsList\IGetProductsListQuery.cs" />
     <Compile Include="Products\Queries\GetProductsList\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

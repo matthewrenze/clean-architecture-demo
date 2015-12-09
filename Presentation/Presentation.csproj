@@ -141,6 +141,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Customers\CustomersController.cs" />
+    <Compile Include="Customers\CustomersControllerTests.cs" />
     <Compile Include="CustomRazorViewEngine.cs" />
     <Compile Include="Dependencies\ControllerConvention.cs" />
     <Compile Include="Dependencies\DefaultRegistry.cs" />
@@ -148,12 +149,15 @@
     <Compile Include="Dependencies\StructureMapDependencyScope.cs" />
     <Compile Include="Dependencies\StructureMapScopeModule.cs" />
     <Compile Include="Employees\EmployeesController.cs" />
+    <Compile Include="Employees\EmployeesControllerTests.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Home\HomeController.cs" />
+    <Compile Include="Home\HomeControllerTests.cs" />
     <Compile Include="Products\Models\Product.cs" />
     <Compile Include="Products\ProductsController.cs" />
+    <Compile Include="Products\ProductsControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sales\Models\CreateSaleViewModel.cs" />
     <Compile Include="Sales\SalesController.cs" />

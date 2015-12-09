@@ -13,7 +13,7 @@ namespace CleanArchitecture.Presentation.Customers
             _query = query;
         }
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var customers = _query.Execute();
 

@@ -15,7 +15,7 @@ namespace CleanArchitecture.Presentation.Products
             _query = query;
         }
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var products = _query.Execute();
 
