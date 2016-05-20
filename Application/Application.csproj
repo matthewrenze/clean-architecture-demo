@@ -102,6 +102,7 @@
     <Compile Include="Sales\Commands\CreateSale\ICreateSaleCommand.cs" />
     <Compile Include="Sales\Commands\CreateSale\ISaleFactory.cs" />
     <Compile Include="Sales\Commands\CreateSale\SaleFactory.cs" />
+    <Compile Include="Sales\Commands\CreateSale\SaleFactoryTests.cs" />
     <Compile Include="Sales\Queries\GetSaleDetails\GetSaleDetailsQueryTests.cs" />
     <Compile Include="Sales\Queries\GetSaleDetails\IGetSaleDetailQuery.cs" />
     <Compile Include="Sales\Queries\GetSaleDetails\SaleDetailModel.cs" />
