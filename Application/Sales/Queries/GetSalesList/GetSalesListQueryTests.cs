@@ -78,14 +78,29 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
 
             var result = results.Single();
 
-            Assert.That(result.Id, Is.EqualTo(SaleId));
-            Assert.That(result.Date, Is.EqualTo(Date));
-            Assert.That(result.CustomerName, Is.EqualTo(CustomerName));
-            Assert.That(result.EmployeeName, Is.EqualTo(EmployeeName));
-            Assert.That(result.ProductName, Is.EqualTo(ProductName));
-            Assert.That(result.UnitPrice, Is.EqualTo(UnitPrice));
-            Assert.That(result.Quantity, Is.EqualTo(Quantity));
-            Assert.That(result.TotalPrice, Is.EqualTo(TotalPrice));
+            Assert.That(result.Id, 
+                Is.EqualTo(SaleId));
+
+            Assert.That(result.Date, 
+                Is.EqualTo(Date));
+
+            Assert.That(result.CustomerName, 
+                Is.EqualTo(CustomerName));
+
+            Assert.That(result.EmployeeName, 
+                Is.EqualTo(EmployeeName));
+
+            Assert.That(result.ProductName, 
+                Is.EqualTo(ProductName));
+
+            Assert.That(result.UnitPrice, 
+                Is.EqualTo(UnitPrice));
+
+            Assert.That(result.Quantity, 
+                Is.EqualTo(Quantity));
+
+            Assert.That(result.TotalPrice, 
+                Is.EqualTo(TotalPrice));
         }
     }    
 }

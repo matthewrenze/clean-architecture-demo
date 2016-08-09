@@ -19,7 +19,6 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetails
         {
             var sale = _database.Sales
                 .Where(p => p.Id == saleId)
-                .Take(1)
                 .Select(p => new SaleDetailModel()
                 {
                     Id = p.Id, 
@@ -31,7 +30,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetails
                     Quantity = p.Quantity,
                     TotalPrice = p.TotalPrice
                 })
-                .First();
+                .Single();
 
             return sale;
         }

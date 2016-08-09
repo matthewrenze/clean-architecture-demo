@@ -30,13 +30,13 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
             var date = _dateService.GetDate();
 
             var customer = _database.Customers
-                .First(p => p.Id == model.CustomerId);
+                .Single(p => p.Id == model.CustomerId);
 
             var employee = _database.Employees
-                .First(p => p.Id == model.EmployeeId);
+                .Single(p => p.Id == model.EmployeeId);
 
             var product = _database.Products
-                .First(p => p.Id == model.ProductId);
+                .Single(p => p.Id == model.ProductId);
 
             var quantity = model.Quantity;
 

@@ -57,13 +57,7 @@ namespace CleanArchitecture.Presentation.Sales
         [HttpPost]
         public RedirectToRouteResult Create(CreateSaleViewModel viewModel)
         {
-            var model = new CreateSaleModel()
-            {
-                CustomerId = viewModel.Sale.CustomerId,
-                EmployeeId = viewModel.Sale.EmployeeId,
-                ProductId = viewModel.Sale.ProductId,
-                Quantity = viewModel.Sale.Quantity
-            };
+            var model = viewModel.Sale;            
 
             _createCommand.Execute(model);
 

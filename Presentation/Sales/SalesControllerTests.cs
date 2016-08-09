@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMoq;
+using CleanArchitecture.Application.Sales.Commands.CreateSale;
 using CleanArchitecture.Application.Sales.Queries.GetSaleDetails;
 using CleanArchitecture.Application.Sales.Queries.GetSalesList;
 using CleanArchitecture.Presentation.Sales.Models;
@@ -72,6 +73,22 @@ namespace CleanArchitecture.Presentation.Sales
             var result = (CreateSaleViewModel) viewResult.Model;
 
             Assert.That(result, Is.EqualTo(viewModel));
+        }
+
+        [Test]
+        public void TestPostCreateShouldReturnExecuteCreateSaleCommand()
+        {
+            var model = new CreateSaleModel();
+
+            var viewModel = new CreateSaleViewModel()
+            {
+                Sale = model
+            };
+
+            _controller.Create(viewModel);
+
+            _mocker.GetMock<ICreateSaleCommand>()
+                .Verify(p => p.Execute(model));
         }
     }
 }
