@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using NUnit.Framework;
 
-namespace CleanArchitecture.Application.Sales.Commands.CreateSale
+namespace CleanArchitecture.Application.Sales.Commands.CreateSale.Factory
 {
     [TestFixture]
     public class SaleFactoryTests

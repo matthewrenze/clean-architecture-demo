@@ -100,9 +100,9 @@
     <Compile Include="Sales\Commands\CreateSale\CreateSaleCommandTests.cs" />
     <Compile Include="Sales\Commands\CreateSale\CreateSaleModel.cs" />
     <Compile Include="Sales\Commands\CreateSale\ICreateSaleCommand.cs" />
-    <Compile Include="Sales\Commands\CreateSale\ISaleFactory.cs" />
-    <Compile Include="Sales\Commands\CreateSale\SaleFactory.cs" />
-    <Compile Include="Sales\Commands\CreateSale\SaleFactoryTests.cs" />
+    <Compile Include="Sales\Commands\CreateSale\Factory\ISaleFactory.cs" />
+    <Compile Include="Sales\Commands\CreateSale\Factory\SaleFactory.cs" />
+    <Compile Include="Sales\Commands\CreateSale\Factory\SaleFactoryTests.cs" />
     <Compile Include="Sales\Queries\GetSaleDetails\GetSaleDetailsQueryTests.cs" />
     <Compile Include="Sales\Queries\GetSaleDetails\IGetSaleDetailQuery.cs" />
     <Compile Include="Sales\Queries\GetSaleDetails\SaleDetailModel.cs" />
@@ -116,8 +116,6 @@
     <Folder Include="Customers\Commands\" />
     <Folder Include="Employees\Commands\" />
     <Folder Include="Products\Commands\" />
-    <Folder Include="Sales\Commands\DeleteSale\" />
-    <Folder Include="Sales\Commands\UpdateSale\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

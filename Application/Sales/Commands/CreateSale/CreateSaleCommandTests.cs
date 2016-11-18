@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
 using CleanArchitecture.Common.Dates;
 using CleanArchitecture.Common.Extensions;
 using CleanArchitecture.Domain.Customers;

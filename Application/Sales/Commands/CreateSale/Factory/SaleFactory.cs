@@ -6,7 +6,7 @@ using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
 
-namespace CleanArchitecture.Application.Sales.Commands.CreateSale
+namespace CleanArchitecture.Application.Sales.Commands.CreateSale.Factory
 {
     public class SaleFactory : ISaleFactory
     {
