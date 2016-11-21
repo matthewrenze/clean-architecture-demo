@@ -111,11 +111,11 @@ namespace CleanArchitecture.Specification.Common
         {
             var sales = new InMemoryDbSet<Sale>();
 
-            CreateSale(sales, 0, 1, 1, 1, 1);
+            CreateSale(sales, 1, 0, 1, 1, 1, 1);
 
-            CreateSale(sales, 1, 2, 2, 2, 2);
+            CreateSale(sales, 2, 1, 2, 2, 2, 2);
 
-            CreateSale(sales, 2, 3, 3, 3, 3);
+            CreateSale(sales, 3, 2, 3, 3, 3, 3);
 
             _mockDatabase.Setup(p => p.Sales)
                 .Returns(sales);
@@ -123,6 +123,7 @@ namespace CleanArchitecture.Specification.Common
 
         private void CreateSale(
             IDbSet<Sale> sales,
+            int id,
             int dateOffset,
             int customerId, 
             int employeeId, 
@@ -143,6 +144,7 @@ namespace CleanArchitecture.Specification.Common
 
             var sale = new Sale()
             {
+                Id = id,
                 Date = date.AddDays(dateOffset),
                 Customer = customer,
                 Employee = employee,

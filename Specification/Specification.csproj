@@ -109,6 +109,13 @@
     <Compile Include="Sales\CreateASale\CreateSaleInfoModel.cs" />
     <Compile Include="Sales\CreateASale\CreateSaleOccurredNotificationModel.cs" />
     <Compile Include="Sales\CreateASale\CreateSaleRecordModel.cs" />
+    <Compile Include="Sales\ViewSaleDetails\ViewSaleDetailModel.cs" />
+    <Compile Include="Sales\ViewSaleDetails\ViewSaleDetails.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewSaleDetails.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\ViewSaleDetails\ViewSaleDetailsSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -116,6 +123,10 @@
     <None Include="Sales\CreateASale\CreateASale.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreateASale.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Sales\ViewSaleDetails\ViewSaleDetails.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ViewSaleDetails.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +146,7 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
