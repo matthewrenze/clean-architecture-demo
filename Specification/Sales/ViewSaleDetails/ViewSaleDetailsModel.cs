@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace CleanArchitecture.Specification.Sales.ViewSaleDetails
 {
-    public class ViewSaleDetailModel
+    public class ViewSaleDetailsModel
     {
+        public int Id { get; set; }
+
         public DateTime Date { get; set; }
 
         public string Customer { get; set; }

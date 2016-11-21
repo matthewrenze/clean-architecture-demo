@@ -109,13 +109,20 @@
     <Compile Include="Sales\CreateASale\CreateSaleInfoModel.cs" />
     <Compile Include="Sales\CreateASale\CreateSaleOccurredNotificationModel.cs" />
     <Compile Include="Sales\CreateASale\CreateSaleRecordModel.cs" />
-    <Compile Include="Sales\ViewSaleDetails\ViewSaleDetailModel.cs" />
+    <Compile Include="Sales\ViewSaleDetails\ViewSaleDetailsModel.cs" />
     <Compile Include="Sales\ViewSaleDetails\ViewSaleDetails.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ViewSaleDetails.feature</DependentUpon>
     </Compile>
     <Compile Include="Sales\ViewSaleDetails\ViewSaleDetailsSteps.cs" />
+    <Compile Include="Sales\ViewSalesList\ViewSalesList.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewSalesList.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\ViewSalesList\ViewSalesListModel.cs" />
+    <Compile Include="Sales\ViewSalesList\ViewSalesListSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -127,6 +134,10 @@
     <None Include="Sales\ViewSaleDetails\ViewSaleDetails.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ViewSaleDetails.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Sales\ViewSalesList\ViewSalesList.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ViewSalesList.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

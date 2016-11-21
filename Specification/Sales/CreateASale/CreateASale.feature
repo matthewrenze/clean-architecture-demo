@@ -1,4 +1,4 @@
-﻿Feature: CreateASale
+﻿Feature: Create a Sale
 	As a sales person
 	I want to create a sale
 	To record a sales transaction

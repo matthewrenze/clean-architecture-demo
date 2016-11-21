@@ -93,7 +93,7 @@ this.ScenarioSetup(scenarioInfo);
                         "1",
                         "5.00"});
 #line 8
- testRunner.Then("the following results should be displayed:", ((string)(null)), table1, "Then ");
+ testRunner.Then("the following sale details should be displayed:", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

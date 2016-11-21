@@ -29,31 +29,34 @@ namespace CleanArchitecture.Specification.Sales.ViewSaleDetails
             _result = query.Execute(saleId);
         }
         
-        [Then(@"the following results should be displayed:")]
+        [Then(@"the following sale details should be displayed:")]
         public void ThenTheFollowingResultsShouldBeDisplayed(Table table)
         {
-            var saleRecord = table.CreateInstance<ViewSaleDetailModel>();
+            var model = table.CreateInstance<ViewSaleDetailsModel>();
+
+            Assert.That(_result.Id,
+                Is.EqualTo(model.Id));
 
             Assert.That(_result.Date,
-                Is.EqualTo(saleRecord.Date));
+                Is.EqualTo(model.Date));
 
             Assert.That(_result.CustomerName,
-                Is.EqualTo(saleRecord.Customer));
+                Is.EqualTo(model.Customer));
 
             Assert.That(_result.EmployeeName,
-                Is.EqualTo(saleRecord.Employee));
+                Is.EqualTo(model.Employee));
 
             Assert.That(_result.ProductName,
-                Is.EqualTo(saleRecord.Product));
+                Is.EqualTo(model.Product));
 
             Assert.That(_result.UnitPrice,
-                Is.EqualTo(saleRecord.UnitPrice));
+                Is.EqualTo(model.UnitPrice));
 
             Assert.That(_result.Quantity,
-                Is.EqualTo(saleRecord.Quantity));
+                Is.EqualTo(model.Quantity));
 
             Assert.That(_result.TotalPrice,
-                Is.EqualTo(saleRecord.TotalPrice));
+                Is.EqualTo(model.TotalPrice));
         }
     }
 }

@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace CleanArchitecture.Specification.Sales.CreateASale
+namespace CleanArchitecture.Specification.Sales.ViewSalesList
 {
     using TechTalk.SpecFlow;
     
@@ -18,20 +18,21 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Create a Sale")]
-    public partial class CreateASaleFeature
+    [NUnit.Framework.DescriptionAttribute("View Sales List")]
+    public partial class ViewSalesListFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "CreateASale.feature"
+#line 1 "ViewSalesList.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Create a Sale", "\tAs a sales person\r\n\tI want to create a sale\r\n\tTo record a sales transaction", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "View Sales List", "\tAs a sales person\r\n\tI want to view a list of sales\r\n\tSo I can find a sale to rev" +
+                    "iew", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,31 +65,19 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create a Sale")]
-        public virtual void CreateASale()
+        [NUnit.Framework.DescriptionAttribute("View a List of Sales")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public virtual void ViewAListOfSales()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a Sale", ((string[])(null)));
-#line 6
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View a List of Sales", new string[] {
+                        "mytag"});
+#line 7
 this.ScenarioSetup(scenarioInfo);
+#line 8
+ testRunner.When("I request a list of sales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Date",
-                        "Customer",
-                        "Employee",
-                        "Product",
-                        "Quantity"});
-            table1.AddRow(new string[] {
-                        "2001-02-03",
-                        "Martin Fowler",
-                        "Eric Evans",
-                        "Spaghetti",
-                        "2"});
-#line 7
- testRunner.Given("the following sale info:", ((string)(null)), table1, "Given ");
-#line 10
- testRunner.When("I create a sale", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
                         "Date",
                         "Customer",
                         "Employee",
@@ -96,25 +85,35 @@ this.ScenarioSetup(scenarioInfo);
                         "Unit Price",
                         "Quantity",
                         "Total Price"});
-            table2.AddRow(new string[] {
+            table1.AddRow(new string[] {
+                        "1",
                         "2001-02-03",
                         "Martin Fowler",
                         "Eric Evans",
                         "Spaghetti",
                         "5.00",
-                        "2",
-                        "10.00"});
-#line 11
- testRunner.Then("the following sales record should be recorded:", ((string)(null)), table2, "Then ");
-#line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Product ID",
-                        "Quantity"});
-            table3.AddRow(new string[] {
                         "1",
-                        "2"});
-#line 14
- testRunner.And("the following sale-occurred notification should be sent to the inventory system:", ((string)(null)), table3, "And ");
+                        "5.00"});
+            table1.AddRow(new string[] {
+                        "2",
+                        "2001-02-04",
+                        "Uncle Bob",
+                        "Greg Young",
+                        "Lasagne",
+                        "10.00",
+                        "2",
+                        "20.00"});
+            table1.AddRow(new string[] {
+                        "3",
+                        "2001-02-05",
+                        "Kent Beck",
+                        "Udi Dahan",
+                        "Ravioli",
+                        "15.00",
+                        "3",
+                        "45.00"});
+#line 9
+ testRunner.Then("the following sales list should be displayed:", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -39,7 +39,7 @@ namespace CleanArchitecture.Specification.Common
 
             CreateCustomer(customers, 2, "Uncle Bob");
 
-            CreateCustomer(customers, 3, "Jeff Palermo");
+            CreateCustomer(customers, 3, "Kent Beck");
 
             _mockDatabase.Setup(p => p.Customers)
                 .Returns(customers);

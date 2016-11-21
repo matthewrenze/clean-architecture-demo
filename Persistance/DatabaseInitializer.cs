@@ -31,7 +31,7 @@ namespace CleanArchitecture.Persistance
 
             database.Customers.Add(new Customer() { Name = "Uncle Bob" });
 
-            database.Customers.Add(new Customer() { Name = "Jeff Palermo" });
+            database.Customers.Add(new Customer() { Name = "Kent Beck" });
 
             database.SaveChanges();
         }
