@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{DA5F5958-EDF9-4654-8E8B-B5763951BABF}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{1134A2E4-C112-46EC-9618-049D70960341}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{D7CE4D23-9D31-4D46-A250-2A6FA76E6CEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Specification", "Specification\Specification.csproj", "{F4074F53-2BF8-49A5-A537-1AFBB7BA8569}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D7CE4D23-9D31-4D46-A250-2A6FA76E6CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7CE4D23-9D31-4D46-A250-2A6FA76E6CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7CE4D23-9D31-4D46-A250-2A6FA76E6CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4074F53-2BF8-49A5-A537-1AFBB7BA8569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4074F53-2BF8-49A5-A537-1AFBB7BA8569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4074F53-2BF8-49A5-A537-1AFBB7BA8569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4074F53-2BF8-49A5-A537-1AFBB7BA8569}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
