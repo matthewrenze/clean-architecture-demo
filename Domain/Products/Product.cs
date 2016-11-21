@@ -1,8 +1,9 @@
 ﻿using System;
+using CleanArchitecture.Domain.Common;
 
 namespace CleanArchitecture.Domain.Products
 {
-    public class Product
+    public class Product : IEntity
     {
         public int Id { get; set; }
 

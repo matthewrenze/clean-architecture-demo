@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using CleanArchitecture.Domain.Common;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 
 namespace CleanArchitecture.Domain.Sales
 {
-    public class Sale
+    public class Sale : IEntity
     {
         private int _quantity;
         private decimal _totalPrice;

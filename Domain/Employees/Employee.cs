@@ -1,8 +1,9 @@
 ﻿using System;
+using CleanArchitecture.Domain.Common;
 
 namespace CleanArchitecture.Domain.Employees
 {
-    public class Employee
+    public class Employee : IEntity
     {
         public int Id { get; set; }
 

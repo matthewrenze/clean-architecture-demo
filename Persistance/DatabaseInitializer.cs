@@ -27,11 +27,11 @@ namespace CleanArchitecture.Persistance
 
         private void CreateCustomers(DatabaseContext database)
         {
-            database.Customers.Add(new Customer() { Name = "Jeff Palermo" });
-
             database.Customers.Add(new Customer() { Name = "Martin Fowler" });
 
             database.Customers.Add(new Customer() { Name = "Uncle Bob" });
+
+            database.Customers.Add(new Customer() { Name = "Jeff Palermo" });
 
             database.SaveChanges();
         }
@@ -49,13 +49,11 @@ namespace CleanArchitecture.Persistance
 
         private void CreateProducts(DatabaseContext database)
         {
-            database.Products.Add(new Product() { Name = "Cake", Price = 5m });
+            database.Products.Add(new Product() { Name = "Spaghetti", Price = 5m });
 
-            database.Products.Add(new Product() { Name = "Ice Cream", Price = 10m });
+            database.Products.Add(new Product() { Name = "Lasagna", Price = 10m });
 
-            database.Products.Add(new Product() { Name = "Lasagna", Price = 15m });
-
-            database.Products.Add(new Product() { Name = "Spaghetti", Price = 20m });
+            database.Products.Add(new Product() { Name = "Ravioli", Price = 15m });
 
             database.SaveChanges();
         }
@@ -70,7 +68,7 @@ namespace CleanArchitecture.Persistance
 
             database.Sales.Add(new Sale()
             {
-                Date = DateTime.Now.Date.AddDays(-2),
+                Date = DateTime.Now.Date.AddDays(-3),
                 Customer = customers[0],
                 Employee = employees[0],
                 Product = products[0],
@@ -94,22 +92,11 @@ namespace CleanArchitecture.Persistance
             {
                 Date = DateTime.Now.Date.AddDays(-1),
                 Customer = customers[2],
-                Employee = employees[1],
+                Employee = employees[2],
                 Product = products[2],
                 UnitPrice = 15m,
                 Quantity = 3,
                 TotalPrice = 45m
-            });
-
-            database.Sales.Add(new Sale()
-            {
-                Date = DateTime.Now.Date.AddDays(-1),
-                Customer = customers[2],
-                Employee = employees[2],
-                Product = products[3],
-                UnitPrice = 20m,
-                Quantity = 4,
-                TotalPrice = 80m
             });
 
             database.SaveChanges();

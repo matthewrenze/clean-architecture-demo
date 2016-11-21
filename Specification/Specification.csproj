@@ -35,6 +35,14 @@
       <HintPath>..\packages\AutoMoq.1.6.2.0\lib\net35\AutoMoq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.2.0\lib\20\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
@@ -72,6 +80,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -85,14 +94,46 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\AppContext.cs" />
+    <Compile Include="Common\IoC.cs" />
+    <Compile Include="Common\DatabaseInitializer.cs" />
+    <Compile Include="Common\DatabaseLookup.cs" />
+    <Compile Include="Common\InMemoryDbSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sales\CreateASale\CreateASale.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateASale.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\CreateASale\CreateASaleSteps.cs" />
+    <Compile Include="Sales\CreateASale\CreateSaleInfoModel.cs" />
+    <Compile Include="Sales\CreateASale\CreateSaleOccurredNotificationModel.cs" />
+    <Compile Include="Sales\CreateASale\CreateSaleRecordModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Sales\CreateASale\CreateASale.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreateASale.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj">
+      <Project>{f06a236e-e5c1-48e5-89f1-91b40fd8fff6}</Project>
+      <Name>Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{d7ce4d23-9d31-4d46-a250-2a6fa76e6cea}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{deffffe8-dc5b-42f4-beb0-94920fda7712}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
