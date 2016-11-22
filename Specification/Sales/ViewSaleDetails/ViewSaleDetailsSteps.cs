@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Linq;
 using CleanArchitecture.Application.Sales.Queries.GetSaleDetails;
-using CleanArchitecture.Domain.Sales;
 using CleanArchitecture.Specification.Common;
-using CleanArchitecture.Specification.Sales.CreateASale;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;

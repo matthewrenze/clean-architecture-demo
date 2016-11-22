@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
 using CleanArchitecture.Common.Dates;

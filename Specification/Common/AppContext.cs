@@ -4,7 +4,6 @@ using System.Linq;
 using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Dates;
-using Moq;
 using StructureMap;
 
 namespace CleanArchitecture.Specification.Common
