@@ -34,7 +34,7 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
             _mocker.GetMock<IDbSet<Employee>>()
                 .SetUpDbSet(new List<Employee> { _employee });
 
-            _mocker.GetMock<IDatabaseContext>()
+            _mocker.GetMock<IDatabaseService>()
                 .Setup(p => p.Employees)
                 .Returns(_mocker.GetMock<IDbSet<Employee>>().Object);
 

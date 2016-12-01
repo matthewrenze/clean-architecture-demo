@@ -13,9 +13,9 @@ namespace CleanArchitecture.Specification.Common
 {
     public class DatabaseInitializer
     {
-        private readonly Mock<IDatabaseContext> _mockDatabase;
+        private readonly Mock<IDatabaseService> _mockDatabase;
         
-        public DatabaseInitializer(Mock<IDatabaseContext> mockDatabase)
+        public DatabaseInitializer(Mock<IDatabaseService> mockDatabase)
         {
             _mockDatabase = mockDatabase;
         }

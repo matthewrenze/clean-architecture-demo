@@ -8,9 +8,9 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetails
     public class GetSaleDetailQuery
         : IGetSaleDetailQuery
     {
-        private readonly IDatabaseContext _database;
+        private readonly IDatabaseService _database;
 
-        public GetSaleDetailQuery(IDatabaseContext database)
+        public GetSaleDetailQuery(IDatabaseService database)
         {
             _database = database;
         }

@@ -7,9 +7,9 @@ namespace CleanArchitecture.Specification.Common
 {
     public class DatabaseLookup
     {
-        private readonly IDatabaseContext _database;
+        private readonly IDatabaseService _database;
 
-        public DatabaseLookup(IDatabaseContext database)
+        public DatabaseLookup(IDatabaseService database)
         {
             _database = database;
         }

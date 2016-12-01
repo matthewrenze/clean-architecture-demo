@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CleanArchitecture.Application.Interfaces
 {
-    public interface IInventoryClient
+    public interface IInventoryService
     {
         void NotifySaleOcurred(int productId, int quantity);
     }

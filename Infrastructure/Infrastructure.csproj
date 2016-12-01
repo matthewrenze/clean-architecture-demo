@@ -80,8 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Inventory\InventoryClient.cs" />
-    <Compile Include="Inventory\InventoryClientTests.cs" />
+    <Compile Include="Inventory\InventoryService.cs" />
+    <Compile Include="Inventory\InventoryServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Network\IWebClientWrapper.cs" />
     <Compile Include="Network\WebClientWrapper.cs" />

@@ -89,8 +89,8 @@
     <Compile Include="Employees\Queries\GetEmployeesList\GetEmployeesListQueryTests.cs" />
     <Compile Include="Employees\Queries\GetEmployeesList\GetEmployeesQuery.cs" />
     <Compile Include="Employees\Queries\GetEmployeesList\IGetEmployeesListQuery.cs" />
-    <Compile Include="Interfaces\IDatabaseContext.cs" />
-    <Compile Include="Interfaces\IInventoryClient.cs" />
+    <Compile Include="Interfaces\IDatabaseService.cs" />
+    <Compile Include="Interfaces\IInventoryService.cs" />
     <Compile Include="Products\Queries\GetProductsList\GetProductsListQuery.cs" />
     <Compile Include="Products\Queries\GetProductsList\GetProductsListQueryTests.cs" />
     <Compile Include="Products\Queries\GetProductsList\IGetProductsListQuery.cs" />

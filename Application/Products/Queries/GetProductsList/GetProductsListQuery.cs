@@ -8,9 +8,9 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
     public class GetProductsListQuery 
         : IGetProductsListQuery
     {
-        private readonly IDatabaseContext _database;
+        private readonly IDatabaseService _database;
 
-        public GetProductsListQuery(IDatabaseContext database)
+        public GetProductsListQuery(IDatabaseService database)
         {
             _database = database;
         }

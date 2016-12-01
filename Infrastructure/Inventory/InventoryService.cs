@@ -6,8 +6,8 @@ using CleanArchitecture.Infrastructure.Network;
 
 namespace CleanArchitecture.Infrastructure.Inventory
 {
-    public class InventoryClient 
-        : IInventoryClient
+    public class InventoryService 
+        : IInventoryService
     {
         // Note: these are hard coded to keep the demo simple
         private const string AddressTemplate = "http://abc.com/inventory/products/{0}/notifysaleoccured/";
@@ -15,7 +15,7 @@ namespace CleanArchitecture.Infrastructure.Inventory
 
         private readonly IWebClientWrapper _client;
 
-        public InventoryClient(IWebClientWrapper client)
+        public InventoryService(IWebClientWrapper client)
         {
             _client = client;
         }

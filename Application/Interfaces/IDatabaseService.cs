@@ -6,7 +6,7 @@ using CleanArchitecture.Domain.Sales;
 
 namespace CleanArchitecture.Application.Interfaces
 {
-    public interface IDatabaseContext
+    public interface IDatabaseService
     {
         IDbSet<Customer> Customers { get; set; }
 

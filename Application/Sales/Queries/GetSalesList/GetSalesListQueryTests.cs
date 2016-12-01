@@ -70,7 +70,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
             _mocker.GetMock<IDbSet<Sale>>()
                 .SetUpDbSet(new List<Sale> { _sale });
 
-            _mocker.GetMock<IDatabaseContext>()
+            _mocker.GetMock<IDatabaseService>()
                 .Setup(p => p.Sales)
                 .Returns(_mocker.GetMock<IDbSet<Sale>>().Object);
 

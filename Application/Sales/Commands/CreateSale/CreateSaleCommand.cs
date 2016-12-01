@@ -10,20 +10,20 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
         : ICreateSaleCommand
     {
         private readonly IDateService _dateService;
-        private readonly IDatabaseContext _database;
+        private readonly IDatabaseService _database;
         private readonly ISaleFactory _factory;
-        private readonly IInventoryClient _client;
+        private readonly IInventoryService _inventory;
 
         public CreateSaleCommand(
             IDateService dateService,
-            IDatabaseContext database,
+            IDatabaseService database,
             ISaleFactory factory,
-            IInventoryClient client)
+            IInventoryService inventory)
         {
             _dateService = dateService;
             _database = database;
             _factory = factory;
-            _client = client;
+            _inventory = inventory;
         }
 
         public void Execute(CreateSaleModel model)
@@ -52,7 +52,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
 
             _database.Save();
 
-            _client.NotifySaleOcurred(product.Id, quantity);
+            _inventory.NotifySaleOcurred(product.Id, quantity);
         }
     }
 }

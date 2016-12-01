@@ -200,10 +200,6 @@
       <Project>{d7ce4d23-9d31-4d46-a250-2a6fa76e6cea}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{deffffe8-dc5b-42f4-beb0-94920fda7712}</Project>
-      <Name>Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{1134a2e4-c112-46ec-9618-049d70960341}</Project>
       <Name>Infrastructure</Name>

@@ -31,7 +31,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
                 .Setup(p => p.GetDate())
                 .Returns(saleInfo.Date);
 
-            var mockDatabase = _appContext.Mocker.GetMock<IDatabaseContext>();
+            var mockDatabase = _appContext.Mocker.GetMock<IDatabaseService>();
                
             var lookup = new DatabaseLookup(mockDatabase.Object);
 
@@ -57,7 +57,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
         {
             var saleRecord = table.CreateInstance<CreateSaleRecordModel>();
 
-            var database = _appContext.Database;
+            var database = _appContext.DatabaseService;
 
             var sale = database.Sales.Last();
 
@@ -96,7 +96,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
         {
             var notification = table.CreateInstance<CreateSaleOccurredNotificationModel>();
 
-            var mockInventoryClient = _appContext.Mocker.GetMock<IInventoryClient>();
+            var mockInventoryClient = _appContext.Mocker.GetMock<IInventoryService>();
 
             mockInventoryClient.Verify(p => p.NotifySaleOcurred(
                     notification.ProductId, 

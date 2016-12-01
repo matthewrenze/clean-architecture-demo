@@ -12,8 +12,8 @@ namespace CleanArchitecture.Specification.Common
     {
         public AutoMoqer Mocker;
         public IContainer Container;
-        public IDatabaseContext Database;
-        public IInventoryClient InventoryClient;
+        public IDatabaseService DatabaseService;
+        public IInventoryService InventoryService;
         public IDateService DateService;
 
         public AppContext()
@@ -36,18 +36,18 @@ namespace CleanArchitecture.Specification.Common
 
         public void SetUpMockDatabase()
         {
-            var mockDatabase = Mocker.GetMock<IDatabaseContext>();
+            var mockDatabase = Mocker.GetMock<IDatabaseService>();
 
             var intitializer = new DatabaseInitializer(mockDatabase);
 
             intitializer.Seed();
 
-            Database = mockDatabase.Object;
+            DatabaseService = mockDatabase.Object;
         }
 
         private void SetUpMockInventoryClient()
         {
-            InventoryClient =  Mocker.GetMock<IInventoryClient>().Object;
+            InventoryService =  Mocker.GetMock<IInventoryService>().Object;
         }
 
         private void SetUpMockDateService()

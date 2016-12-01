@@ -34,7 +34,7 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
             _mocker.GetMock<IDbSet<Customer>>()
                 .SetUpDbSet(new List<Customer> { _customer });
 
-            _mocker.GetMock<IDatabaseContext>()
+            _mocker.GetMock<IDatabaseService>()
                 .Setup(p => p.Customers)
                 .Returns(_mocker.GetMock<IDbSet<Customer>>().Object);
 

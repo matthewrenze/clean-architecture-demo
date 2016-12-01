@@ -15,7 +15,7 @@ using CleanArchitecture.Persistance.Sales;
 
 namespace CleanArchitecture.Persistance
 {
-    public class DatabaseContext : DbContext, IDatabaseContext
+    public class DatabaseService : DbContext, IDatabaseService
     {
         public IDbSet<Customer> Customers { get; set; }
 
@@ -25,9 +25,9 @@ namespace CleanArchitecture.Persistance
 
         public IDbSet<Sale> Sales { get; set; }
 
-        public DatabaseContext() : base("CleanArchitecture")
+        public DatabaseService() : base("CleanArchitecture")
         {
-            Database.SetInitializer(new DatabaseInitializer());
+            System.Data.Entity.Database.SetInitializer(new DatabaseInitializer());
         }
 
         public void Save()

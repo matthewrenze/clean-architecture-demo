@@ -8,9 +8,9 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
     public class GetCustomersListQuery 
         : IGetCustomersListQuery
     {
-        private readonly IDatabaseContext _database;
+        private readonly IDatabaseService _database;
 
-        public GetCustomersListQuery(IDatabaseContext database)
+        public GetCustomersListQuery(IDatabaseService database)
         {
             _database = database;
         }

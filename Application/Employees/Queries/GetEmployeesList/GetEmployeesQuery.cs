@@ -8,9 +8,9 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
     public class GetEmployeesListQuery 
         : IGetEmployeesListQuery
     {
-        private readonly IDatabaseContext _database;
+        private readonly IDatabaseService _database;
 
-        public GetEmployeesListQuery(IDatabaseContext database)
+        public GetEmployeesListQuery(IDatabaseService database)
         {
             _database = database;
         }

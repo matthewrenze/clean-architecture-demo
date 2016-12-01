@@ -16,11 +16,11 @@ namespace CleanArchitecture.Specification.Common
             {
                 SetScanningPolicy(x);
 
-                x.For<IDatabaseContext>()
-                    .Use(appContext.Database);
+                x.For<IDatabaseService>()
+                    .Use(appContext.DatabaseService);
 
-                x.For<IInventoryClient>()
-                    .Use(appContext.InventoryClient);
+                x.For<IInventoryService>()
+                    .Use(appContext.InventoryService);
 
                 x.For<IDateService>()
                     .Use(appContext.DateService);

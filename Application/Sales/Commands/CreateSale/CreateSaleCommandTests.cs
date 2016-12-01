@@ -84,28 +84,6 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
             _command = _mocker.Create<CreateSaleCommand>();
         }
 
-        private void SetUpDbSet<T>(Expression<Func<IDatabaseContext, IDbSet<T>>> property, T entity)
-            where T : class
-        {
-            _mocker.GetMock<IDbSet<T>>()
-               .SetUpDbSet(new List<T> { entity });
-
-            _mocker.GetMock<IDatabaseContext>()
-               .Setup(property)
-               .Returns(_mocker.GetMock<IDbSet<T>>().Object);
-        }
-
-        private void SetUpDbSet<T>(Expression<Func<IDatabaseContext, IDbSet<T>>> property)
-           where T : class
-        {
-            _mocker.GetMock<IDbSet<T>>()
-               .SetUpDbSet(new List<T>());
-
-            _mocker.GetMock<IDatabaseContext>()
-               .Setup(property)
-               .Returns(_mocker.GetMock<IDbSet<T>>().Object);
-        }
-
         [Test]
         public void TestExecuteShouldAddSaleToTheDatabase()
         {
@@ -121,7 +99,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
         {
             _command.Execute(_model);
 
-            _mocker.GetMock<IDatabaseContext>()
+            _mocker.GetMock<IDatabaseService>()
                 .Verify(p => p.Save(),
                     Times.Once);
         }
@@ -131,11 +109,33 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
         {
             _command.Execute(_model);
 
-            _mocker.GetMock<IInventoryClient>()
+            _mocker.GetMock<IInventoryService>()
                 .Verify(p => p.NotifySaleOcurred(
                         ProductId,
                         Quantity),
                     Times.Once);
+        }
+
+        private void SetUpDbSet<T>(Expression<Func<IDatabaseService, IDbSet<T>>> property, T entity)
+            where T : class
+        {
+            _mocker.GetMock<IDbSet<T>>()
+               .SetUpDbSet(new List<T> { entity });
+
+            _mocker.GetMock<IDatabaseService>()
+               .Setup(property)
+               .Returns(_mocker.GetMock<IDbSet<T>>().Object);
+        }
+
+        private void SetUpDbSet<T>(Expression<Func<IDatabaseService, IDbSet<T>>> property)
+           where T : class
+        {
+            _mocker.GetMock<IDbSet<T>>()
+               .SetUpDbSet(new List<T>());
+
+            _mocker.GetMock<IDatabaseService>()
+               .Setup(property)
+               .Returns(_mocker.GetMock<IDbSet<T>>().Object);
         }
     }
 }

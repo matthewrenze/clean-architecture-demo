@@ -82,7 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customers\CustomerConfiguration.cs" />
-    <Compile Include="DatabaseContext.cs" />
+    <Compile Include="DatabaseService.cs" />
     <Compile Include="DatabaseInitializer.cs" />
     <Compile Include="Employees\EmployeeConfiguration.cs" />
     <Compile Include="Products\ProductConfiguration.cs" />

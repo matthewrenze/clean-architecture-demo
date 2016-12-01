@@ -9,9 +9,9 @@ using NUnit.Framework;
 namespace CleanArchitecture.Infrastructure.Inventory
 {
     [TestFixture]
-    public class InventoryClientTests
+    public class InventoryServiceTests
     {
-        private InventoryClient _client;
+        private InventoryService _service;
         private AutoMoqer _mocker;
 
         private const string Address = "http://abc.com/inventory/products/1/notifysaleoccured/";
@@ -22,13 +22,13 @@ namespace CleanArchitecture.Infrastructure.Inventory
         {
             _mocker = new AutoMoqer();
 
-            _client = _mocker.Create<InventoryClient>();
+            _service = _mocker.Create<InventoryService>();
         }
 
         [Test]
         public void TestNotifySaleOccuredShouldNotifyInventorySystem()
         {
-            _client.NotifySaleOcurred(1, 2);
+            _service.NotifySaleOcurred(1, 2);
 
             _mocker.GetMock<IWebClientWrapper>()
                 .Verify(p => p.Post(Address, Json),
