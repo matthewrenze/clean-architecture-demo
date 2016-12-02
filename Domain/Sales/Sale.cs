@@ -48,12 +48,12 @@ namespace CleanArchitecture.Domain.Sales
         public decimal TotalPrice
         {
             get { return _totalPrice; }
-            set { _totalPrice = value; }
+            private set { _totalPrice = value; }
         }
 
         private void UpdateTotalPrice()
         {
-            TotalPrice = UnitPrice * Quantity;
+            _totalPrice = _unitPrice * _quantity;
         }
     }
 }

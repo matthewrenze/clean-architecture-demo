@@ -150,8 +150,7 @@ namespace CleanArchitecture.Specification.Common
                 Employee = employee,
                 Product = product,
                 UnitPrice = product.Price,
-                Quantity = quantity,
-                TotalPrice = product.Price * quantity
+                Quantity = quantity
             };
 
             sales.Add(sale);

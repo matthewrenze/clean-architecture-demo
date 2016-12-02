@@ -73,8 +73,7 @@ namespace CleanArchitecture.Persistance
                 Employee = employees[0],
                 Product = products[0],
                 UnitPrice = 5m,
-                Quantity = 1,
-                TotalPrice = 5m
+                Quantity = 1
             });
 
             database.Sales.Add(new Sale()
@@ -84,8 +83,7 @@ namespace CleanArchitecture.Persistance
                 Employee = employees[1],
                 Product = products[1],
                 UnitPrice = 10m,
-                Quantity = 2,
-                TotalPrice = 20m
+                Quantity = 2
             });
 
             database.Sales.Add(new Sale()
@@ -95,8 +93,7 @@ namespace CleanArchitecture.Persistance
                 Employee = employees[2],
                 Product = products[2],
                 UnitPrice = 15m,
-                Quantity = 3,
-                TotalPrice = 45m
+                Quantity = 3
             });
 
             database.SaveChanges();

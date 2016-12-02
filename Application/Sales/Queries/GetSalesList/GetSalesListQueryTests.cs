@@ -55,8 +55,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
                 Employee = employee,
                 Product = product,
                 UnitPrice = UnitPrice,
-                Quantity = Quantity,
-                TotalPrice = TotalPrice
+                Quantity = Quantity
             };
 
             _mocker = new AutoMoqer();
