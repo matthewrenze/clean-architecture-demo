@@ -6,5 +6,7 @@ obj
 
 /packages/
 !packages/repositories.config
+
+_NCrunch_*
 *.ncrunchproject
 *.ncrunchsolution
