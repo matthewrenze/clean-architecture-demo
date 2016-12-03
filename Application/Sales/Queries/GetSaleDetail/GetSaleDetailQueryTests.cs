@@ -11,10 +11,10 @@ using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
 using NUnit.Framework;
 
-namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetails
+namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetail
 {
     [TestFixture]
-    public class GetSaleDetailsQueryTests
+    public class GetSaleDetailQueryTests
     {
         private GetSaleDetailQuery _query;
         private AutoMoqer _mocker;

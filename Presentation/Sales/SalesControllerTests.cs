@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMoq;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
-using CleanArchitecture.Application.Sales.Queries.GetSaleDetails;
+using CleanArchitecture.Application.Sales.Queries.GetSaleDetail;
 using CleanArchitecture.Application.Sales.Queries.GetSalesList;
 using CleanArchitecture.Presentation.Sales.Models;
 using CleanArchitecture.Presentation.Sales.Services;

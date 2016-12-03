@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.Application.Interfaces;
 
-namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetails
+namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetail
 {
     public class GetSaleDetailQuery
         : IGetSaleDetailQuery

@@ -103,10 +103,10 @@
     <Compile Include="Sales\Commands\CreateSale\Factory\ISaleFactory.cs" />
     <Compile Include="Sales\Commands\CreateSale\Factory\SaleFactory.cs" />
     <Compile Include="Sales\Commands\CreateSale\Factory\SaleFactoryTests.cs" />
-    <Compile Include="Sales\Queries\GetSaleDetails\GetSaleDetailsQueryTests.cs" />
-    <Compile Include="Sales\Queries\GetSaleDetails\IGetSaleDetailQuery.cs" />
-    <Compile Include="Sales\Queries\GetSaleDetails\SaleDetailModel.cs" />
-    <Compile Include="Sales\Queries\GetSaleDetails\GetSaleDetailQuery.cs" />
+    <Compile Include="Sales\Queries\GetSaleDetail\GetSaleDetailQueryTests.cs" />
+    <Compile Include="Sales\Queries\GetSaleDetail\IGetSaleDetailQuery.cs" />
+    <Compile Include="Sales\Queries\GetSaleDetail\SaleDetailModel.cs" />
+    <Compile Include="Sales\Queries\GetSaleDetail\GetSaleDetailQuery.cs" />
     <Compile Include="Sales\Queries\GetSalesList\GetSalesListQueryTests.cs" />
     <Compile Include="Sales\Queries\GetSalesList\GetSalesListQuery.cs" />
     <Compile Include="Sales\Queries\GetSalesList\IGetSalesListQuery.cs" />

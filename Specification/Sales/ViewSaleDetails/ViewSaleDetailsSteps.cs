@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using CleanArchitecture.Application.Sales.Queries.GetSaleDetails;
+using CleanArchitecture.Application.Sales.Queries.GetSaleDetail;
 using CleanArchitecture.Specification.Common;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
