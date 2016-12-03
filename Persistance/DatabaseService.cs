@@ -27,7 +27,7 @@ namespace CleanArchitecture.Persistance
 
         public DatabaseService() : base("CleanArchitecture")
         {
-            System.Data.Entity.Database.SetInitializer(new DatabaseInitializer());
+            Database.SetInitializer(new DatabaseInitializer());
         }
 
         public void Save()

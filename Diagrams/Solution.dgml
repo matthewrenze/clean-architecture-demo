@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<DirectedGraph DataVirtualized="True" FilterState="CodeMap_SolutionFolder,CodeSchema_Interface,CodeSchema_Class,CodeSchema_Struct,CodeSchema_Event,CodeSchema_Method,CodeSchema_Field,CodeSchema_Property,CodeSchema_Delegate,UncategorizedCodeElement,CodeMap_TestAsset,CodeSchema_ReturnTypeLink,CodeSchema_AttributeUse,CodeMap_ExternalReference,UncategorizedRelationship,CodeSchema_FieldWrite,CodeSchema_FieldRead,CodeSchema_FunctionPointer,InheritsFrom,CodeSchema_Calls,References,Implements" Layout="ForceDirected" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+<DirectedGraph DataVirtualized="True" FilterState="CodeMap_SolutionFolder,CodeSchema_Interface,CodeSchema_Class,CodeSchema_Struct,CodeSchema_Event,CodeSchema_Method,CodeSchema_Field,CodeSchema_Property,CodeSchema_Delegate,UncategorizedCodeElement,CodeMap_TestAsset,CodeSchema_ReturnTypeLink,CodeSchema_AttributeUse,CodeMap_ExternalReference,UncategorizedRelationship,CodeSchema_FieldWrite,CodeSchema_FieldRead,CodeSchema_FunctionPointer,InheritsFrom,CodeSchema_Calls,References,Implements" Layout="ForceDirected" ZoomLevel="1.5" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
     <Node Id="@10" Category="CodeSchema_Assembly" Bounds="-60.5516666666667,-67.9999999999999,120.103333333333,25" CodeSchemaProperty_StrongName="CleanArchitecture.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(f06a236e-e5c1-48e5-89f1-91b40fd8fff6.OutputPath)" Group="Collapsed" Label="Application" UseManualLocation="True" />
     <Node Id="@12" Category="CodeSchema_Assembly" Bounds="-64.1483333333333,-123,127.296666666667,25" CodeSchemaProperty_StrongName="CleanArchitecture.Presentation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(da5f5958-edf9-4654-8e8b-b5763951babf.OutputPath)" Group="Collapsed" Label="Presentation" UseManualLocation="True">
@@ -17,22 +17,22 @@
       <Category Ref="CodeMap_ProjectReference" />
       <Category Ref="CodeSchema_Calls" />
     </Link>
-    <Link Source="@10" Target="@6" Category="References" Bounds="-0.5,-42.9999999999999,0,21" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="176">
+    <Link Source="@10" Target="@6" Category="References" Bounds="-0.500000000000028,-42.9999999999999,0,21.0001" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="176">
       <Category Ref="CodeMap_ProjectReference" />
       <Category Ref="CodeSchema_Calls" />
       <Category Ref="CodeSchema_ReturnTypeLink" />
     </Link>
-    <Link Source="@12" Target="@10" Category="References" Bounds="-0.500000000000003,-97.9999999999999,1.33226762955019E-15,21" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="154">
+    <Link Source="@12" Target="@10" Category="References" Bounds="-0.500000000000002,-98.0000999999999,2.57571741713036E-14,21.0001" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="154">
       <Category Ref="CodeMap_ProjectReference" />
       <Category Ref="CodeSchema_Calls" />
       <Category Ref="CodeSchema_ReturnTypeLink" />
     </Link>
     <Link Source="@12" Target="@14" Category="CodeMap_ProjectReference" Bounds="-76.3970596799647,37.50005,393.347762770963,114.974921040221" />
-    <Link Source="@2" Target="@10" Category="Implements" Bounds="-137.397395520704,-37.473816203368,113.725708414309,88.4717851085048" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1">
+    <Link Source="@2" Target="@10" Category="Implements" Bounds="-137.397395520704,-37.473816203368,113.725708414308,88.4717851085048" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1">
       <Category Ref="CodeMap_ProjectReference" />
     </Link>
     <Link Source="@2" Target="@14" Category="CodeMap_ProjectReference" Bounds="-98.2994289513063,182.5777220419,416.215425310275,124.4222779581" />
-    <Link Source="@2" Target="@6" Category="References" Bounds="-123.588454584248,15.4736683413083,84.9088099890446,35.5243005638285" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="115">
+    <Link Source="@2" Target="@6" Category="References" Bounds="-123.588407899855,15.4737637220906,84.9087146876628,35.5242051830462" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="115">
       <Category Ref="CodeMap_ProjectReference" />
       <Category Ref="CodeSchema_Calls" />
     </Link>
