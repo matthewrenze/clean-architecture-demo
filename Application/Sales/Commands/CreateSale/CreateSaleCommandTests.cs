@@ -7,7 +7,7 @@ using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
 using CleanArchitecture.Common.Dates;
-using CleanArchitecture.Common.Extensions;
+using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;

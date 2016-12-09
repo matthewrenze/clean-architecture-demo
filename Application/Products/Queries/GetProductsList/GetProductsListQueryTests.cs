@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
-using CleanArchitecture.Common.Extensions;
+using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Products;
 using NUnit.Framework;
 

@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using Moq;
 
-namespace CleanArchitecture.Common.Extensions
+namespace CleanArchitecture.Common.Mocks
 {
     public static class MockDbSetExtensions
     {
