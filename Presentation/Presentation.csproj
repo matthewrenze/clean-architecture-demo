@@ -156,7 +156,6 @@
     </Compile>
     <Compile Include="Home\HomeController.cs" />
     <Compile Include="Home\HomeControllerTests.cs" />
-    <Compile Include="Products\Models\Product.cs" />
     <Compile Include="Products\ProductsController.cs" />
     <Compile Include="Products\ProductsControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -190,6 +189,7 @@
     <Folder Include="Customers\Models\" />
     <Folder Include="Employees\Models\" />
     <Folder Include="Home\Models\" />
+    <Folder Include="Products\Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj">
