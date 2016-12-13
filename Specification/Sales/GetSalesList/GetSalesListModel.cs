@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CleanArchitecture.Specification.Sales.ViewSalesList
+namespace CleanArchitecture.Specification.Sales.GetSalesList
 {
-    public class ViewSalesListModel
+    public class GetSalesListModel
     {
         public int Id { get; set; }
 

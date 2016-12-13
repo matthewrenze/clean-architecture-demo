@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace CleanArchitecture.Specification.Sales.ViewSalesList
+namespace CleanArchitecture.Specification.Sales.GetSaleDetails
 {
     using TechTalk.SpecFlow;
     
@@ -18,21 +18,21 @@ namespace CleanArchitecture.Specification.Sales.ViewSalesList
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("View Sales List")]
-    public partial class ViewSalesListFeature
+    [NUnit.Framework.DescriptionAttribute("Get Sale Details")]
+    public partial class GetSaleDetailsFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "ViewSalesList.feature"
+#line 1 "GetSaleDetails.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "View Sales List", "\tAs a sales person\r\n\tI want to view a list of sales\r\n\tSo I can find a sale to rev" +
-                    "iew", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Get Sale Details", "\tAs a sales person\r\n\tI want to get the details of a sale\r\n\tSo that I can review t" +
+                    "he sale", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,16 +65,14 @@ namespace CleanArchitecture.Specification.Sales.ViewSalesList
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("View a List of Sales")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void ViewAListOfSales()
+        [NUnit.Framework.DescriptionAttribute("Get Sale Details")]
+        public virtual void GetSaleDetails()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View a List of Sales", new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Sale Details", ((string[])(null)));
+#line 6
 this.ScenarioSetup(scenarioInfo);
-#line 8
- testRunner.When("I request a list of sales", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 7
+ testRunner.When("I request the sale details for sale 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
@@ -94,26 +92,8 @@ this.ScenarioSetup(scenarioInfo);
                         "5.00",
                         "1",
                         "5.00"});
-            table1.AddRow(new string[] {
-                        "2",
-                        "2001-02-04",
-                        "Uncle Bob",
-                        "Greg Young",
-                        "Lasagne",
-                        "10.00",
-                        "2",
-                        "20.00"});
-            table1.AddRow(new string[] {
-                        "3",
-                        "2001-02-05",
-                        "Kent Beck",
-                        "Udi Dahan",
-                        "Ravioli",
-                        "15.00",
-                        "3",
-                        "45.00"});
-#line 9
- testRunner.Then("the following sales list should be displayed:", ((string)(null)), table1, "Then ");
+#line 8
+ testRunner.Then("the following sale details should be returned:", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

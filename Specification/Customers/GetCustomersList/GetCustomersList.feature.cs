@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace CleanArchitecture.Specification.Sales.ViewSaleDetails
+namespace CleanArchitecture.Specification.Customers.GetCustomersList
 {
     using TechTalk.SpecFlow;
     
@@ -18,21 +18,21 @@ namespace CleanArchitecture.Specification.Sales.ViewSaleDetails
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("View Sale Details")]
-    public partial class ViewSaleDetailsFeature
+    [NUnit.Framework.DescriptionAttribute("Get Customers List")]
+    public partial class GetCustomersListFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "ViewSaleDetails.feature"
+#line 1 "GetCustomersList.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "View Sale Details", "\tAs a sales person\r\n\tI want to view the details of a sale\r\n\tSo that I can review " +
-                    "the sale", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Get Customers List", "\tAs a sales person\r\n\tI want to get a list of customers\r\n\tSo I can inspect the cus" +
+                    "tomers", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,35 +65,29 @@ namespace CleanArchitecture.Specification.Sales.ViewSaleDetails
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("View Sale Details")]
-        public virtual void ViewSaleDetails()
+        [NUnit.Framework.DescriptionAttribute("Get a List of Customers")]
+        public virtual void GetAListOfCustomers()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View Sale Details", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get a List of Customers", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.When("I request the sale details for sale 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I request a list of customers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
-                        "Date",
-                        "Customer",
-                        "Employee",
-                        "Product",
-                        "Unit Price",
-                        "Quantity",
-                        "Total Price"});
+                        "Name"});
             table1.AddRow(new string[] {
                         "1",
-                        "2001-02-03",
-                        "Martin Fowler",
-                        "Eric Evans",
-                        "Spaghetti",
-                        "5.00",
-                        "1",
-                        "5.00"});
+                        "Martin Fowler"});
+            table1.AddRow(new string[] {
+                        "2",
+                        "Uncle Bob"});
+            table1.AddRow(new string[] {
+                        "3",
+                        "Kent Beck"});
 #line 8
- testRunner.Then("the following sale details should be displayed:", ((string)(null)), table1, "Then ");
+ testRunner.Then("the following customers should be returned:", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

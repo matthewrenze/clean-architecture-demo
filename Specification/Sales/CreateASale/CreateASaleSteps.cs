@@ -14,12 +14,12 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
     [Binding]
     public class CreateASaleSteps
     {
-        private readonly AppContext _appContext;
+        private readonly AppContext _context;
         private CreateSaleModel _model;
 
-        public CreateASaleSteps(AppContext appContext)
+        public CreateASaleSteps(AppContext context)
         {
-            _appContext = appContext;
+            _context = context;
         }
 
         [Given(@"the following sale info:")]
@@ -27,11 +27,11 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
         {
             var saleInfo = table.CreateInstance<CreateSaleInfoModel>();
 
-            _appContext.Mocker.GetMock<IDateService>()
+            _context.Mocker.GetMock<IDateService>()
                 .Setup(p => p.GetDate())
                 .Returns(saleInfo.Date);
 
-            var mockDatabase = _appContext.Mocker.GetMock<IDatabaseService>();
+            var mockDatabase = _context.Mocker.GetMock<IDatabaseService>();
                
             var lookup = new DatabaseLookup(mockDatabase.Object);
 
@@ -47,7 +47,8 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
         [When(@"I create a sale")]
         public void WhenICreateASale()
         {
-            var command = _appContext.Container.GetInstance<CreateSaleCommand>();
+            var command = _context.Container
+                .GetInstance<CreateSaleCommand>();
 
             command.Execute(_model);
         }
@@ -57,7 +58,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
         {
             var saleRecord = table.CreateInstance<CreateSaleRecordModel>();
 
-            var database = _appContext.DatabaseService;
+            var database = _context.DatabaseService;
 
             var sale = database.Sales.Last();
 
@@ -96,7 +97,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
         {
             var notification = table.CreateInstance<CreateSaleOccurredNotificationModel>();
 
-            var mockInventoryClient = _appContext.Mocker.GetMock<IInventoryService>();
+            var mockInventoryClient = _context.Mocker.GetMock<IInventoryService>();
 
             mockInventoryClient.Verify(p => p.NotifySaleOcurred(
                     notification.ProductId, 

@@ -1,10 +1,10 @@
-﻿Feature: View Sale Details
+﻿Feature: Get Sale Details
 	As a sales person
-	I want to view the details of a sale
+	I want to get the details of a sale
 	So that I can review the sale
 
-Scenario: View Sale Details
+Scenario: Get Sale Details
 	When I request the sale details for sale 1
-	Then the following sale details should be displayed:
+	Then the following sale details should be returned:
 	| Id | Date       | Customer      | Employee   | Product   | Unit Price | Quantity | Total Price |
 	| 1  | 2001-02-03 | Martin Fowler | Eric Evans | Spaghetti | 5.00       | 1        | 5.00        |

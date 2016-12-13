@@ -99,6 +99,24 @@
     <Compile Include="Common\DatabaseInitializer.cs" />
     <Compile Include="Common\DatabaseLookup.cs" />
     <Compile Include="Common\InMemoryDbSet.cs" />
+    <Compile Include="Customers\GetCustomersList\GetCustomersList.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetCustomersList.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\GetCustomersList\GetCustomersListSteps.cs" />
+    <Compile Include="Employees\GetEmployeesList\GetEmployeesList.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetEmployeesList.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\GetEmployeesList\GetEmployeesListSteps.cs" />
+    <Compile Include="Products\GetProductsListSteps.cs" />
+    <Compile Include="Products\GetProductsList.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetProductsList.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sales\CreateASale\CreateASale.feature.cs">
       <AutoGen>True</AutoGen>
@@ -109,35 +127,47 @@
     <Compile Include="Sales\CreateASale\CreateSaleInfoModel.cs" />
     <Compile Include="Sales\CreateASale\CreateSaleOccurredNotificationModel.cs" />
     <Compile Include="Sales\CreateASale\CreateSaleRecordModel.cs" />
-    <Compile Include="Sales\ViewSaleDetails\ViewSaleDetailsModel.cs" />
-    <Compile Include="Sales\ViewSaleDetails\ViewSaleDetails.feature.cs">
+    <Compile Include="Sales\GetSaleDetails\GetSaleDetailsModel.cs" />
+    <Compile Include="Sales\GetSaleDetails\GetSaleDetails.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ViewSaleDetails.feature</DependentUpon>
+      <DependentUpon>GetSaleDetails.feature</DependentUpon>
     </Compile>
-    <Compile Include="Sales\ViewSaleDetails\ViewSaleDetailsSteps.cs" />
-    <Compile Include="Sales\ViewSalesList\ViewSalesList.feature.cs">
+    <Compile Include="Sales\GetSaleDetails\GetSaleDetailsSteps.cs" />
+    <Compile Include="Sales\GetSalesList\GetSalesList.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ViewSalesList.feature</DependentUpon>
+      <DependentUpon>GetSalesList.feature</DependentUpon>
     </Compile>
-    <Compile Include="Sales\ViewSalesList\ViewSalesListModel.cs" />
-    <Compile Include="Sales\ViewSalesList\ViewSalesListSteps.cs" />
+    <Compile Include="Sales\GetSalesList\GetSalesListModel.cs" />
+    <Compile Include="Sales\GetSalesList\GetSalesListSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Customers\GetCustomersList\GetCustomersList.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetCustomersList.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Employees\GetEmployeesList\GetEmployeesList.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetEmployeesList.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
+    <None Include="Products\GetProductsList.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetProductsList.feature.cs</LastGenOutput>
+    </None>
     <None Include="Sales\CreateASale\CreateASale.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreateASale.feature.cs</LastGenOutput>
     </None>
-    <None Include="Sales\ViewSaleDetails\ViewSaleDetails.feature">
+    <None Include="Sales\GetSaleDetails\GetSaleDetails.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ViewSaleDetails.feature.cs</LastGenOutput>
+      <LastGenOutput>GetSaleDetails.feature.cs</LastGenOutput>
     </None>
-    <None Include="Sales\ViewSalesList\ViewSalesList.feature">
+    <None Include="Sales\GetSalesList\GetSalesList.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ViewSalesList.feature.cs</LastGenOutput>
+      <LastGenOutput>GetSalesList.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -157,11 +187,7 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Customers\" />
-    <Folder Include="Employees\" />
-    <Folder Include="Products\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

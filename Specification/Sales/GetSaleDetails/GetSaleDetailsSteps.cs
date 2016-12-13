@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.Application.Sales.Queries.GetSaleDetail;
 using CleanArchitecture.Specification.Common;
@@ -6,31 +7,32 @@ using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
-namespace CleanArchitecture.Specification.Sales.ViewSaleDetails
+namespace CleanArchitecture.Specification.Sales.GetSaleDetails
 {
     [Binding]
-    public class ViewSaleDetailsSteps
+    public class GetSaleDetailsSteps
     {
-        private readonly AppContext _appContext;
+        private readonly AppContext _context;
         private SaleDetailModel _result;
 
-        public ViewSaleDetailsSteps(AppContext appContext)
+        public GetSaleDetailsSteps(AppContext context)
         {
-            _appContext = appContext;
+            _context = context;
         }
 
         [When(@"I request the sale details for sale (.*)")]
         public void WhenIRequestTheSaleDetailsForSale(int saleId)
         {
-            var query = _appContext.Container.GetInstance<GetSaleDetailQuery>();
+            var query = _context.Container
+                .GetInstance<GetSaleDetailQuery>();
 
             _result = query.Execute(saleId);
         }
         
-        [Then(@"the following sale details should be displayed:")]
-        public void ThenTheFollowingResultsShouldBeDisplayed(Table table)
+        [Then(@"the following sale details should be returned:")]
+        public void ThenTheFollowingResultsShouldBeReturned(Table table)
         {
-            var model = table.CreateInstance<ViewSaleDetailsModel>();
+            var model = table.CreateInstance<GetSaleDetailsModel>();
 
             Assert.That(_result.Id,
                 Is.EqualTo(model.Id));

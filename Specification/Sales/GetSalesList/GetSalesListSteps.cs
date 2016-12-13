@@ -7,31 +7,32 @@ using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
-namespace CleanArchitecture.Specification.Sales.ViewSalesList
+namespace CleanArchitecture.Specification.Sales.GetSalesList
 {
     [Binding]
-    public class ViewSalesListSteps
+    public class GetSalesListSteps
     {
-        private readonly AppContext _appContext;
+        private readonly AppContext _context;
         private List<SalesListItemModel> _results;
 
-        public ViewSalesListSteps(AppContext appContext)
+        public GetSalesListSteps(AppContext context)
         {
-            _appContext = appContext;
+            _context = context;
         }
 
         [When(@"I request a list of sales")]
         public void WhenIRequestAListOfSales()
         {
-            var query = _appContext.Container.GetInstance<GetSalesListQuery>();
+            var query = _context.Container
+                .GetInstance<GetSalesListQuery>();
 
             _results = query.Execute();
         }
         
-        [Then(@"the following sales list should be displayed:")]
-        public void ThenTheFollowingSalesShouldBeDisplayed(Table table)
+        [Then(@"the following sales list should be returned:")]
+        public void ThenTheFollowingSalesShouldBeReturned(Table table)
         {
-            var models = table.CreateSet<ViewSalesListModel>().ToList();
+            var models = table.CreateSet<GetSalesListModel>().ToList();
 
             for (var i = 0; i < models.Count(); i++)
             {
