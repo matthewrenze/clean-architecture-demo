@@ -14,7 +14,7 @@ namespace CleanArchitecture.Infrastructure.Inventory
         private InventoryService _service;
         private AutoMoqer _mocker;
 
-        private const string Address = "http://abc.com/inventory/products/1/notifysaleoccured/";
+        private const string Address = "http://abc123.com/inventory/products/1/notifysaleoccured/";
         private const string Json = "{\"quantity\": 2}";
 
         [SetUp]

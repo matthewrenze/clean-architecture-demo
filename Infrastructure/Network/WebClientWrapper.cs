@@ -15,6 +15,7 @@ namespace CleanArchitecture.Infrastructure.Network
 
                 // Note: This next line is commented out to prevent an
                 // Note: actual HTTP call, since this is just a demo app.
+
                 // client.UploadString(address, "POST", json);
             }
         }

@@ -10,7 +10,7 @@ namespace CleanArchitecture.Infrastructure.Inventory
         : IInventoryService
     {
         // Note: these are hard coded to keep the demo simple
-        private const string AddressTemplate = "http://abc.com/inventory/products/{0}/notifysaleoccured/";
+        private const string AddressTemplate = "http://abc123.com/inventory/products/{0}/notifysaleoccured/";
         private const string JsonTemplate = "{{\"quantity\": {0}}}";
 
         private readonly IWebClientWrapper _client;
@@ -24,7 +24,7 @@ namespace CleanArchitecture.Infrastructure.Inventory
         {
             var address = string.Format(AddressTemplate, productId);
 
-            var json = string.Format(JsonTemplate, quantity.ToString());
+            var json = string.Format(JsonTemplate, quantity);
 
             _client.Post(address, json);
         }
