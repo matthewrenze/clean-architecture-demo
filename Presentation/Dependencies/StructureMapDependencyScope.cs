@@ -50,7 +50,7 @@ namespace CleanArchitecture.Presentation.Dependencies {
 
         public IContainer CurrentNestedContainer {
             get {
-                return (IContainer)HttpContext.Items[NestedContainerKey];
+                return (IContainer) HttpContext?.Items[NestedContainerKey];
             }
             set {
                 HttpContext.Items[NestedContainerKey] = value;
