@@ -104,7 +104,7 @@ namespace CleanArchitecture.Domain.Sales
             _sale.UnitPrice = 1.23m;
 
             Assert.That(_sale.TotalPrice, 
-                Is.EqualTo(1.23));
+                Is.EqualTo(1.23m));
         }
 
         [Test]
