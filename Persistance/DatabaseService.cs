@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Domain.Common;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
@@ -28,6 +29,11 @@ namespace CleanArchitecture.Persistance
         public DatabaseService() : base("CleanArchitecture")
         {
             Database.SetInitializer(new DatabaseInitializer());
+        }
+
+        public new IDbSet<T> Set<T>() where T : class, IEntity
+        {
+            return base.Set<T>();
         }
 
         public void Save()

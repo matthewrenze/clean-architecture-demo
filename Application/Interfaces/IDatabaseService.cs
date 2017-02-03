@@ -1,4 +1,5 @@
 using System.Data.Entity;
+using CleanArchitecture.Domain.Common;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
@@ -15,6 +16,8 @@ namespace CleanArchitecture.Application.Interfaces
         IDbSet<Product> Products { get; set; }
         
         IDbSet<Sale> Sales { get; set; }
+
+        IDbSet<T> Set<T>() where T : class, IEntity;
 
         void Save();
     }

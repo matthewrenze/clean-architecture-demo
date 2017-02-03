@@ -91,6 +91,8 @@
     <Compile Include="Sales\SaleConfiguration.cs" />
     <Compile Include="Sales\SaleRepository.cs" />
     <Compile Include="Sales\SaleRepositoryTests.cs" />
+    <Compile Include="Shared\Repository.cs" />
+    <Compile Include="Shared\RepositoryTests.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="UnitOfWorkTests.cs" />
   </ItemGroup>
