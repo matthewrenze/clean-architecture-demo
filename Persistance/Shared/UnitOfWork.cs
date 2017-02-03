@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.Application.Interfaces;
 
-namespace CleanArchitecture.Persistance
+namespace CleanArchitecture.Persistance.Shared
 {
     public class UnitOfWork : IUnitOfWork
     {

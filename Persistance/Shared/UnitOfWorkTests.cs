@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMoq;
+﻿using AutoMoq;
 using NUnit.Framework;
 
-namespace CleanArchitecture.Persistance
+namespace CleanArchitecture.Persistance.Shared
 {
     [TestFixture]
     public class UnitOfWorkTests

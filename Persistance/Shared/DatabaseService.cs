@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Domain.Common;
 using CleanArchitecture.Domain.Customers;
@@ -13,8 +10,7 @@ using CleanArchitecture.Persistance.Employees;
 using CleanArchitecture.Persistance.Products;
 using CleanArchitecture.Persistance.Sales;
 
-
-namespace CleanArchitecture.Persistance
+namespace CleanArchitecture.Persistance.Shared
 {
     public class DatabaseService : DbContext, IDatabaseService
     {

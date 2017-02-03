@@ -5,10 +5,8 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CleanArchitecture.Persistance
+namespace CleanArchitecture.Persistance.Shared
 {
     public class InMemoryDbSet<T> : IDbSet<T> where T : class
     {
