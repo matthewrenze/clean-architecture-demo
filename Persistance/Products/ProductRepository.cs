@@ -1,12 +1,14 @@
 ﻿using System.Linq;
 using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Persistance.Shared;
 
 namespace CleanArchitecture.Persistance.Products
 {
     public class ProductRepository 
-        : Repository<Product>
+        : Repository<Product>,
+        IProductRepository
     {
         public ProductRepository(IDatabaseService database) 
             : base(database) { }

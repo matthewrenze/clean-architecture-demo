@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Common;
 
 namespace CleanArchitecture.Persistance.Shared

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Interfaces.Infrastructure;
+using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Common.Dates;
 using StructureMap;
 using StructureMap.Graph;

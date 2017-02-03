@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Infrastructure.Network;
 
 namespace CleanArchitecture.Infrastructure.Inventory

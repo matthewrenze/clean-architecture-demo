@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Sales;
 using NUnit.Framework;
 

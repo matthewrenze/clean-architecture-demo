@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Interfaces.Persistence;
 using Moq;
 using NUnit.Framework;
 

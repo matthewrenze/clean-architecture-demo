@@ -5,7 +5,7 @@ using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
 
-namespace CleanArchitecture.Application.Interfaces
+namespace CleanArchitecture.Application.Interfaces.Persistence
 {
     public interface IDatabaseService
     {

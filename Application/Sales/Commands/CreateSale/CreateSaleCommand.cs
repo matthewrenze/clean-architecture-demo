@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Interfaces.Infrastructure;
+using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
 using CleanArchitecture.Common.Dates;
 
