@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Interfaces.Persistence;
+using CleanArchitecture.Persistance.Shared;
 using Moq;
 using NUnit.Framework;
 
@@ -19,7 +20,7 @@ namespace CleanArchitecture.Persistance.Employees
         [Test]
         public void TestConstructorShouldCreateRepository()
         {
-            var context = new Mock<IDatabaseService>();
+            var context = new Mock<IDatabaseContext>();
             var repository = new EmployeeRepository(context.Object);
             Assert.That(repository, Is.Not.Null);
         }

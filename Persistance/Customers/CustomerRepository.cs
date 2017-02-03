@@ -10,7 +10,7 @@ namespace CleanArchitecture.Persistance.Customers
         : Repository<Customer>, 
         ICustomerRepository
     {
-        public CustomerRepository(IDatabaseService database) 
+        public CustomerRepository(IDatabaseContext database) 
             : base(database) { }
     }
 }

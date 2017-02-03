@@ -9,16 +9,16 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetail
     public class GetSaleDetailQuery
         : IGetSaleDetailQuery
     {
-        private readonly IDatabaseService _database;
+        private readonly ISaleRepository _repository;
 
-        public GetSaleDetailQuery(IDatabaseService database)
+        public GetSaleDetailQuery(ISaleRepository repository)
         {
-            _database = database;
+            _repository = repository;
         }
 
         public SaleDetailModel Execute(int saleId)
         {
-            var sale = _database.Sales
+            var sale = _repository.GetAll()
                 .Where(p => p.Id == saleId)
                 .Select(p => new SaleDetailModel()
                 {

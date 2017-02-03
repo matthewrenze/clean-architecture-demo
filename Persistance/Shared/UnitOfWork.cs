@@ -5,9 +5,9 @@ namespace CleanArchitecture.Persistance.Shared
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly IDatabaseService _database;
+        private readonly IDatabaseContext _database;
 
-        public UnitOfWork(IDatabaseService database)
+        public UnitOfWork(IDatabaseContext database)
         {
             _database = database;
         }

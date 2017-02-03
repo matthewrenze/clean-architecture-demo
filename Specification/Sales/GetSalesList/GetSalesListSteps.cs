@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.Application.Sales.Queries.GetSalesList;
-using CleanArchitecture.Specification.Common;
+using CleanArchitecture.Specification.Shared;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;

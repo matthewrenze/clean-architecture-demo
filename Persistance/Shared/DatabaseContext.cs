@@ -13,7 +13,7 @@ using CleanArchitecture.Persistance.Sales;
 
 namespace CleanArchitecture.Persistance.Shared
 {
-    public class DatabaseService : DbContext, IDatabaseService
+    public class DatabaseContext : DbContext, IDatabaseContext
     {
         public IDbSet<Customer> Customers { get; set; }
 
@@ -23,7 +23,7 @@ namespace CleanArchitecture.Persistance.Shared
 
         public IDbSet<Sale> Sales { get; set; }
 
-        public DatabaseService() : base("CleanArchitecture")
+        public DatabaseContext() : base("CleanArchitecture")
         {
             Database.SetInitializer(new DatabaseInitializer());
         }

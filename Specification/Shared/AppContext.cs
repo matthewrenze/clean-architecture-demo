@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using AutoMoq;
-using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Common.Dates;
+using CleanArchitecture.Persistance.Shared;
 using StructureMap;
 
-namespace CleanArchitecture.Specification.Common
+namespace CleanArchitecture.Specification.Shared
 {
     public class AppContext
     {
         public AutoMoqer Mocker;
         public IContainer Container;
-        public IDatabaseService DatabaseService;
+        public IDatabaseContext DatabaseContext;
         public IInventoryService InventoryService;
         public IDateService DateService;
 
@@ -38,13 +36,13 @@ namespace CleanArchitecture.Specification.Common
 
         public void SetUpMockDatabase()
         {
-            var mockDatabase = Mocker.GetMock<IDatabaseService>();
+            var mockDatabase = Mocker.GetMock<IDatabaseContext>();
 
             var intitializer = new DatabaseInitializer(mockDatabase);
 
             intitializer.Seed();
 
-            DatabaseService = mockDatabase.Object;
+            DatabaseContext = mockDatabase.Object;
         }
 
         private void SetUpMockInventoryClient()

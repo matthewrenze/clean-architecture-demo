@@ -10,9 +10,9 @@ namespace CleanArchitecture.Persistance.Shared
         where T : class, IEntity
 
     {
-        private readonly IDatabaseService _database;
+        private readonly IDatabaseContext _database;
 
-        public Repository(IDatabaseService database)
+        public Repository(IDatabaseContext database)
         {
             _database = database;
         }

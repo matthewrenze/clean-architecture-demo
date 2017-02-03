@@ -5,9 +5,9 @@ using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
 
-namespace CleanArchitecture.Application.Interfaces.Persistence
+namespace CleanArchitecture.Persistance.Shared
 {
-    public interface IDatabaseService
+    public interface IDatabaseContext
     {
         IDbSet<Customer> Customers { get; set; }
 

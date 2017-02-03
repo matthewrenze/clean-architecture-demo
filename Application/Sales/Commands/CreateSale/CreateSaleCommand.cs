@@ -12,19 +12,31 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
         : ICreateSaleCommand
     {
         private readonly IDateService _dateService;
-        private readonly IDatabaseService _database;
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IEmployeeRepository _employeeRepository;
+        private readonly IProductRepository _productRepository;
+        private readonly ISaleRepository _saleRespository;
         private readonly ISaleFactory _factory;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IInventoryService _inventory;
 
         public CreateSaleCommand(
             IDateService dateService,
-            IDatabaseService database,
+            ICustomerRepository customerRepository,
+            IEmployeeRepository employeeRepository,
+            IProductRepository productRepository,
+            ISaleRepository saleRespository,
             ISaleFactory factory,
+            IUnitOfWork unitOfWork,
             IInventoryService inventory)
         {
             _dateService = dateService;
-            _database = database;
+            _customerRepository = customerRepository;
+            _employeeRepository = employeeRepository;
+            _productRepository = productRepository;
+            _saleRespository = saleRespository;
             _factory = factory;
+            _unitOfWork = unitOfWork;
             _inventory = inventory;
         }
 
@@ -32,14 +44,14 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
         {
             var date = _dateService.GetDate();
 
-            var customer = _database.Customers
-                .Single(p => p.Id == model.CustomerId);
+            var customer = _customerRepository
+                .Get(model.CustomerId);
 
-            var employee = _database.Employees
-                .Single(p => p.Id == model.EmployeeId);
+            var employee = _employeeRepository
+                .Get(model.EmployeeId);
 
-            var product = _database.Products
-                .Single(p => p.Id == model.ProductId);
+            var product = _productRepository
+                .Get(model.ProductId);
 
             var quantity = model.Quantity;
 
@@ -50,9 +62,9 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
                 product, 
                 quantity);
 
-            _database.Sales.Add(sale);
+            _saleRespository.Add(sale);
 
-            _database.Save();
+            _unitOfWork.Save();
 
             _inventory.NotifySaleOcurred(product.Id, quantity);
         }

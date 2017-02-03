@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CleanArchitecture.Application.Interfaces;
+﻿using System.Linq;
 using CleanArchitecture.Application.Interfaces.Persistence;
+using CleanArchitecture.Persistance.Shared;
 
-namespace CleanArchitecture.Specification.Common
+namespace CleanArchitecture.Specification.Shared
 {
     public class DatabaseLookup
     {
-        private readonly IDatabaseService _database;
+        private readonly IDatabaseContext _database;
 
-        public DatabaseLookup(IDatabaseService database)
+        public DatabaseLookup(IDatabaseContext database)
         {
             _database = database;
         }

@@ -94,11 +94,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\AppContext.cs" />
-    <Compile Include="Common\IoC.cs" />
-    <Compile Include="Common\DatabaseInitializer.cs" />
-    <Compile Include="Common\DatabaseLookup.cs" />
-    <Compile Include="Common\InMemoryDbSet.cs" />
+    <Compile Include="Shared\AppContext.cs" />
+    <Compile Include="Shared\IoC.cs" />
+    <Compile Include="Shared\DatabaseInitializer.cs" />
+    <Compile Include="Shared\DatabaseLookup.cs" />
+    <Compile Include="Shared\InMemoryDbSet.cs" />
     <Compile Include="Customers\GetCustomersList\GetCustomersList.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -185,6 +185,10 @@
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{deffffe8-dc5b-42f4-beb0-94920fda7712}</Project>
       <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistance\Persistance.csproj">
+      <Project>{8EC55CA3-D78D-4112-B651-EDBA549D660E}</Project>
+      <Name>Persistance</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

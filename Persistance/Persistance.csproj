@@ -84,11 +84,12 @@
     <Compile Include="Customers\CustomerConfiguration.cs" />
     <Compile Include="Customers\CustomerRepository.cs" />
     <Compile Include="Customers\CustomerRepositoryTests.cs" />
-    <Compile Include="Shared\DatabaseService.cs" />
+    <Compile Include="Shared\DatabaseContext.cs" />
     <Compile Include="Shared\DatabaseInitializer.cs" />
     <Compile Include="Employees\EmployeeConfiguration.cs" />
     <Compile Include="Employees\EmployeeRepository.cs" />
     <Compile Include="Employees\EmployeeRepositoryTests.cs" />
+    <Compile Include="Shared\IDatabaseContext.cs" />
     <Compile Include="Shared\InMemoryDbSet.cs" />
     <Compile Include="Products\ProductConfiguration.cs" />
     <Compile Include="Products\ProductRepository.cs" />

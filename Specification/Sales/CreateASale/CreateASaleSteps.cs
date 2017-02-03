@@ -5,7 +5,8 @@ using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
 using CleanArchitecture.Common.Dates;
-using CleanArchitecture.Specification.Common;
+using CleanArchitecture.Persistance.Shared;
+using CleanArchitecture.Specification.Shared;
 using Moq;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -33,7 +34,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
                 .Setup(p => p.GetDate())
                 .Returns(saleInfo.Date);
 
-            var mockDatabase = _context.Mocker.GetMock<IDatabaseService>();
+            var mockDatabase = _context.Mocker.GetMock<IDatabaseContext>();
                
             var lookup = new DatabaseLookup(mockDatabase.Object);
 
@@ -60,7 +61,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
         {
             var saleRecord = table.CreateInstance<CreateSaleRecordModel>();
 
-            var database = _context.DatabaseService;
+            var database = _context.DatabaseContext;
 
             var sale = database.Sales.Last();
 

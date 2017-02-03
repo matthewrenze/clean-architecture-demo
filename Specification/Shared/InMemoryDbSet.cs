@@ -7,7 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using CleanArchitecture.Domain.Common;
 
-namespace CleanArchitecture.Specification.Common
+namespace CleanArchitecture.Specification.Shared
 {
     public class InMemoryDbSet<T> 
         : IDbSet<T> where T : class

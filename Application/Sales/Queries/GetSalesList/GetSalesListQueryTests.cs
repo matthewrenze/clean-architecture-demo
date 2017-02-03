@@ -19,6 +19,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
     {
         private GetSalesListQuery _query;
         private AutoMoqer _mocker;
+        private List<Sale> _sales;
         private Sale _sale;
 
         private const int SaleId = 1;
@@ -59,7 +60,16 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
                 Quantity = Quantity
             };
 
+            _sales = new List<Sale>()
+            {
+                _sale
+            };
+
             _mocker = new AutoMoqer();
+
+            _mocker.GetMock<ISaleRepository>()
+                .Setup(p => p.GetAll())
+                .Returns(_sales.AsQueryable());
 
             _query = _mocker.Create<GetSalesListQuery>();
         }
@@ -67,13 +77,6 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
         [Test]
         public void TestExecuteShouldReturnListOfSales()
         {
-            _mocker.GetMock<IDbSet<Sale>>()
-                .SetUpDbSet(new List<Sale> { _sale });
-
-            _mocker.GetMock<IDatabaseService>()
-                .Setup(p => p.Sales)
-                .Returns(_mocker.GetMock<IDbSet<Sale>>().Object);
-
             var results = _query.Execute();
 
             var result = results.Single();

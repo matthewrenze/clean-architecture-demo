@@ -10,6 +10,7 @@ using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Sales;
+using CleanArchitecture.Persistance.Shared;
 using Moq;
 using NUnit.Framework;
 
@@ -21,7 +22,7 @@ namespace CleanArchitecture.Persistance.Sales
         [Test]
         public void TestConstructorShouldCreateRepository()
         {
-            var context = new Mock<IDatabaseService>();
+            var context = new Mock<IDatabaseContext>();
             var repository = new SaleRepository(context.Object);
             Assert.That(repository, Is.Not.Null);
         }

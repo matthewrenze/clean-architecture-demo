@@ -10,7 +10,7 @@ namespace CleanArchitecture.Persistance.Employees
         : Repository<Employee>,
         IEmployeeRepository
     {
-        public EmployeeRepository(IDatabaseService database) 
+        public EmployeeRepository(IDatabaseContext database) 
             : base(database) { }
     }
 }

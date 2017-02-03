@@ -10,7 +10,7 @@ namespace CleanArchitecture.Persistance.Sales
         : Repository<Sale>,
         ISaleRepository
     {
-        public SaleRepository(IDatabaseService database) 
+        public SaleRepository(IDatabaseContext database) 
             : base(database) { }
     }
 }

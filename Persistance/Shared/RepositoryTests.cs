@@ -32,7 +32,7 @@ namespace CleanArchitecture.Persistance.Shared
 
             _sales = new InMemoryDbSet<Sale>() { _sale };
 
-            _mocker.GetMock<IDatabaseService>()
+            _mocker.GetMock<IDatabaseContext>()
                .Setup(p => p.Set<Sale>())
                .Returns(_sales);
                         
@@ -60,7 +60,7 @@ namespace CleanArchitecture.Persistance.Shared
         [Test]
         public void TestAddShouldAddEntity()
         {
-            _mocker.GetMock<IDatabaseService>()
+            _mocker.GetMock<IDatabaseContext>()
                 .Setup(p => p.Sales)
                 .Returns(new InMemoryDbSet<Sale>());
 

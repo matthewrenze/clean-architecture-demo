@@ -10,7 +10,7 @@ namespace CleanArchitecture.Persistance.Products
         : Repository<Product>,
         IProductRepository
     {
-        public ProductRepository(IDatabaseService database) 
+        public ProductRepository(IDatabaseContext database) 
             : base(database) { }
     }
 }

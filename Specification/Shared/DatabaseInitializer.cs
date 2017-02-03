@@ -1,22 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
+using CleanArchitecture.Persistance.Shared;
 using Moq;
 
-namespace CleanArchitecture.Specification.Common
+namespace CleanArchitecture.Specification.Shared
 {
     public class DatabaseInitializer
     {
-        private readonly Mock<IDatabaseService> _mockDatabase;
+        private readonly Mock<IDatabaseContext> _mockDatabase;
         
-        public DatabaseInitializer(Mock<IDatabaseService> mockDatabase)
+        public DatabaseInitializer(Mock<IDatabaseContext> mockDatabase)
         {
             _mockDatabase = mockDatabase;
         }
@@ -42,7 +41,12 @@ namespace CleanArchitecture.Specification.Common
 
             CreateCustomer(customers, 3, "Kent Beck");
 
-            _mockDatabase.Setup(p => p.Customers)
+            _mockDatabase
+                .Setup(p => p.Customers)
+                .Returns(customers);
+
+            _mockDatabase
+                .Setup(p => p.Set<Customer>())
                 .Returns(customers);
         }
 
@@ -67,7 +71,12 @@ namespace CleanArchitecture.Specification.Common
 
             CreateEmployee(employees, 3, "Udi Dahan");
 
-            _mockDatabase.Setup(p => p.Employees)
+            _mockDatabase
+                .Setup(p => p.Employees)
+                .Returns(employees);
+
+            _mockDatabase
+                .Setup(p => p.Set<Employee>())
                 .Returns(employees);
         }
 
@@ -92,7 +101,12 @@ namespace CleanArchitecture.Specification.Common
 
             CreateProduct(products, 3, "Ravioli", 15m);
 
-            _mockDatabase.Setup(p => p.Products)
+            _mockDatabase
+                .Setup(p => p.Products)
+                .Returns(products);
+
+            _mockDatabase
+                .Setup(p => p.Set<Product>())
                 .Returns(products);
         }
 
@@ -118,7 +132,12 @@ namespace CleanArchitecture.Specification.Common
 
             CreateSale(sales, 3, 2, 3, 3, 3, 3);
 
-            _mockDatabase.Setup(p => p.Sales)
+            _mockDatabase
+                .Setup(p => p.Sales)
+                .Returns(sales);
+
+            _mockDatabase
+                .Setup(p => p.Set<Sale>())
                 .Returns(sales);
         }
 
