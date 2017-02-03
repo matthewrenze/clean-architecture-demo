@@ -9,16 +9,16 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
     public class GetCustomersListQuery 
         : IGetCustomersListQuery
     {
-        private readonly IDatabaseService _database;
+        private readonly ICustomerRepository _repository;
 
-        public GetCustomersListQuery(IDatabaseService database)
+        public GetCustomersListQuery(ICustomerRepository repository)
         {
-            _database = database;
+            _repository = repository;
         }
 
         public List<CustomerModel> Execute()
         {
-            var customers = _database.Customers
+            var customers = _repository.GetAll()
                 .Select(p => new CustomerModel()
                 {
                     Id = p.Id, 

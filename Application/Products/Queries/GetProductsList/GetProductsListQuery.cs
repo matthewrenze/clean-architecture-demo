@@ -9,16 +9,16 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
     public class GetProductsListQuery 
         : IGetProductsListQuery
     {
-        private readonly IDatabaseService _database;
+        private readonly IProductRepository _repository;
 
-        public GetProductsListQuery(IDatabaseService database)
+        public GetProductsListQuery(IProductRepository repository)
         {
-            _database = database;
+            _repository = repository;
         }
 
         public List<ProductModel> Execute()
         {
-            var products = _database.Products
+            var products = _repository.GetAll()
                 .Select(p => new ProductModel
                 {
                     Id = p.Id, 

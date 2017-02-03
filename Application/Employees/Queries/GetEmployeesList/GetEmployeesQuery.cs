@@ -9,16 +9,16 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
     public class GetEmployeesListQuery 
         : IGetEmployeesListQuery
     {
-        private readonly IDatabaseService _database;
+        private readonly IEmployeeRepository _repository;
 
-        public GetEmployeesListQuery(IDatabaseService database)
+        public GetEmployeesListQuery(IEmployeeRepository repository)
         {
-            _database = database;
+            _repository = repository;
         }
 
         public List<EmployeeModel> Execute()
         {
-            var employees = _database.Employees
+            var employees = _repository.GetAll()
                 .Select(p => new EmployeeModel
                 {
                     Id = p.Id,

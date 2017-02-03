@@ -16,6 +16,7 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
     {
         private GetEmployeesListQuery _query;
         private AutoMoqer _mocker;
+        private List<Employee> _employees;
         private Employee _employee;
 
         private const int Id = 1;
@@ -32,12 +33,14 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
                 Name = Name
             };
 
-            _mocker.GetMock<IDbSet<Employee>>()
-                .SetUpDbSet(new List<Employee> { _employee });
+            _employees = new List<Employee>()
+            {
+                _employee
+            };
 
-            _mocker.GetMock<IDatabaseService>()
-                .Setup(p => p.Employees)
-                .Returns(_mocker.GetMock<IDbSet<Employee>>().Object);
+            _mocker.GetMock<IEmployeeRepository>()
+                .Setup(p => p.GetAll())
+                .Returns(_employees.AsQueryable());
 
             _query = _mocker.Create<GetEmployeesListQuery>();
         }

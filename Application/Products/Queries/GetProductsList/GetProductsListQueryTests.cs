@@ -16,6 +16,7 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
     {
         private GetProductsListQuery _query;
         private AutoMoqer _mocker;
+        private List<Product> _products;
         private Product _product;
 
         private const int Id = 1;
@@ -32,12 +33,14 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
                 Name = Name
             };
 
-            _mocker.GetMock<IDbSet<Product>>()
-                .SetUpDbSet(new List<Product> { _product });
+            _products = new List<Product>()
+            {
+                _product
+            };
 
-            _mocker.GetMock<IDatabaseService>()
-                .Setup(p => p.Products)
-                .Returns(_mocker.GetMock<IDbSet<Product>>().Object);
+            _mocker.GetMock<IProductRepository>()
+                .Setup(p => p.GetAll())
+                .Returns(_products.AsQueryable());
 
             _query = _mocker.Create<GetProductsListQuery>();
         }

@@ -16,6 +16,7 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
     {
         private GetCustomersListQuery _query;
         private AutoMoqer _mocker;
+        private List<Customer> _customers;
         private Customer _customer;
 
         private const int Id = 1;
@@ -32,12 +33,14 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
                 Name = Name
             };
 
-            _mocker.GetMock<IDbSet<Customer>>()
-                .SetUpDbSet(new List<Customer> { _customer });
+            _customers = new List<Customer>()
+            {
+                _customer
+            };
 
-            _mocker.GetMock<IDatabaseService>()
-                .Setup(p => p.Customers)
-                .Returns(_mocker.GetMock<IDbSet<Customer>>().Object);
+            _mocker.GetMock<ICustomerRepository>()
+                .Setup(p => p.GetAll())
+                .Returns(_customers.AsQueryable());
 
             _query = _mocker.Create<GetCustomersListQuery>();
         }
