@@ -85,9 +85,12 @@
     <Compile Include="DatabaseService.cs" />
     <Compile Include="DatabaseInitializer.cs" />
     <Compile Include="Employees\EmployeeConfiguration.cs" />
+    <Compile Include="InMemoryDbSet.cs" />
     <Compile Include="Products\ProductConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sales\SaleConfiguration.cs" />
+    <Compile Include="Sales\SaleRepository.cs" />
+    <Compile Include="Sales\SaleRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
