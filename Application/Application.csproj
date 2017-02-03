@@ -92,6 +92,7 @@
     <Compile Include="Interfaces\IDatabaseService.cs" />
     <Compile Include="Interfaces\IInventoryService.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Products\Queries\GetProductsList\GetProductsListQuery.cs" />
     <Compile Include="Products\Queries\GetProductsList\GetProductsListQueryTests.cs" />
     <Compile Include="Products\Queries\GetProductsList\IGetProductsListQuery.cs" />
