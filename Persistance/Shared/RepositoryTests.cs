@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMoq;
-using CleanArchitecture.Application.Interfaces;
-using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Sales;
 using NUnit.Framework;
 

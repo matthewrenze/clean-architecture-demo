@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
 using AutoMoq;
-using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
 using CleanArchitecture.Application.Sales.Commands.CreateSale.Repository;
 using CleanArchitecture.Common.Dates;
-using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;

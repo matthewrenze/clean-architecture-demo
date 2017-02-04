@@ -1,5 +1,4 @@
 ﻿using CleanArchitecture.Application.Interfaces.Infrastructure;
-using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Common.Dates;
 using CleanArchitecture.Persistance.Shared;
 using StructureMap;

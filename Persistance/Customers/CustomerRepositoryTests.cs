@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using CleanArchitecture.Application.Interfaces;
-using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Persistance.Shared;
 using Moq;
 using NUnit.Framework;

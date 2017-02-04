@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Persistance.Shared;
 
 namespace CleanArchitecture.Specification.Shared

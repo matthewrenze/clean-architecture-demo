@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Interfaces.Persistence;
 
 namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList

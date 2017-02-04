@@ -1,5 +1,4 @@
-﻿using CleanArchitecture.Application.Interfaces;
-using CleanArchitecture.Application.Interfaces.Persistence;
+﻿using CleanArchitecture.Application.Interfaces.Persistence;
 
 namespace CleanArchitecture.Persistance.Shared
 {
