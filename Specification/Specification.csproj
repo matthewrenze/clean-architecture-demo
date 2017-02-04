@@ -186,6 +186,10 @@
       <Project>{deffffe8-dc5b-42f4-beb0-94920fda7712}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Persistance\Persistance.csproj">
+      <Project>{8EC55CA3-D78D-4112-B651-EDBA549D660E}</Project>
+      <Name>Persistance</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

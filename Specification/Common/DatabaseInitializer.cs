@@ -7,15 +7,16 @@ using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
+using CleanArchitecture.Persistance.Shared;
 using Moq;
 
 namespace CleanArchitecture.Specification.Common
 {
     public class DatabaseInitializer
     {
-        private readonly Mock<IDatabaseService> _mockDatabase;
+        private readonly Mock<IDatabaseContext> _mockDatabase;
         
-        public DatabaseInitializer(Mock<IDatabaseService> mockDatabase)
+        public DatabaseInitializer(Mock<IDatabaseContext> mockDatabase)
         {
             _mockDatabase = mockDatabase;
         }

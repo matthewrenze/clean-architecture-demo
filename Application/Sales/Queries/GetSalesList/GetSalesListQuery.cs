@@ -18,6 +18,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
         public List<SalesListItemModel> Execute()
         {
             var sales = _database.Sales
+                .GetAll()
                 .Select(p => new SalesListItemModel()
                 {
                     Id = p.Id, 

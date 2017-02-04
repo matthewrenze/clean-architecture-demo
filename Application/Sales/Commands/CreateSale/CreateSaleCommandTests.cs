@@ -67,10 +67,37 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
                 .Setup(p => p.GetDate())
                 .Returns(Date);
 
-            SetUpDbSet(p => p.Customers, customer);
-            SetUpDbSet(p => p.Employees, employee);
-            SetUpDbSet(p => p.Products, product);
-            SetUpDbSet(p => p.Sales);
+            _mocker.GetMock<IRepository<Customer>>()
+                .Setup(p => p.Get(CustomerId))
+                .Returns(customer);
+
+            _mocker.GetMock<IRepository<Employee>>()
+                .Setup(p => p.Get(EmployeeId))
+                .Returns(employee);
+
+            _mocker.GetMock<IRepository<Product>>()
+                .Setup(p => p.Get(ProductId))
+                .Returns(product);
+
+            _mocker.GetMock<IRepository<Sale>>()
+                .Setup(p => p.GetAll())
+                .Returns(new List<Sale>().AsQueryable());
+
+            _mocker.GetMock<IDatabaseService>()
+                .Setup(p => p.Customers)
+                .Returns(_mocker.GetMock<IRepository<Customer>>().Object);
+
+            _mocker.GetMock<IDatabaseService>()
+                .Setup(p => p.Employees)
+                .Returns(_mocker.GetMock<IRepository<Employee>>().Object);
+
+            _mocker.GetMock<IDatabaseService>()
+                .Setup(p => p.Products)
+                .Returns(_mocker.GetMock<IRepository<Product>>().Object);
+
+            _mocker.GetMock<IDatabaseService>()
+                .Setup(p => p.Sales)
+                .Returns(_mocker.GetMock<IRepository<Sale>>().Object);
 
             _mocker.GetMock<ISaleFactory>()
                 .Setup(p => p.Create(
@@ -89,7 +116,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
         {
             _command.Execute(_model);
 
-            _mocker.GetMock<IDbSet<Sale>>()
+            _mocker.GetMock<IRepository<Sale>>()
                 .Verify(p => p.Add(_sale),
                     Times.Once);
         }
@@ -114,28 +141,6 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
                         ProductId,
                         Quantity),
                     Times.Once);
-        }
-
-        private void SetUpDbSet<T>(Expression<Func<IDatabaseService, IDbSet<T>>> property, T entity)
-            where T : class
-        {
-            _mocker.GetMock<IDbSet<T>>()
-               .SetUpDbSet(new List<T> { entity });
-
-            _mocker.GetMock<IDatabaseService>()
-               .Setup(property)
-               .Returns(_mocker.GetMock<IDbSet<T>>().Object);
-        }
-
-        private void SetUpDbSet<T>(Expression<Func<IDatabaseService, IDbSet<T>>> property)
-           where T : class
-        {
-            _mocker.GetMock<IDbSet<T>>()
-               .SetUpDbSet(new List<T>());
-
-            _mocker.GetMock<IDatabaseService>()
-               .Setup(property)
-               .Returns(_mocker.GetMock<IDbSet<T>>().Object);
         }
     }
 }

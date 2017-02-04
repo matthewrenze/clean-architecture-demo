@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
@@ -12,10 +11,9 @@ using CleanArchitecture.Persistance.Employees;
 using CleanArchitecture.Persistance.Products;
 using CleanArchitecture.Persistance.Sales;
 
-
-namespace CleanArchitecture.Persistance
+namespace CleanArchitecture.Persistance.Shared
 {
-    public class DatabaseService : DbContext, IDatabaseService
+    public class DatabaseContext : DbContext, IDatabaseContext
     {
         public IDbSet<Customer> Customers { get; set; }
 
@@ -25,7 +23,7 @@ namespace CleanArchitecture.Persistance
 
         public IDbSet<Sale> Sales { get; set; }
 
-        public DatabaseService() : base("CleanArchitecture")
+        public DatabaseContext() : base("CleanArchitecture")
         {
             Database.SetInitializer(new DatabaseInitializer());
         }

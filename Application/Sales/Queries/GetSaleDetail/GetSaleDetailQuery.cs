@@ -18,6 +18,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetail
         public SaleDetailModel Execute(int saleId)
         {
             var sale = _database.Sales
+                .GetAll()
                 .Where(p => p.Id == saleId)
                 .Select(p => new SaleDetailModel()
                 {

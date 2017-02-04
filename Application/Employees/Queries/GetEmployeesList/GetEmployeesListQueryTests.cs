@@ -15,7 +15,6 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
     {
         private GetEmployeesListQuery _query;
         private AutoMoqer _mocker;
-        private Employee _employee;
 
         private const int Id = 1;
         private const string Name = "Employee 1";
@@ -25,18 +24,25 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
         {
             _mocker = new AutoMoqer();
 
-            _employee = new Employee()
+            var employee = new Employee()
             {
                 Id = Id,
                 Name = Name
             };
 
-            _mocker.GetMock<IDbSet<Employee>>()
-                .SetUpDbSet(new List<Employee> { _employee });
+            var employees = new List<Employee>()
+            {
+                employee
+            };
+            
+            _mocker.GetMock<IRepository<Employee>>()
+                .Setup(p => p.GetAll())
+                .Returns(employees.AsQueryable());
 
             _mocker.GetMock<IDatabaseService>()
                 .Setup(p => p.Employees)
-                .Returns(_mocker.GetMock<IDbSet<Employee>>().Object);
+                .Returns(_mocker.GetMock<IRepository<Employee>>().Object);
+
 
             _query = _mocker.Create<GetEmployeesListQuery>();
         }

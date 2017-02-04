@@ -18,7 +18,6 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
     {
         private GetSalesListQuery _query;
         private AutoMoqer _mocker;
-        private Sale _sale;
 
         private const int SaleId = 1;
         private static readonly DateTime Date = new DateTime(2001, 2, 3);
@@ -47,7 +46,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
                 Name = ProductName
             };
 
-            _sale = new Sale()
+            var sale = new Sale()
             {
                 Id = SaleId,
                 Date = Date,
@@ -58,7 +57,20 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
                 Quantity = Quantity
             };
 
+            var sales = new List<Sale>
+            {
+                sale
+            };
+
             _mocker = new AutoMoqer();
+
+            _mocker.GetMock<IDatabaseService>()
+                .Setup(p => p.Sales)
+                .Returns(_mocker.GetMock<IRepository<Sale>>().Object);
+
+            _mocker.GetMock<IRepository<Sale>>()
+                .Setup(p => p.GetAll())
+                .Returns(sales.AsQueryable());
 
             _query = _mocker.Create<GetSalesListQuery>();
         }
@@ -66,13 +78,6 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
         [Test]
         public void TestExecuteShouldReturnListOfSales()
         {
-            _mocker.GetMock<IDbSet<Sale>>()
-                .SetUpDbSet(new List<Sale> { _sale });
-
-            _mocker.GetMock<IDatabaseService>()
-                .Setup(p => p.Sales)
-                .Returns(_mocker.GetMock<IDbSet<Sale>>().Object);
-
             var results = _query.Execute();
 
             var result = results.Single();

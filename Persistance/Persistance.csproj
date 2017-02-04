@@ -82,12 +82,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customers\CustomerConfiguration.cs" />
-    <Compile Include="DatabaseService.cs" />
-    <Compile Include="DatabaseInitializer.cs" />
+    <Compile Include="Shared\DatabaseContext.cs" />
+    <Compile Include="Shared\DatabaseInitializer.cs" />
+    <Compile Include="Shared\DatabaseService.cs" />
     <Compile Include="Employees\EmployeeConfiguration.cs" />
+    <Compile Include="Shared\DatabaseServiceTests.cs" />
+    <Compile Include="Shared\IDatabaseContext.cs" />
     <Compile Include="Products\ProductConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sales\SaleConfiguration.cs" />
+    <Compile Include="Shared\RepositoryAdapter.cs" />
+    <Compile Include="Shared\RepositoryAdapterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

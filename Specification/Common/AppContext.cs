@@ -4,6 +4,7 @@ using System.Linq;
 using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Dates;
+using CleanArchitecture.Persistance.Shared;
 using StructureMap;
 
 namespace CleanArchitecture.Specification.Common
@@ -12,7 +13,7 @@ namespace CleanArchitecture.Specification.Common
     {
         public AutoMoqer Mocker;
         public IContainer Container;
-        public IDatabaseService DatabaseService;
+        public IDatabaseContext DatabaseContext;
         public IInventoryService InventoryService;
         public IDateService DateService;
 
@@ -36,13 +37,13 @@ namespace CleanArchitecture.Specification.Common
 
         public void SetUpMockDatabase()
         {
-            var mockDatabase = Mocker.GetMock<IDatabaseService>();
+            var mockContext = Mocker.GetMock<IDatabaseContext>();
 
-            var intitializer = new DatabaseInitializer(mockDatabase);
+            var intitializer = new DatabaseInitializer(mockContext);
 
             intitializer.Seed();
 
-            DatabaseService = mockDatabase.Object;
+            DatabaseContext = mockContext.Object;
         }
 
         private void SetUpMockInventoryClient()

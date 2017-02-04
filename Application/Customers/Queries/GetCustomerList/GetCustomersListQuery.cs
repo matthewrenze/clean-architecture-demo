@@ -18,6 +18,7 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
         public List<CustomerModel> Execute()
         {
             var customers = _database.Customers
+                .GetAll()
                 .Select(p => new CustomerModel()
                 {
                     Id = p.Id, 

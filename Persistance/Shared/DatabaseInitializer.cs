@@ -7,12 +7,12 @@ using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
 
-namespace CleanArchitecture.Persistance
+namespace CleanArchitecture.Persistance.Shared
 {
     public class DatabaseInitializer 
-        : CreateDatabaseIfNotExists<DatabaseService>
+        : CreateDatabaseIfNotExists<DatabaseContext>
     {
-        protected override void Seed(DatabaseService database)
+        protected override void Seed(DatabaseContext database)
         {
             base.Seed(database);
 
@@ -25,7 +25,7 @@ namespace CleanArchitecture.Persistance
             CreateSales(database);
         }
 
-        private void CreateCustomers(DatabaseService database)
+        private void CreateCustomers(DatabaseContext database)
         {
             database.Customers.Add(new Customer() { Name = "Martin Fowler" });
 
@@ -36,7 +36,7 @@ namespace CleanArchitecture.Persistance
             database.SaveChanges();
         }
 
-        private void CreateEmployees(DatabaseService database)
+        private void CreateEmployees(DatabaseContext database)
         {
             database.Employees.Add(new Employee() { Name = "Eric Evans" });
 
@@ -47,7 +47,7 @@ namespace CleanArchitecture.Persistance
             database.SaveChanges();
         }
 
-        private void CreateProducts(DatabaseService database)
+        private void CreateProducts(DatabaseContext database)
         {
             database.Products.Add(new Product() { Name = "Spaghetti", Price = 5m });
 
@@ -58,7 +58,7 @@ namespace CleanArchitecture.Persistance
             database.SaveChanges();
         }
 
-        private void CreateSales(DatabaseService database)
+        private void CreateSales(DatabaseContext database)
         {
             var customers = database.Customers.ToList();
 

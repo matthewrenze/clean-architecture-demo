@@ -6,6 +6,7 @@ using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Customers;
+using Moq;
 using NUnit.Framework;
 
 namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
@@ -15,8 +16,7 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
     {
         private GetCustomersListQuery _query;
         private AutoMoqer _mocker;
-        private Customer _customer;
-
+        
         private const int Id = 1;
         private const string Name = "Customer 1";
 
@@ -25,18 +25,24 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
         {
             _mocker = new AutoMoqer();
 
-            _customer = new Customer()
+            var customer = new Customer()
             {
                 Id = Id,
                 Name = Name
             };
 
-            _mocker.GetMock<IDbSet<Customer>>()
-                .SetUpDbSet(new List<Customer> { _customer });
+            var customers = new List<Customer>
+            {
+                customer
+            };
+
+            _mocker.GetMock<IRepository<Customer>>()
+                .Setup(p => p.GetAll())
+                .Returns(customers.AsQueryable());
 
             _mocker.GetMock<IDatabaseService>()
                 .Setup(p => p.Customers)
-                .Returns(_mocker.GetMock<IDbSet<Customer>>().Object);
+                .Returns(_mocker.GetMock<IRepository<Customer>>().Object);
 
             _query = _mocker.Create<GetCustomersListQuery>();
         }

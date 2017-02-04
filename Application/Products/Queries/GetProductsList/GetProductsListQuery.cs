@@ -18,6 +18,7 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
         public List<ProductModel> Execute()
         {
             var products = _database.Products
+                .GetAll()
                 .Select(p => new ProductModel
                 {
                     Id = p.Id, 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Dates;
+using CleanArchitecture.Persistance.Shared;
 using StructureMap;
 using StructureMap.Graph;
 
@@ -16,8 +17,8 @@ namespace CleanArchitecture.Specification.Common
             {
                 SetScanningPolicy(x);
 
-                x.For<IDatabaseService>()
-                    .Use(appContext.DatabaseService);
+                x.For<IDatabaseContext>()
+                    .Use(appContext.DatabaseContext);
 
                 x.For<IInventoryService>()
                     .Use(appContext.InventoryService);

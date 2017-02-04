@@ -18,6 +18,7 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
         public List<EmployeeModel> Execute()
         {
             var employees = _database.Employees
+                .GetAll()
                 .Select(p => new EmployeeModel
                 {
                     Id = p.Id,
