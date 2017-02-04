@@ -98,7 +98,6 @@
     <Compile Include="Shared\IoC.cs" />
     <Compile Include="Shared\DatabaseInitializer.cs" />
     <Compile Include="Shared\DatabaseLookup.cs" />
-    <Compile Include="Shared\InMemoryDbSet.cs" />
     <Compile Include="Customers\GetCustomersList\GetCustomersList.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

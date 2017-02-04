@@ -65,7 +65,6 @@
   <ItemGroup>
     <Compile Include="Dates\DateService.cs" />
     <Compile Include="Dates\IDateService.cs" />
-    <Compile Include="Mocks\MockDbSetExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
