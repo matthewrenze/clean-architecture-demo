@@ -8,6 +8,7 @@ using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
+using CleanArchitecture.Application.Sales.Commands.CreateSale.Repository;
 using CleanArchitecture.Common.Dates;
 using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Customers;
@@ -69,16 +70,16 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
                 .Setup(p => p.GetDate())
                 .Returns(Date);
 
-            _mocker.GetMock<ICustomerRepository>()
-                .Setup(p => p.Get(CustomerId))
+            _mocker.GetMock<ISaleRepositoryFacade>()
+                .Setup(p => p.GetCustomer(CustomerId))
                 .Returns(customer);
 
-            _mocker.GetMock<IEmployeeRepository>()
-                .Setup(p => p.Get(EmployeeId))
+            _mocker.GetMock<ISaleRepositoryFacade>()
+                .Setup(p => p.GetEmployee(EmployeeId))
                 .Returns(employee);
 
-            _mocker.GetMock<IProductRepository>()
-                .Setup(p => p.Get(ProductId))
+            _mocker.GetMock<ISaleRepositoryFacade>()
+                .Setup(p => p.GetProduct(ProductId))
                 .Returns(product);
                         
             _mocker.GetMock<ISaleFactory>()
@@ -98,8 +99,8 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
         {
             _command.Execute(_model);
 
-            _mocker.GetMock<ISaleRepository>()
-                .Verify(p => p.Add(_sale), 
+            _mocker.GetMock<ISaleRepositoryFacade>()
+                .Verify(p => p.AddSale(_sale), 
                     Times.Once);
         }
 

@@ -4,6 +4,7 @@ using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
+using CleanArchitecture.Application.Sales.Commands.CreateSale.Repository;
 using CleanArchitecture.Common.Dates;
 
 namespace CleanArchitecture.Application.Sales.Commands.CreateSale
@@ -12,46 +13,37 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
         : ICreateSaleCommand
     {
         private readonly IDateService _dateService;
-        private readonly ICustomerRepository _customerRepository;
-        private readonly IEmployeeRepository _employeeRepository;
-        private readonly IProductRepository _productRepository;
-        private readonly ISaleRepository _saleRespository;
+        private readonly ISaleRepositoryFacade _respositories;
         private readonly ISaleFactory _factory;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IInventoryService _inventory;
 
         public CreateSaleCommand(
             IDateService dateService,
-            ICustomerRepository customerRepository,
-            IEmployeeRepository employeeRepository,
-            IProductRepository productRepository,
-            ISaleRepository saleRespository,
+            ISaleRepositoryFacade respositories,
             ISaleFactory factory,
             IUnitOfWork unitOfWork,
             IInventoryService inventory)
         {
             _dateService = dateService;
-            _customerRepository = customerRepository;
-            _employeeRepository = employeeRepository;
-            _productRepository = productRepository;
-            _saleRespository = saleRespository;
+            _respositories = respositories;
             _factory = factory;
             _unitOfWork = unitOfWork;
-            _inventory = inventory;
+            _inventory = inventory;            
         }
 
         public void Execute(CreateSaleModel model)
         {
             var date = _dateService.GetDate();
 
-            var customer = _customerRepository
-                .Get(model.CustomerId);
+            var customer = _respositories
+                .GetCustomer(model.CustomerId);
 
-            var employee = _employeeRepository
-                .Get(model.EmployeeId);
+            var employee = _respositories
+                .GetEmployee(model.EmployeeId);
 
-            var product = _productRepository
-                .Get(model.ProductId);
+            var product = _respositories
+                .GetProduct(model.ProductId);
 
             var quantity = model.Quantity;
 
@@ -62,7 +54,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
                 product, 
                 quantity);
 
-            _saleRespository.Add(sale);
+            _respositories.AddSale(sale);
 
             _unitOfWork.Save();
 

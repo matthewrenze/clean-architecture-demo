@@ -108,6 +108,9 @@
     <Compile Include="Sales\Commands\CreateSale\Factory\ISaleFactory.cs" />
     <Compile Include="Sales\Commands\CreateSale\Factory\SaleFactory.cs" />
     <Compile Include="Sales\Commands\CreateSale\Factory\SaleFactoryTests.cs" />
+    <Compile Include="Sales\Commands\CreateSale\Repository\ISaleRepositoryFacade.cs" />
+    <Compile Include="Sales\Commands\CreateSale\Repository\SaleRepositoryFacade.cs" />
+    <Compile Include="Sales\Commands\CreateSale\Repository\SaleRepositoryFacadeTests.cs" />
     <Compile Include="Sales\Queries\GetSaleDetail\GetSaleDetailQueryTests.cs" />
     <Compile Include="Sales\Queries\GetSaleDetail\IGetSaleDetailQuery.cs" />
     <Compile Include="Sales\Queries\GetSaleDetail\SaleDetailModel.cs" />
