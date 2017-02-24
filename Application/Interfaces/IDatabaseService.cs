@@ -1,4 +1,3 @@
-using System.Data.Entity;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;

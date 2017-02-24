@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using AutoMoq;
 using CleanArchitecture.Application.Products.Queries.GetProductsList;
 using NUnit.Framework;

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
-using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Customers;
-using Moq;
 using NUnit.Framework;
 
 namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
