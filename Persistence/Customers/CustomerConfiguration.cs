@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration;
-using System.Linq;
+﻿using System.Data.Entity.ModelConfiguration;
 using CleanArchitecture.Domain.Customers;
 
-namespace CleanArchitecture.Persistance.Customers
+namespace CleanArchitecture.Persistence.Customers
 {
     public class CustomerConfiguration 
         : EntityTypeConfiguration<Customer>

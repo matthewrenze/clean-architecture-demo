@@ -3,7 +3,7 @@ using System.Linq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
 using CleanArchitecture.Common.Dates;
-using CleanArchitecture.Persistance.Shared;
+using CleanArchitecture.Persistence.Shared;
 using CleanArchitecture.Specification.Common;
 using Moq;
 using NUnit.Framework;

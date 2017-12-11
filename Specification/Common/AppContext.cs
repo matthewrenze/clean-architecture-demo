@@ -4,7 +4,7 @@ using System.Linq;
 using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Dates;
-using CleanArchitecture.Persistance.Shared;
+using CleanArchitecture.Persistence.Shared;
 using StructureMap;
 
 namespace CleanArchitecture.Specification.Common

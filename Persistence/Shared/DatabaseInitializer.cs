@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using CleanArchitecture.Domain.Customers;
@@ -7,7 +6,7 @@ using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
 
-namespace CleanArchitecture.Persistance.Shared
+namespace CleanArchitecture.Persistence.Shared
 {
     public class DatabaseInitializer 
         : CreateDatabaseIfNotExists<DatabaseContext>

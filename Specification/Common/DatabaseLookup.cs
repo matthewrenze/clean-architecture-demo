@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CleanArchitecture.Persistance.Shared;
+using CleanArchitecture.Persistence.Shared;
 
 namespace CleanArchitecture.Specification.Common
 {

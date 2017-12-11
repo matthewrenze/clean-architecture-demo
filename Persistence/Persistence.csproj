@@ -7,8 +7,8 @@
     <ProjectGuid>{8EC55CA3-D78D-4112-B651-EDBA549D660E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CleanArchitecture.Persistance</RootNamespace>
-    <AssemblyName>CleanArchitecture.Persistance</AssemblyName>
+    <RootNamespace>CleanArchitecture.Persistence</RootNamespace>
+    <AssemblyName>CleanArchitecture.Persistence</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using CleanArchitecture.Application.Interfaces;
 
-namespace CleanArchitecture.Persistance.Shared
+namespace CleanArchitecture.Persistence.Shared
 {
     public class RepositoryAdapter<T> 
         : IRepository<T> 
