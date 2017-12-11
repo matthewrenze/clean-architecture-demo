@@ -2,7 +2,7 @@
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Common;
 
-namespace CleanArchitecture.Persistance.Shared
+namespace CleanArchitecture.Persistence.Shared
 {
     public class Repository<T> 
         : IRepository<T> 

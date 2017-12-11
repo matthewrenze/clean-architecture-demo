@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using CleanArchitecture.Application.Interfaces.Persistence;
+﻿using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Employees;
-using CleanArchitecture.Persistance.Shared;
+using CleanArchitecture.Persistence.Shared;
 
-namespace CleanArchitecture.Persistance.Employees
+namespace CleanArchitecture.Persistence.Employees
 {
     public class EmployeeRepository 
         : Repository<Employee>,

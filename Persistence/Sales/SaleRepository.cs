@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using CleanArchitecture.Application.Interfaces.Persistence;
+﻿using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Sales;
-using CleanArchitecture.Persistance.Shared;
+using CleanArchitecture.Persistence.Shared;
 
-namespace CleanArchitecture.Persistance.Sales
+namespace CleanArchitecture.Persistence.Sales
 {
     public class SaleRepository 
         : Repository<Sale>,

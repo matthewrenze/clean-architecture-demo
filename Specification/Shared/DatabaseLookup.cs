@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using CleanArchitecture.Persistance.Shared;
+using CleanArchitecture.Persistence.Shared;
 
 namespace CleanArchitecture.Specification.Shared
 {

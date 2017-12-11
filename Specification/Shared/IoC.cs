@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Common.Dates;
-using CleanArchitecture.Persistance.Shared;
+using CleanArchitecture.Persistence.Shared;
 using StructureMap;
 using StructureMap.Graph;
 

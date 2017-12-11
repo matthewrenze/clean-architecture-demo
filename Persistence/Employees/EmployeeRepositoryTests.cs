@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CleanArchitecture.Persistance.Shared;
+﻿using CleanArchitecture.Persistence.Shared;
 using Moq;
 using NUnit.Framework;
 
-namespace CleanArchitecture.Persistance.Employees
+namespace CleanArchitecture.Persistence.Employees
 {
     [TestFixture]
     public class EmployeeRepositoryTests

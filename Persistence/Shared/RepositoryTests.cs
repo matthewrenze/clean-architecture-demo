@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMoq;
+﻿using AutoMoq;
 using CleanArchitecture.Domain.Sales;
 using NUnit.Framework;
 
-namespace CleanArchitecture.Persistance.Shared
+namespace CleanArchitecture.Persistence.Shared
 {
     [TestFixture]
     public class RepositoryTests

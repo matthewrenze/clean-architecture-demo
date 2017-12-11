@@ -2,7 +2,7 @@
 using AutoMoq;
 using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Common.Dates;
-using CleanArchitecture.Persistance.Shared;
+using CleanArchitecture.Persistence.Shared;
 using StructureMap;
 
 namespace CleanArchitecture.Specification.Shared

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration;
-using System.Linq;
+﻿using System.Data.Entity.ModelConfiguration;
 using CleanArchitecture.Domain.Employees;
 
-namespace CleanArchitecture.Persistance.Employees
+namespace CleanArchitecture.Persistence.Employees
 {
     public class EmployeeConfiguration
            : EntityTypeConfiguration<Employee>

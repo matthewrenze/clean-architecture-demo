@@ -1,7 +1,7 @@
 ﻿using AutoMoq;
 using NUnit.Framework;
 
-namespace CleanArchitecture.Persistance.Shared
+namespace CleanArchitecture.Persistence.Shared
 {
     [TestFixture]
     public class UnitOfWorkTests

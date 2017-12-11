@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using CleanArchitecture.Application.Interfaces.Persistence;
+﻿using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Customers;
-using CleanArchitecture.Persistance.Shared;
+using CleanArchitecture.Persistence.Shared;
 
-namespace CleanArchitecture.Persistance.Customers
+namespace CleanArchitecture.Persistence.Customers
 {
     public class CustomerRepository 
         : Repository<Customer>, 

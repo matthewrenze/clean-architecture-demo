@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace CleanArchitecture.Persistance.Shared
+namespace CleanArchitecture.Persistence.Shared
 {
     public class InMemoryDbSet<T> : IDbSet<T> where T : class
     {
