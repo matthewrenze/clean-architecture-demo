@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
-using CleanArchitecture.Domain.Customers;
+using CleanArchitecture.Domain.Employees;
 
-namespace CleanArchitecture.Persistance.Customers
+namespace CleanArchitecture.Persistence.Employees
 {
-    public class CustomerConfiguration 
-        : EntityTypeConfiguration<Customer>
+    public class EmployeeConfiguration
+           : EntityTypeConfiguration<Employee>
     {
-        public CustomerConfiguration()
+        public EmployeeConfiguration()
         {
             HasKey(p => p.Id);
 

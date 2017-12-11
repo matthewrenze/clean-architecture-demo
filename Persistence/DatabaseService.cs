@@ -7,13 +7,13 @@ using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
-using CleanArchitecture.Persistance.Customers;
-using CleanArchitecture.Persistance.Employees;
-using CleanArchitecture.Persistance.Products;
-using CleanArchitecture.Persistance.Sales;
+using CleanArchitecture.Persistence.Customers;
+using CleanArchitecture.Persistence.Employees;
+using CleanArchitecture.Persistence.Products;
+using CleanArchitecture.Persistence.Sales;
 
 
-namespace CleanArchitecture.Persistance
+namespace CleanArchitecture.Persistence
 {
     public class DatabaseService : DbContext, IDatabaseService
     {

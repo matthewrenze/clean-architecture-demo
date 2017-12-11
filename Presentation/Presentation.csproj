@@ -204,9 +204,9 @@
       <Project>{1134a2e4-c112-46ec-9618-049d70960341}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Persistance\Persistance.csproj">
+    <ProjectReference Include="..\Persistence\Persistence.csproj">
       <Project>{8ec55ca3-d78d-4112-b651-edba549d660e}</Project>
-      <Name>Persistance</Name>
+      <Name>Persistence</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

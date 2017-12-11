@@ -7,7 +7,7 @@ using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
 using CleanArchitecture.Domain.Sales;
 
-namespace CleanArchitecture.Persistance
+namespace CleanArchitecture.Persistence
 {
     public class DatabaseInitializer 
         : CreateDatabaseIfNotExists<DatabaseService>
