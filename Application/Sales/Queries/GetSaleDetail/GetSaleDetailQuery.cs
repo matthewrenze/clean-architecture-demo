@@ -17,22 +17,20 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetail
 
         public SaleDetailModel Execute(int saleId)
         {
-            var sale = _repository.GetAll()
-                .Where(p => p.Id == saleId)
-                .Select(p => new SaleDetailModel()
-                {
-                    Id = p.Id, 
-                    Date = p.Date,
-                    CustomerName = p.Customer.Name,
-                    EmployeeName = p.Employee.Name,
-                    ProductName = p.Product.Name,
-                    UnitPrice = p.UnitPrice,
-                    Quantity = p.Quantity,
-                    TotalPrice = p.TotalPrice
-                })
-                .Single();
+            var sale = _repository.Get(saleId);
+            var saleDetail = new SaleDetailModel
+            {
+                Id = sale.Id,
+                Date = sale.Date,
+                CustomerName = sale.Customer.Name,
+                EmployeeName = sale.Employee.Name,
+                ProductName = sale.Product.Name,
+                UnitPrice = sale.UnitPrice,
+                Quantity = sale.Quantity,
+                TotalPrice = sale.TotalPrice
+            };
 
-            return sale;
+            return saleDetail;
         }
     }
 }
