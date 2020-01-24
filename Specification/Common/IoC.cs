@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Dates;
 using StructureMap;
+using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
 
 namespace CleanArchitecture.Specification.Common
@@ -12,25 +10,22 @@ namespace CleanArchitecture.Specification.Common
     {
         public static IContainer Initialize(AppContext appContext)
         {
-            ObjectFactory.Initialize(x =>
+            return new Container(x =>
             {
                 SetScanningPolicy(x);
 
                 x.For<IDatabaseService>()
-                    .Use(appContext.DatabaseService);
+                 .Use(appContext.DatabaseService);
 
                 x.For<IInventoryService>()
-                    .Use(appContext.InventoryService);
+                 .Use(appContext.InventoryService);
 
                 x.For<IDateService>()
-                    .Use(appContext.DateService);
-
+                 .Use(appContext.DateService);
             });
-
-            return ObjectFactory.Container;
         }
 
-        private static void SetScanningPolicy(IInitializationExpression x)
+        private static void SetScanningPolicy(IRegistry x)
         {
             x.Scan(scan =>
             {
