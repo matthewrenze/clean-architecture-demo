@@ -3,6 +3,6 @@ A sample application for <a href="https://goo.gl/rJpHLb" target="_blank">Clean A
 
 This sample application is intended to be a learning tool for clean architecture practices. It incorporates several of these practices in a way that is simple and easy to understand.
 
-To run the sample application create an empty database for example *CleanArchitecture* and update the connection string in `Web.config` from the Presentation project.  
+Be sure to check/update the connection string in `Web.config` from the Presentation project. Entity Framework will automatically create and populate an *CleanArchitecture* database when you run the solution for the first time when the database doesn't already exist. 
 
 If you'd like to learn more about this style of software architecture, please check out my online course <a href="https://goo.gl/rJpHLb" target="_blank">Clean Architecture: Patterns, Practices, and Principles</a>.
