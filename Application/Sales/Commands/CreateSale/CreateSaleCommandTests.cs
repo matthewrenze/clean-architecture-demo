@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using AutoMoq;
+using Moq.AutoMock;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
 using CleanArchitecture.Common.Dates;
@@ -21,7 +21,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
     public class CreateSaleCommandTests
     {
         private CreateSaleCommand _command;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
         private CreateSaleModel _model;
         private Sale _sale;
 
@@ -61,7 +61,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
 
             _sale = new Sale();
             
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             _mocker.GetMock<IDateService>()
                 .Setup(p => p.GetDate())
@@ -81,7 +81,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
                     Quantity))
                 .Returns(_sale);
             
-            _command = _mocker.Create<CreateSaleCommand>();
+            _command = _mocker.CreateInstance<CreateSaleCommand>();
         }
 
         [Test]
@@ -110,7 +110,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
             _command.Execute(_model);
 
             _mocker.GetMock<IInventoryService>()
-                .Verify(p => p.NotifySaleOcurred(
+                .Verify(p => p.NotifySaleOccurred(
                         ProductId,
                         Quantity),
                     Times.Once);

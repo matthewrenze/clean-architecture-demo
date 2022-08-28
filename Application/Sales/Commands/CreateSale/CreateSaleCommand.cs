@@ -52,7 +52,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
 
             _database.Save();
 
-            _inventory.NotifySaleOcurred(product.Id, quantity);
+            _inventory.NotifySaleOccurred(product.Id, quantity);
         }
     }
 }

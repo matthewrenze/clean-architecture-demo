@@ -1,7 +1,10 @@
-using System.Web;
-using StructureMap.Web.Pipeline;
+namespace CleanArchitecture.Presentation.DependencyResolution {
+    using System.Web;
 
-namespace CleanArchitecture.Presentation.Dependencies {
+    using CleanArchitecture.Presentation.App_Start;
+
+    using StructureMap.Web.Pipeline;
+
     public class StructureMapScopeModule : IHttpModule {
         #region Public Methods and Operators
 

@@ -8,6 +8,7 @@ using Moq;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using AppContext = CleanArchitecture.Specification.Common.AppContext;
 
 namespace CleanArchitecture.Specification.Sales.CreateASale
 {
@@ -99,7 +100,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
 
             var mockInventoryClient = _context.Mocker.GetMock<IInventoryService>();
 
-            mockInventoryClient.Verify(p => p.NotifySaleOcurred(
+            mockInventoryClient.Verify(p => p.NotifySaleOccurred(
                     notification.ProductId, 
                     notification.Quantity),
                 Times.Once);

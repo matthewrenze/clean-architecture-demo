@@ -16,9 +16,9 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
-using StructureMap;
-
-namespace CleanArchitecture.Presentation.Dependencies {
+namespace CleanArchitecture.Presentation.DependencyResolution {
+    using StructureMap;
+	
     public static class IoC {
         public static IContainer Initialize() {
             return new Container(c => c.AddRegistry<DefaultRegistry>());
