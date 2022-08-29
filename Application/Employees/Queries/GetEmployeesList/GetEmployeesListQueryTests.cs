@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMoq;
+using Moq.AutoMock;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Employees;
 using NUnit.Framework;
@@ -12,9 +12,9 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
     public class GetEmployeesListQueryTests
     {
         private GetEmployeesListQuery _query;
-        private AutoMoqer _mocker;
-        private List<Employee> _employees;
+        private AutoMocker _mocker;
         private Employee _employee;
+        private List<Employee> _employees;
 
         private const int Id = 1;
         private const string Name = "Employee 1";
@@ -22,7 +22,7 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             _employee = new Employee()
             {
@@ -39,7 +39,7 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
                 .Setup(p => p.GetAll())
                 .Returns(_employees.AsQueryable());
 
-            _query = _mocker.Create<GetEmployeesListQuery>();
+            _query = _mocker.CreateInstance<GetEmployeesListQuery>();
         }
 
         [Test]

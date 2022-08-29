@@ -6,6 +6,7 @@ using CleanArchitecture.Specification.Shared;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using AppContext = CleanArchitecture.Specification.Shared.AppContext;
 
 namespace CleanArchitecture.Specification.Sales.GetSalesList
 {

@@ -5,7 +5,7 @@ using CleanArchitecture.Application.Interfaces.Persistence;
 
 namespace CleanArchitecture.Application.Products.Queries.GetProductsList
 {
-    public class GetProductsListQuery 
+    public class GetProductsListQuery
         : IGetProductsListQuery
     {
         private readonly IProductRepository _repository;
@@ -20,7 +20,7 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
             var products = _repository.GetAll()
                 .Select(p => new ProductModel
                 {
-                    Id = p.Id, 
+                    Id = p.Id,
                     Name = p.Name,
                     UnitPrice = p.Price
                 });

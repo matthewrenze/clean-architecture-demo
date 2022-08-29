@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMoq;
+using Moq.AutoMock;
 using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
 using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
 using CleanArchitecture.Application.Products.Queries.GetProductsList;
@@ -13,7 +13,7 @@ namespace CleanArchitecture.Presentation.Sales.Services
     public class CreateSaleViewModelFactoryTests
     {
         private CreateSaleViewModelFactory _factory;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
 
         private const int CustomerId = 1;
         private const string CustomerName = "Customer 1";
@@ -26,7 +26,7 @@ namespace CleanArchitecture.Presentation.Sales.Services
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             var customer = new CustomerModel
             {
@@ -59,7 +59,7 @@ namespace CleanArchitecture.Presentation.Sales.Services
                 .Setup(p => p.Execute())
                 .Returns(new List<ProductModel> { product });
 
-            _factory = _mocker.Create<CreateSaleViewModelFactory>();
+            _factory = _mocker.CreateInstance<CreateSaleViewModelFactory>();
         }
 
         [Test]

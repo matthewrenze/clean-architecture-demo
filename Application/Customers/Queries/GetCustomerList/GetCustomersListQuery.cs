@@ -5,7 +5,7 @@ using CleanArchitecture.Application.Interfaces.Persistence;
 
 namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
 {
-    public class GetCustomersListQuery 
+    public class GetCustomersListQuery
         : IGetCustomersListQuery
     {
         private readonly ICustomerRepository _repository;
@@ -20,7 +20,7 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
             var customers = _repository.GetAll()
                 .Select(p => new CustomerModel()
                 {
-                    Id = p.Id, 
+                    Id = p.Id,
                     Name = p.Name
                 });
 

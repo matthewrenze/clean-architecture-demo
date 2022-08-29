@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IoC.cs" company="Web Advanced">
+// <copyright file="DefaultRegistry.cs" company="Web Advanced">
 // Copyright 2012 Web Advanced (www.webadvanced.com)
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,16 +15,26 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+namespace CleanArchitecture.Presentation.DependencyResolution {
+    using StructureMap;
+    using StructureMap.Configuration.DSL;
+    using StructureMap.Graph;
+	
+    public class DefaultRegistry : Registry {
+        #region Constructors and Destructors
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using StructureMap;
+        public DefaultRegistry() {
+            Scan(scan =>
+            {
+                scan.AssembliesFromApplicationBaseDirectory(
+                    filter => filter.FullName.StartsWith("CleanArchitecture"));
 
-namespace CleanArchitecture.Service.DependencyResolution {
-    public static class IoC {
-        public static IContainer Initialize() {
-            return new Container(c => c.AddRegistry<DefaultRegistry>());
+                scan.WithDefaultConventions();
+
+                scan.With(new ControllerConvention());
+            });
         }
+
+        #endregion
     }
 }

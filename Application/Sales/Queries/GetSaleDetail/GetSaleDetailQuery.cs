@@ -21,7 +21,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetail
                 .Where(p => p.Id == saleId)
                 .Select(p => new SaleDetailModel()
                 {
-                    Id = p.Id, 
+                    Id = p.Id,
                     Date = p.Date,
                     CustomerName = p.Customer.Name,
                     EmployeeName = p.Employee.Name,

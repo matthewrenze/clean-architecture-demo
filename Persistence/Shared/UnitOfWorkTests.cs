@@ -1,4 +1,4 @@
-﻿using AutoMoq;
+﻿using Moq.AutoMock;
 using NUnit.Framework;
 
 namespace CleanArchitecture.Persistence.Shared
@@ -7,14 +7,14 @@ namespace CleanArchitecture.Persistence.Shared
     public class UnitOfWorkTests
     {
         private UnitOfWork _unitOfWork;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
 
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
-            _unitOfWork = _mocker.Create<UnitOfWork>();
+            _unitOfWork = _mocker.CreateInstance<UnitOfWork>();
         }
 
         [Test]

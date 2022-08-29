@@ -5,7 +5,7 @@ using CleanArchitecture.Application.Interfaces.Persistence;
 
 namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
 {
-    public class GetEmployeesListQuery 
+    public class GetEmployeesListQuery
         : IGetEmployeesListQuery
     {
         private readonly IEmployeeRepository _repository;
@@ -22,7 +22,7 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
                 {
                     Id = p.Id,
                     Name = p.Name
-                });               
+                });
 
             return employees.ToList();
         }

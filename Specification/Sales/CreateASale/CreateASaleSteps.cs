@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Linq;
-using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
+using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Common.Dates;
-using CleanArchitecture.Persistence.Shared;
 using CleanArchitecture.Specification.Shared;
+using CleanArchitecture.Persistence.Shared;
 using Moq;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using AppContext = CleanArchitecture.Specification.Shared.AppContext;
 
 namespace CleanArchitecture.Specification.Sales.CreateASale
 {
@@ -100,7 +101,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
 
             var mockInventoryClient = _context.Mocker.GetMock<IInventoryService>();
 
-            mockInventoryClient.Verify(p => p.NotifySaleOcurred(
+            mockInventoryClient.Verify(p => p.NotifySaleOccurred(
                     notification.ProductId, 
                     notification.Quantity),
                 Times.Once);

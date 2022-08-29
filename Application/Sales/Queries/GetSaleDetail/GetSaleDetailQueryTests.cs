@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMoq;
+using Moq.AutoMock;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
@@ -15,7 +15,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetail
     public class GetSaleDetailQueryTests
     {
         private GetSaleDetailQuery _query;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
         private List<Sale> _sales;
         private Sale _sale;
 
@@ -62,13 +62,13 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetail
                 _sale
             };
 
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             _mocker.GetMock<ISaleRepository>()
                 .Setup(p => p.GetAll())
                 .Returns(_sales.AsQueryable());
 
-            _query = _mocker.Create<GetSaleDetailQuery>();
+            _query = _mocker.CreateInstance<GetSaleDetailQuery>();
         }
 
         [Test]
@@ -76,28 +76,28 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetail
         {
             var result = _query.Execute(SaleId);
 
-            Assert.That(result.Id, 
+            Assert.That(result.Id,
                 Is.EqualTo(SaleId));
 
-            Assert.That(result.Date, 
+            Assert.That(result.Date,
                 Is.EqualTo(Date));
 
-            Assert.That(result.CustomerName, 
+            Assert.That(result.CustomerName,
                 Is.EqualTo(CustomerName));
 
-            Assert.That(result.EmployeeName, 
+            Assert.That(result.EmployeeName,
                 Is.EqualTo(EmployeeName));
 
-            Assert.That(result.ProductName, 
+            Assert.That(result.ProductName,
                 Is.EqualTo(ProductName));
 
-            Assert.That(result.UnitPrice, 
+            Assert.That(result.UnitPrice,
                 Is.EqualTo(UnitPrice));
 
-            Assert.That(result.Quantity, 
+            Assert.That(result.Quantity,
                 Is.EqualTo(Quantity));
 
-            Assert.That(result.TotalPrice, 
+            Assert.That(result.TotalPrice,
                 Is.EqualTo(TotalPrice));
         }
     }

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMoq;
+using System.Linq.Expressions;
+using Moq.AutoMock;
 using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
@@ -20,7 +21,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
     public class CreateSaleCommandTests
     {
         private CreateSaleCommand _command;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
         private CreateSaleModel _model;
         private Sale _sale;
 
@@ -60,7 +61,11 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
 
             _sale = new Sale();
             
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
+
+            _mocker.GetMock<IDateService>()
+                .Setup(p => p.GetDate())
+                .Returns(Date);
 
             _mocker.GetMock<IDateService>()
                 .Setup(p => p.GetDate())
@@ -77,7 +82,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
             _mocker.GetMock<ISaleRepositoryFacade>()
                 .Setup(p => p.GetProduct(ProductId))
                 .Returns(product);
-                        
+
             _mocker.GetMock<ISaleFactory>()
                 .Setup(p => p.Create(
                     Date,
@@ -86,8 +91,8 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
                     product,
                     Quantity))
                 .Returns(_sale);
-            
-            _command = _mocker.Create<CreateSaleCommand>();
+
+            _command = _mocker.CreateInstance<CreateSaleCommand>();
         }
 
         [Test]
@@ -96,7 +101,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
             _command.Execute(_model);
 
             _mocker.GetMock<ISaleRepositoryFacade>()
-                .Verify(p => p.AddSale(_sale), 
+                .Verify(p => p.AddSale(_sale),
                     Times.Once);
         }
 
@@ -116,10 +121,10 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
             _command.Execute(_model);
 
             _mocker.GetMock<IInventoryService>()
-                .Verify(p => p.NotifySaleOcurred(
+                .Verify(p => p.NotifySaleOccurred(
                         ProductId,
                         Quantity),
                     Times.Once);
-        }        
+        }
     }
 }

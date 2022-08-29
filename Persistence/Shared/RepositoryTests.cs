@@ -1,4 +1,4 @@
-﻿using AutoMoq;
+﻿using Moq.AutoMock;
 using CleanArchitecture.Domain.Sales;
 using NUnit.Framework;
 
@@ -8,7 +8,7 @@ namespace CleanArchitecture.Persistence.Shared
     public class RepositoryTests
     {
         private Repository<Sale> _repository;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
         private InMemoryDbSet<Sale> _sales;
         private Sale _sale;
 
@@ -17,7 +17,7 @@ namespace CleanArchitecture.Persistence.Shared
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             _sale = new Sale() { Id = SaleId };
 
@@ -27,7 +27,7 @@ namespace CleanArchitecture.Persistence.Shared
                .Setup(p => p.Set<Sale>())
                .Returns(_sales);
                         
-            _repository = _mocker.Create<Repository<Sale>>();
+            _repository = _mocker.CreateInstance<Repository<Sale>>();
         }
 
         [Test]

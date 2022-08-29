@@ -28,7 +28,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
             _respositories = respositories;
             _factory = factory;
             _unitOfWork = unitOfWork;
-            _inventory = inventory;            
+            _inventory = inventory;
         }
 
         public void Execute(CreateSaleModel model)
@@ -48,16 +48,16 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
 
             var sale = _factory.Create(
                 date,
-                customer, 
-                employee, 
-                product, 
+                customer,
+                employee,
+                product,
                 quantity);
 
             _respositories.AddSale(sale);
 
             _unitOfWork.Save();
 
-            _inventory.NotifySaleOcurred(product.Id, quantity);
+            _inventory.NotifySaleOccurred(product.Id, quantity);
         }
     }
 }

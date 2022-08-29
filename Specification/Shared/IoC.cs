@@ -1,8 +1,10 @@
-﻿using CleanArchitecture.Application.Interfaces.Infrastructure;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using CleanArchitecture.Application.Interfaces.Infrastructure;
 using CleanArchitecture.Common.Dates;
 using CleanArchitecture.Persistence.Shared;
 using StructureMap;
-using StructureMap.Graph;
 
 namespace CleanArchitecture.Specification.Shared
 {
@@ -10,9 +12,15 @@ namespace CleanArchitecture.Specification.Shared
     {
         public static IContainer Initialize(AppContext appContext)
         {
-            ObjectFactory.Initialize(x =>
+            var container = new Container(x =>
             {
-                SetScanningPolicy(x);
+                x.Scan(scan =>
+                {
+                    scan.AssembliesFromApplicationBaseDirectory(
+                        filter => filter.FullName.StartsWith("CleanArchitecture"));
+
+                    scan.WithDefaultConventions();
+                });
 
                 x.For<IDatabaseContext>()
                     .Use(appContext.DatabaseContext);
@@ -22,21 +30,9 @@ namespace CleanArchitecture.Specification.Shared
 
                 x.For<IDateService>()
                     .Use(appContext.DateService);
-
             });
 
-            return ObjectFactory.Container;
-        }
-
-        private static void SetScanningPolicy(IInitializationExpression x)
-        {
-            x.Scan(scan =>
-            {
-                scan.AssembliesFromApplicationBaseDirectory(
-                    filter => filter.FullName.StartsWith("CleanArchitecture"));
-
-                scan.WithDefaultConventions();
-            });
+            return container;
         }
     }
 }

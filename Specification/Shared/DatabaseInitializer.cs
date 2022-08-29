@@ -13,7 +13,7 @@ namespace CleanArchitecture.Specification.Shared
     public class DatabaseInitializer
     {
         private readonly Mock<IDatabaseContext> _mockDatabase;
-        
+
         public DatabaseInitializer(Mock<IDatabaseContext> mockDatabase)
         {
             _mockDatabase = mockDatabase;
@@ -79,7 +79,7 @@ namespace CleanArchitecture.Specification.Shared
                 .Returns(employees);
         }
 
-        private void CreateEmployee(IDbSet<Employee> employees , int id, string name)
+        private void CreateEmployee(IDbSet<Employee> employees, int id, string name)
         {
             var employee = new Employee
             {
@@ -144,8 +144,8 @@ namespace CleanArchitecture.Specification.Shared
             IDbSet<Sale> sales,
             int id,
             int dateOffset,
-            int customerId, 
-            int employeeId, 
+            int customerId,
+            int employeeId,
             int productId,
             int quantity)
         {

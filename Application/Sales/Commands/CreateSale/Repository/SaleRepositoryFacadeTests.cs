@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMoq;
+using Moq.AutoMock;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
@@ -16,7 +16,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale.Repository
     public class SaleRepositoryFacadeTests
     {
         private SaleRepositoryFacade _facade;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
         private Customer _customer;
         private Employee _employee;
         private Product _product;
@@ -30,7 +30,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale.Repository
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             _customer = new Customer();
 
@@ -40,7 +40,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale.Repository
 
             _sale = new Sale();
 
-            _facade = _mocker.Create<SaleRepositoryFacade>();
+            _facade = _mocker.CreateInstance<SaleRepositoryFacade>();
         }
 
         [Test]

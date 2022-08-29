@@ -5,7 +5,7 @@ using CleanArchitecture.Application.Interfaces.Persistence;
 
 namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
 {
-    public class GetSalesListQuery 
+    public class GetSalesListQuery
         : IGetSalesListQuery
     {
         private readonly ISaleRepository _repository;
@@ -20,7 +20,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
             var sales = _repository.GetAll()
                 .Select(p => new SalesListItemModel()
                 {
-                    Id = p.Id, 
+                    Id = p.Id,
                     Date = p.Date,
                     CustomerName = p.Customer.Name,
                     EmployeeName = p.Employee.Name,

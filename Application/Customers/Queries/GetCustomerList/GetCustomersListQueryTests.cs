@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMoq;
+using Moq.AutoMock;
 using CleanArchitecture.Application.Interfaces.Persistence;
 using CleanArchitecture.Domain.Customers;
 using NUnit.Framework;
@@ -12,9 +12,9 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
     public class GetCustomersListQueryTests
     {
         private GetCustomersListQuery _query;
-        private AutoMoqer _mocker;
-        private List<Customer> _customers;
+        private AutoMocker _mocker;
         private Customer _customer;
+        private List<Customer> _customers;
 
         private const int Id = 1;
         private const string Name = "Customer 1";
@@ -22,7 +22,7 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             _customer = new Customer()
             {
@@ -39,7 +39,7 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
                 .Setup(p => p.GetAll())
                 .Returns(_customers.AsQueryable());
 
-            _query = _mocker.Create<GetCustomersListQuery>();
+            _query = _mocker.CreateInstance<GetCustomersListQuery>();
         }
 
         [Test]
