@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using AutoMoq;
+using Moq.AutoMock;
 using NUnit.Framework;
 
 namespace CleanArchitecture.Presentation.Home
@@ -11,14 +11,14 @@ namespace CleanArchitecture.Presentation.Home
     public class HomeControllerTests
     {
         private HomeController _controller;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
 
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
-            _controller = _mocker.Create<HomeController>();
+            _controller = _mocker.CreateInstance<HomeController>();
         }
 
         [Test]

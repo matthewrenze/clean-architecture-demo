@@ -6,6 +6,7 @@ using CleanArchitecture.Specification.Common;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using AppContext = CleanArchitecture.Specification.Common.AppContext;
 
 namespace CleanArchitecture.Specification.Customers.GetCustomersList
 {

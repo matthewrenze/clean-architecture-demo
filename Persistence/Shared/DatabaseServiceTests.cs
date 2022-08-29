@@ -1,4 +1,4 @@
-﻿using AutoMoq;
+﻿using Moq.AutoMock;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
@@ -11,14 +11,14 @@ namespace CleanArchitecture.Persistence.Shared
     public class DatabaseServiceTests
     {
         private DatabaseService _service;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
 
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
-            _service = _mocker.Create<DatabaseService>();
+            _service = _mocker.CreateInstance<DatabaseService>();
         }
 
         [Test]

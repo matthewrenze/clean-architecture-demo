@@ -9,6 +9,7 @@ using Moq;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using AppContext = CleanArchitecture.Specification.Common.AppContext;
 
 namespace CleanArchitecture.Specification.Sales.CreateASale
 {
@@ -33,7 +34,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
                 .Returns(saleInfo.Date);
 
             var mockDatabase = _context.Mocker.GetMock<IDatabaseContext>();
-               
+
             var lookup = new DatabaseLookup(mockDatabase.Object);
 
             _model = new CreateSaleModel
@@ -71,19 +72,19 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
 
             var productId = lookup.GetProductIdByName(saleRecord.Product);
 
-            Assert.That(sale.Date, 
+            Assert.That(sale.Date,
                 Is.EqualTo(saleRecord.Date));
 
             Assert.That(sale.Customer.Id,
                 Is.EqualTo(customerId));
 
-            Assert.That(sale.Employee.Id, 
+            Assert.That(sale.Employee.Id,
                 Is.EqualTo(employeeId));
 
             Assert.That(sale.Product.Id,
                 Is.EqualTo(productId));
 
-            Assert.That(sale.UnitPrice, 
+            Assert.That(sale.UnitPrice,
                 Is.EqualTo(saleRecord.UnitPrice));
 
             Assert.That(sale.Quantity,
@@ -100,7 +101,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
 
             var mockInventoryClient = _context.Mocker.GetMock<IInventoryService>();
 
-            mockInventoryClient.Verify(p => p.NotifySaleOcurred(
+            mockInventoryClient.Verify(p => p.NotifySaleOccurred(
                     notification.ProductId, 
                     notification.Quantity),
                 Times.Once);

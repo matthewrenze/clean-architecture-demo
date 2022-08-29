@@ -13,9 +13,15 @@ namespace CleanArchitecture.Specification.Common
     {
         public static IContainer Initialize(AppContext appContext)
         {
-            ObjectFactory.Initialize(x =>
+            var container = new Container(x =>
             {
-                SetScanningPolicy(x);
+                x.Scan(scan =>
+                {
+                    scan.AssembliesFromApplicationBaseDirectory(
+                        filter => filter.FullName.StartsWith("CleanArchitecture"));
+
+                    scan.WithDefaultConventions();
+                });
 
                 x.For<IDatabaseContext>()
                     .Use(appContext.DatabaseContext);
@@ -25,21 +31,9 @@ namespace CleanArchitecture.Specification.Common
 
                 x.For<IDateService>()
                     .Use(appContext.DateService);
-
             });
 
-            return ObjectFactory.Container;
-        }
-
-        private static void SetScanningPolicy(IInitializationExpression x)
-        {
-            x.Scan(scan =>
-            {
-                scan.AssembliesFromApplicationBaseDirectory(
-                    filter => filter.FullName.StartsWith("CleanArchitecture"));
-
-                scan.WithDefaultConventions();
-            });
+            return container;
         }
     }
 }

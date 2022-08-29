@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMoq;
+using Moq.AutoMock;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
@@ -15,7 +15,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
     public class GetSalesListQueryTests
     {
         private GetSalesListQuery _query;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
 
         private const int SaleId = 1;
         private static readonly DateTime Date = new DateTime(2001, 2, 3);
@@ -60,7 +60,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
                 sale
             };
 
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             _mocker.GetMock<IDatabaseService>()
                 .Setup(p => p.Sales)
@@ -70,7 +70,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
                 .Setup(p => p.GetAll())
                 .Returns(sales.AsQueryable());
 
-            _query = _mocker.Create<GetSalesListQuery>();
+            _query = _mocker.CreateInstance<GetSalesListQuery>();
         }
 
         [Test]

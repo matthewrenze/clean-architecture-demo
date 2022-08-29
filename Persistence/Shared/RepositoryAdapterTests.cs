@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using AutoMoq;
+using Moq.AutoMock;
 using CleanArchitecture.Domain.Sales;
 using Moq;
 using NUnit.Framework;
@@ -12,7 +12,7 @@ namespace CleanArchitecture.Persistence.Shared
     public class RepositoryAdapterTests
     {
         private RepositoryAdapter<Sale> _adapter;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
         private Sale _sale;
 
         private const int Id = 1;
@@ -20,11 +20,11 @@ namespace CleanArchitecture.Persistence.Shared
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
             
             _sale = new Sale();
 
-            _adapter = _mocker.Create<RepositoryAdapter<Sale>>();
+            _adapter = _mocker.CreateInstance<RepositoryAdapter<Sale>>();
         }
 
         [Test]

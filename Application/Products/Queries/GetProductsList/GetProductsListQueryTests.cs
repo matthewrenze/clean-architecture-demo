@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMoq;
+using Moq.AutoMock;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Domain.Products;
 using NUnit.Framework;
@@ -12,15 +12,15 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
     public class GetProductsListQueryTests
     {
         private GetProductsListQuery _query;
-        private AutoMoqer _mocker;
-        
+        private AutoMocker _mocker;        
+
         private const int Id = 1;
         private const string Name = "Product 1";
 
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             var product = new Product()
             {
@@ -42,7 +42,7 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
                 .Returns(_mocker.GetMock<IRepository<Product>>().Object);
 
 
-            _query = _mocker.Create<GetProductsListQuery>();
+            _query = _mocker.CreateInstance<GetProductsListQuery>();
         }
 
         [Test]
