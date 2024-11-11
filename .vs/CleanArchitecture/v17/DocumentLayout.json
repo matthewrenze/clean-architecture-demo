@@ -1,7 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\CODE\\.NET_CORE\\CleanArchitectureDemo\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|d:\\code\\.net_core\\cleanarchitecturetrue\\application\\sales\\commands\\createsale\\createsalecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|solutionrelative:application\\sales\\commands\\createsale\\createsalecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|d:\\code\\.net_core\\cleanarchitecturetrue\\application\\sales\\commands\\createsale\\createsalecommandtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|solutionrelative:application\\sales\\commands\\createsale\\createsalecommandtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|d:\\code\\.net_core\\cleanarchitecturetrue\\application\\sales\\commands\\createsale\\icreatesalecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|solutionrelative:application\\sales\\commands\\createsale\\icreatesalecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|d:\\code\\.net_core\\cleanarchitecturetrue\\application\\sales\\commands\\createsale\\createsalemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|solutionrelative:application\\sales\\commands\\createsale\\createsalemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|d:\\code\\.net_core\\cleanarchitecturetrue\\application\\interfaces\\persistence\\isalerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|solutionrelative:application\\interfaces\\persistence\\isalerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|d:\\code\\.net_core\\cleanarchitecturetrue\\application\\interfaces\\persistence\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F06A236E-E5C1-48E5-89F1-91B40FD8FFF6}|Application\\Application.csproj|solutionrelative:application\\interfaces\\persistence\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +34,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{be4d7042-ba3f-11d2-840e-00c04f9902c1}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateSaleCommand.cs",
+              "DocumentMoniker": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Sales\\Commands\\CreateSale\\CreateSaleCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Sales\\Commands\\CreateSale\\CreateSaleCommand.cs",
+              "ToolTip": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Sales\\Commands\\CreateSale\\CreateSaleCommand.cs",
+              "RelativeToolTip": "Application\\Sales\\Commands\\CreateSale\\CreateSaleCommand.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAA1wCUAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:41:07.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateSaleCommandTests.cs",
+              "DocumentMoniker": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Sales\\Commands\\CreateSale\\CreateSaleCommandTests.cs",
+              "RelativeDocumentMoniker": "Application\\Sales\\Commands\\CreateSale\\CreateSaleCommandTests.cs",
+              "ToolTip": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Sales\\Commands\\CreateSale\\CreateSaleCommandTests.cs",
+              "RelativeToolTip": "Application\\Sales\\Commands\\CreateSale\\CreateSaleCommandTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:41:03.593Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ICreateSaleCommand.cs",
+              "DocumentMoniker": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Sales\\Commands\\CreateSale\\ICreateSaleCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Sales\\Commands\\CreateSale\\ICreateSaleCommand.cs",
+              "ToolTip": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Sales\\Commands\\CreateSale\\ICreateSaleCommand.cs",
+              "RelativeToolTip": "Application\\Sales\\Commands\\CreateSale\\ICreateSaleCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:40:57.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CreateSaleModel.cs",
+              "DocumentMoniker": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Sales\\Commands\\CreateSale\\CreateSaleModel.cs",
+              "RelativeDocumentMoniker": "Application\\Sales\\Commands\\CreateSale\\CreateSaleModel.cs",
+              "ToolTip": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Sales\\Commands\\CreateSale\\CreateSaleModel.cs",
+              "RelativeToolTip": "Application\\Sales\\Commands\\CreateSale\\CreateSaleModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:40:53.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Interfaces\\Persistence\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Persistence\\IUnitOfWork.cs",
+              "ToolTip": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Interfaces\\Persistence\\IUnitOfWork.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Persistence\\IUnitOfWork.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:29:37.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ISaleRepository.cs",
+              "DocumentMoniker": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Interfaces\\Persistence\\ISaleRepository.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Persistence\\ISaleRepository.cs",
+              "ToolTip": "D:\\CODE\\.NET_CORE\\CleanArchitectureTrue\\Application\\Interfaces\\Persistence\\ISaleRepository.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Persistence\\ISaleRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T08:28:54.953Z",
+              "EditorCaption": ""
             }
           ]
         },
