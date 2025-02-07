@@ -12,7 +12,7 @@ There are three branches in this project to demonstrate various practices:
 
  - [dbset-adaptor](https://github.com/matthewrenze/clean-architecture-demo/tree/dbset-adapter) - uses a database adapter to completely decouple the application from the persistence layer -- a cleaner but slightly more complex approach
 
- - [repo-and-uow](https://github.com/matthewrenze/clean-architecture-demo/tree/repo-and-uow) - uses the repository and unit of work patterns to completely decouple the application from the persistance layer -- an even cleaner but also more complex approach
+ - [repo-and-uow](https://github.com/matthewrenze/clean-architecture-demo/tree/repo-and-uow) - uses the repository and unit of work patterns to completely decouple the application from the persistence layer -- an even cleaner but also more complex approach
 
 ## Technologies
 This demo application uses the following technologies:
@@ -28,6 +28,4 @@ This demo application uses the following technologies:
  - SpecFlow 3.9
 
 ## Other Versions
-For other versions of this sample application, please see the following:
- - [.NET Core 6.0](https://github.com/matthewrenze/clean-architecture-core)
- - [.NET Framework 4.5](https://github.com/matthewrenze/clean-architecture-demo/tree/v4.5)
+For all other versions of this sample application, please see the [readme.md](https://github.com/matthewrenze/clean-architecture-demo/blob/main/README.md) in the main repository.
