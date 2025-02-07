@@ -1,5 +1,5 @@
 # Clean Architecture Demo
-A sample application for [Clean Architecture: Patterns, Practices, and Principles](https://pluralsight.pxf.io/clean-architecture) using Microsoft .NET Core 8.0.
+A sample application for [Clean Architecture: Patterns, Practices, and Principles](https://pluralsight.pxf.io/clean-architecture) using Microsoft .NET Core 9.0.
 
 This sample application is intended to be a learning tool for clean architecture practices. It incorporates several of these practices in a way that is simple and easy to understand.
 
@@ -16,10 +16,10 @@ There are three variations of this project to demonstrate various practices:
 
 ## Technologies
 This demo application uses the following technologies:
- - .NET Core 8.0
- - C# .NET 12.0
- - ASP.NET Core MVC 8.0
- - EF Core 8.0
+ - .NET Core 9.0
+ - C# .NET 13.0
+ - ASP.NET Core MVC 9.0
+ - EF Core 9.0
  - Visual Studio 2022
  - SQL Server 2022
  - Scrutor 6.0
@@ -28,4 +28,8 @@ This demo application uses the following technologies:
  - SpecFlow 3.9
 
 ## Other Versions
-For all other versions of this sample application, please see the [readme.md](https://github.com/matthewrenze/clean-architecture-demo/blob/main/README.md) in the main repository.
+For other versions of this sample application, please see the following:
+ - [.NET Core 8.0](https://github.com/matthewrenze/clean-architecture-demo/tree/net8)
+ - [.NET Core 6.0](https://github.com/matthewrenze/clean-architecture-demo/tree/net6)
+ - [.NET Framework 4.8](https://github.com/matthewrenze/clean-architecture-demo/tree/net48)
+ - [.NET Framework 4.5](https://github.com/matthewrenze/clean-architecture-demo/tree/net45)
