@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Moq.AutoMock;
+using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Dates;
 using StructureMap;
@@ -10,7 +10,7 @@ namespace CleanArchitecture.Specification.Common
 {
     public class AppContext
     {
-        public AutoMocker Mocker;
+        public AutoMoqer Mocker;
         public IContainer Container;
         public IDatabaseService DatabaseService;
         public IInventoryService InventoryService;
@@ -31,7 +31,7 @@ namespace CleanArchitecture.Specification.Common
 
         private void SetUpAutoMocker()
         {
-            Mocker = new AutoMocker();
+            Mocker = new AutoMoqer();
         }
 
         public void SetUpMockDatabase()

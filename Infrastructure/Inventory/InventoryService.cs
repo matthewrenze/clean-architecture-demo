@@ -20,7 +20,7 @@ namespace CleanArchitecture.Infrastructure.Inventory
             _client = client;
         }
 
-        public void NotifySaleOccurred(int productId, int quantity)
+        public void NotifySaleOcurred(int productId, int quantity)
         {
             var address = string.Format(AddressTemplate, productId);
 

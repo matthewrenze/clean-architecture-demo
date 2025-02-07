@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ControllerConvention.cs" company="Web Advanced">
+// <copyright file="DefaultRegistry.cs" company="Web Advanced">
 // Copyright 2012 Web Advanced (www.webadvanced.com)
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,28 +15,26 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CleanArchitecture.Presentation.DependencyResolution {
-    using System;
-    using System.Linq;
-    using System.Web.Mvc;
-    using StructureMap;
-    using StructureMap.Configuration.DSL;
-    using StructureMap.Graph;
-    using StructureMap.Graph.Scanning;
-    using StructureMap.Pipeline;
-    using StructureMap.TypeRules;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using StructureMap.Configuration.DSL;
+using StructureMap.Graph;
 
-    public class ControllerConvention : IRegistrationConvention {
-        #region Public Methods and Operators
+namespace CleanArchitecture.Service.DependencyResolution {
+    public class DefaultRegistry : Registry {
+        #region Constructors and Destructors
 
-        public void ScanTypes(TypeSet types, Registry registry)
-        {
-            foreach (var type in types.AllTypes()
-                .Where(type => type.CanBeCastTo<Controller>() 
-                    && !type.IsAbstract))
-            {
-                registry.For(type).LifecycleIs(new UniquePerRequestLifecycle());
-            }
+        public DefaultRegistry() {
+            Scan(
+                scan => {
+                    scan.TheCallingAssembly();
+
+                    scan.WithDefaultConventions();
+
+                    scan.AssembliesFromApplicationBaseDirectory(
+                        filter => filter.FullName.StartsWith("CleanArchitecture"));
+                });
         }
 
         #endregion

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Moq.AutoMock;
+using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Customers;
@@ -17,7 +17,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
     public class GetSalesListQueryTests
     {
         private GetSalesListQuery _query;
-        private AutoMocker _mocker;
+        private AutoMoqer _mocker;
         private Sale _sale;
 
         private const int SaleId = 1;
@@ -58,9 +58,9 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
                 Quantity = Quantity
             };
 
-            _mocker = new AutoMocker();
+            _mocker = new AutoMoqer();
 
-            _query = _mocker.CreateInstance<GetSalesListQuery>();
+            _query = _mocker.Create<GetSalesListQuery>();
         }
 
         [Test]

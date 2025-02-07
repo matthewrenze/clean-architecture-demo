@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Moq.AutoMock;
+using AutoMoq;
 using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
 using NUnit.Framework;
 
@@ -12,14 +12,14 @@ namespace CleanArchitecture.Service.Customers
     public class CustomersControllerTests
     {
         private CustomersController _controller;
-        private AutoMocker _mocker;
+        private AutoMoqer _mocker;
 
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMocker();
+            _mocker = new AutoMoqer();
 
-            _controller = _mocker.CreateInstance<CustomersController>();
+            _controller = _mocker.Create<CustomersController>();
         }
 
         [Test]

@@ -15,9 +15,12 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
-using CleanArchitecture.Presentation;
-using CleanArchitecture.Presentation.Dependencies;
+using CleanArchitecture.Service;
+using CleanArchitecture.Service.DependencyResolution;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using StructureMap;
 using WebActivatorEx;
@@ -25,7 +28,7 @@ using WebActivatorEx;
 [assembly: PreApplicationStartMethod(typeof(StructuremapMvc), "Start")]
 [assembly: ApplicationShutdownMethod(typeof(StructuremapMvc), "End")]
 
-namespace CleanArchitecture.Presentation {
+namespace CleanArchitecture.Service {
     public static class StructuremapMvc {
         #region Public Properties
 

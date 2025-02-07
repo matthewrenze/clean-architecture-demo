@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Moq.AutoMock;
+using AutoMoq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Customers;
@@ -14,7 +14,7 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
     public class GetCustomersListQueryTests
     {
         private GetCustomersListQuery _query;
-        private AutoMocker _mocker;
+        private AutoMoqer _mocker;
         private Customer _customer;
 
         private const int Id = 1;
@@ -23,7 +23,7 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMocker();
+            _mocker = new AutoMoqer();
 
             _customer = new Customer()
             {
@@ -38,7 +38,7 @@ namespace CleanArchitecture.Application.Customers.Queries.GetCustomerList
                 .Setup(p => p.Customers)
                 .Returns(_mocker.GetMock<IDbSet<Customer>>().Object);
 
-            _query = _mocker.CreateInstance<GetCustomersListQuery>();
+            _query = _mocker.Create<GetCustomersListQuery>();
         }
 
         [Test]
