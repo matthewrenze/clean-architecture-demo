@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using AutoMoq;
+using Moq.AutoMock;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
 using CleanArchitecture.Application.Sales.Queries.GetSaleDetail;
 using CleanArchitecture.Application.Sales.Queries.GetSalesList;
@@ -15,14 +15,14 @@ namespace CleanArchitecture.Service.Sales
     public class SalesControllerTests
     {
         private SalesController _controller;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
 
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
-            _controller = _mocker.Create<SalesController>();
+            _controller = _mocker.CreateInstance<SalesController>();
         }
 
         [Test]

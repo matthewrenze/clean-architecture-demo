@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using AutoMoq;
+using Moq.AutoMock;
+using Moq.EntityFrameworkCore;
 using CleanArchitecture.Application.Interfaces;
-using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Products;
 using NUnit.Framework;
 
@@ -14,7 +13,7 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
     public class GetProductsListQueryTests
     {
         private GetProductsListQuery _query;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
         private Product _product;
 
         private const int Id = 1;
@@ -23,7 +22,7 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             _product = new Product()
             {
@@ -31,14 +30,11 @@ namespace CleanArchitecture.Application.Products.Queries.GetProductsList
                 Name = Name
             };
 
-            _mocker.GetMock<IDbSet<Product>>()
-                .SetUpDbSet(new List<Product> { _product });
-
             _mocker.GetMock<IDatabaseService>()
                 .Setup(p => p.Products)
-                .Returns(_mocker.GetMock<IDbSet<Product>>().Object);
+                .ReturnsDbSet(new List<Product> { _product });
 
-            _query = _mocker.Create<GetProductsListQuery>();
+            _query = _mocker.CreateInstance<GetProductsListQuery>();
         }
 
         [Test]

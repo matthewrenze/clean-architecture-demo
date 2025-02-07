@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using AutoMoq;
+using Moq.AutoMock;
+using Moq.EntityFrameworkCore;
 using CleanArchitecture.Application.Interfaces;
-using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Employees;
 using NUnit.Framework;
 
@@ -14,7 +13,7 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
     public class GetEmployeesListQueryTests
     {
         private GetEmployeesListQuery _query;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
         private Employee _employee;
 
         private const int Id = 1;
@@ -23,7 +22,7 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
         [SetUp]
         public void SetUp()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             _employee = new Employee()
             {
@@ -31,14 +30,11 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
                 Name = Name
             };
 
-            _mocker.GetMock<IDbSet<Employee>>()
-                .SetUpDbSet(new List<Employee> { _employee });
-
             _mocker.GetMock<IDatabaseService>()
                 .Setup(p => p.Employees)
-                .Returns(_mocker.GetMock<IDbSet<Employee>>().Object);
+                .ReturnsDbSet(new List<Employee> { _employee });
 
-            _query = _mocker.Create<GetEmployeesListQuery>();
+            _query = _mocker.CreateInstance<GetEmployeesListQuery>();
         }
 
         [Test]

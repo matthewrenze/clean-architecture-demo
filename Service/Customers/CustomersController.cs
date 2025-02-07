@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Http;
+using Microsoft.AspNetCore.Mvc;
 using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
 
 namespace CleanArchitecture.Service.Customers
 {
-    public class CustomersController : ApiController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class CustomersController : ControllerBase
     {
         private readonly IGetCustomersListQuery _query;
 
@@ -15,6 +17,7 @@ namespace CleanArchitecture.Service.Customers
             _query = query;
         }
 
+        [HttpGet]
         public IEnumerable<CustomerModel> Get()
         {
             return _query.Execute();

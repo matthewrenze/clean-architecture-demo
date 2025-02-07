@@ -10,12 +10,12 @@ namespace CleanArchitecture.Domain.Employees
     [TestFixture]
     public class EmployeeTests
     {
-        private readonly Employee _employee;
+        private Employee _employee;
         private const int Id = 1;
         private const string Name = "Test";
 
-
-        public EmployeeTests()
+        [SetUp]
+        public void SetUp()
         {
             _employee = new Employee();
         }

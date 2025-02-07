@@ -10,12 +10,12 @@ namespace CleanArchitecture.Domain.Products
     [TestFixture]
     public class ProductTests
     {
-        private readonly Product _product;
+        private Product _product;
         private const int Id = 1;
         private const string Name = "Test";
 
-
-        public ProductTests()
+        [SetUp]
+        public void SetUp()
         {
             _product = new Product();
         }

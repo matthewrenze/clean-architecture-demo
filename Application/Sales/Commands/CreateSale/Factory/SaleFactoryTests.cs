@@ -12,14 +12,13 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale.Factory
     public class SaleFactoryTests
     {
         private SaleFactory _factory;
-        private Customer _customer = new Customer();
-        private Employee _employee = new Employee();
-        private Product _product = new Product();
+        private Customer _customer;
+        private Employee _employee;
+        private Product _product;
 
         private static readonly DateTime DateTime = new DateTime(2001, 2, 3);
         private const int Quantity = 123;
         private const decimal Price = 1.00m;
-        
 
         [SetUp]
         public void SetUp()

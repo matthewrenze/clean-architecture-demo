@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
 using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
 using CleanArchitecture.Application.Products.Queries.GetProductsList;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
 using CleanArchitecture.Presentation.Sales.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CleanArchitecture.Presentation.Sales.Services
 {

@@ -13,14 +13,14 @@ namespace CleanArchitecture.Infrastructure.Inventory
         private const string AddressTemplate = "http://abc123.com/inventory/products/{0}/notifysaleoccured/";
         private const string JsonTemplate = "{{\"quantity\": {0}}}";
 
-        private readonly IWebClientWrapper _client;
+        private readonly IHttpClientWrapper _client;
 
-        public InventoryService(IWebClientWrapper client)
+        public InventoryService(IHttpClientWrapper client)
         {
             _client = client;
         }
 
-        public void NotifySaleOcurred(int productId, int quantity)
+        public void NotifySaleOccurred(int productId, int quantity)
         {
             var address = string.Format(AddressTemplate, productId);
 

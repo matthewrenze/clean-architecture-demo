@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Http;
+using Microsoft.AspNetCore.Mvc;
 using CleanArchitecture.Application.Products.Queries.GetProductsList;
 
 namespace CleanArchitecture.Service.Products
 {
-    public class ProductsController : ApiController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ProductsController : ControllerBase
     {
         private readonly IGetProductsListQuery _query;
 
@@ -16,6 +17,7 @@ namespace CleanArchitecture.Service.Products
             _query = query;
         }
 
+        [HttpGet]
         public IEnumerable<ProductModel> Get()
         {
             return _query.Execute();

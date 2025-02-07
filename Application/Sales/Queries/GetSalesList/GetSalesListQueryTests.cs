@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using AutoMoq;
+using Moq.AutoMock;
+using Moq.EntityFrameworkCore;
 using CleanArchitecture.Application.Interfaces;
-using CleanArchitecture.Common.Mocks;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
@@ -17,7 +17,7 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
     public class GetSalesListQueryTests
     {
         private GetSalesListQuery _query;
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
         private Sale _sale;
 
         private const int SaleId = 1;
@@ -58,21 +58,18 @@ namespace CleanArchitecture.Application.Sales.Queries.GetSalesList
                 Quantity = Quantity
             };
 
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
-            _query = _mocker.Create<GetSalesListQuery>();
+            _mocker.GetMock<IDatabaseService>()
+                .Setup(p => p.Sales)
+                .ReturnsDbSet(new List<Sale> { _sale });
+
+            _query = _mocker.CreateInstance<GetSalesListQuery>();
         }
 
         [Test]
         public void TestExecuteShouldReturnListOfSales()
         {
-            _mocker.GetMock<IDbSet<Sale>>()
-                .SetUpDbSet(new List<Sale> { _sale });
-
-            _mocker.GetMock<IDatabaseService>()
-                .Setup(p => p.Sales)
-                .Returns(_mocker.GetMock<IDbSet<Sale>>().Object);
-
             var results = _query.Execute();
 
             var result = results.Single();

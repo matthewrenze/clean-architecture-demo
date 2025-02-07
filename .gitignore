@@ -10,3 +10,5 @@ obj
 _NCrunch_*
 *.ncrunchproject
 *.ncrunchsolution
+
+.vs/

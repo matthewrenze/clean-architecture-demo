@@ -10,12 +10,12 @@ namespace CleanArchitecture.Domain.Customers
     [TestFixture]
     public class CustomerTests
     {
-        private readonly Customer _customer;
+        private Customer _customer;
         private const int Id = 1;
         private const string Name = "Test";
 
-
-        public CustomerTests()
+        [SetUp]
+        public void SetUp()
         {
             _customer = new Customer();
         }

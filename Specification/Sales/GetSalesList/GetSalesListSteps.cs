@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.Application.Sales.Queries.GetSalesList;
-using CleanArchitecture.Specification.Common;
+using CleanArchitecture.Specification.Shared;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using AppContext = CleanArchitecture.Specification.Shared.AppContext;
 
 namespace CleanArchitecture.Specification.Sales.GetSalesList
 {
@@ -18,13 +20,14 @@ namespace CleanArchitecture.Specification.Sales.GetSalesList
         public GetSalesListSteps(AppContext context)
         {
             _context = context;
+            _results = new List<SalesListItemModel>();
         }
 
         [When(@"I request a list of sales")]
         public void WhenIRequestAListOfSales()
         {
             var query = _context.Container
-                .GetInstance<GetSalesListQuery>();
+                .GetService<IGetSalesListQuery>();
 
             _results = query.Execute();
         }
@@ -34,7 +37,7 @@ namespace CleanArchitecture.Specification.Sales.GetSalesList
         {
             var models = table.CreateSet<GetSalesListModel>().ToList();
 
-            for (var i = 0; i < models.Count(); i++)
+            for (var i = 0; i < models.Count; i++)
             {
                 var model = models[i];
 

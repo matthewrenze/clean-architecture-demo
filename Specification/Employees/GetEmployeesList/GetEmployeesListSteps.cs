@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
-using CleanArchitecture.Specification.Common;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using AppContext = CleanArchitecture.Specification.Shared.AppContext;
 
 namespace CleanArchitecture.Specification.Employees.GetEmployeesList
 {
@@ -18,13 +19,14 @@ namespace CleanArchitecture.Specification.Employees.GetEmployeesList
         public GetEmployeesListSteps(AppContext context)
         {
             _context = context;
+            _results = new List<EmployeeModel>();
         }
 
         [When(@"I request a list of employees")]
         public void WhenIRequestAListOfEmployees()
         {
             var query = _context.Container
-                .GetInstance<GetEmployeesListQuery>();
+                .GetService<IGetEmployeesListQuery>();
 
             _results = query.Execute();
         }
@@ -34,7 +36,7 @@ namespace CleanArchitecture.Specification.Employees.GetEmployeesList
         {
             var models = table.CreateSet<EmployeeModel>().ToList();
 
-            for (var i = 0; i < models.Count(); i++)
+            for (var i = 0; i < models.Count; i++)
             {
                 var model = models[i];
 

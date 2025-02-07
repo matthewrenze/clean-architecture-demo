@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System.Linq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Domain.Customers;
@@ -17,32 +18,43 @@ namespace CleanArchitecture.Persistence
 {
     public class DatabaseService : DbContext, IDatabaseService
     {
-        public IDbSet<Customer> Customers { get; set; }
+        private readonly IConfiguration _configuration;
 
-        public IDbSet<Employee> Employees { get; set; }
-
-        public IDbSet<Product> Products { get; set; }
-
-        public IDbSet<Sale> Sales { get; set; }
-
-        public DatabaseService() : base("CleanArchitecture")
+        public DatabaseService(IConfiguration configuration)
         {
-            Database.SetInitializer(new DatabaseInitializer());
+            _configuration = configuration;
+
+            Database.EnsureCreated();
         }
+
+        public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<Sale> Sales { get; set; }
 
         public void Save()
         {
             this.SaveChanges();
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            var connectionString = _configuration.GetConnectionString("CleanArchitectureCore");
 
-            modelBuilder.Configurations.Add(new CustomerConfiguration());
-            modelBuilder.Configurations.Add(new EmployeeConfiguration());
-            modelBuilder.Configurations.Add(new ProductConfiguration());
-            modelBuilder.Configurations.Add(new SaleConfiguration());
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            new CustomerConfiguration().Configure(builder.Entity<Customer>());
+            new EmployeeConfiguration().Configure(builder.Entity<Employee>());
+            new ProductConfiguration().Configure(builder.Entity<Product>());
+            new SaleConfiguration().Configure(builder.Entity<Sale>());
         }
     }
 }

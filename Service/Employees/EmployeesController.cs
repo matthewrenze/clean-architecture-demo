@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Http;
+using Microsoft.AspNetCore.Mvc;
 using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
 
 namespace CleanArchitecture.Service.Employees
 {
-    public class EmployeesController : ApiController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class EmployeesController : ControllerBase
     {
         private readonly IGetEmployeesListQuery _query;
 
@@ -15,7 +16,8 @@ namespace CleanArchitecture.Service.Employees
         {
             _query = query;
         }
-
+        
+        [HttpGet]
         public IEnumerable<EmployeeModel> Get()
         {
             return _query.Execute();

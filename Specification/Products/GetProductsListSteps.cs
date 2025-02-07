@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.Application.Products.Queries.GetProductsList;
-using CleanArchitecture.Specification.Common;
+using CleanArchitecture.Specification.Shared;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using AppContext = CleanArchitecture.Specification.Shared.AppContext;
 
 namespace CleanArchitecture.Specification.Products
 {
@@ -18,13 +20,14 @@ namespace CleanArchitecture.Specification.Products
         public GetProductsListSteps(AppContext context)
         {
             _context = context;
+            _results = new List<ProductModel>();
         }
 
         [When(@"I request a list of products")]
         public void WhenIRequestAListOfProducts()
         {
             var query = _context.Container
-                .GetInstance<GetProductsListQuery>();
+                .GetService<IGetProductsListQuery>();
 
             _results = query.Execute();
         }
@@ -34,7 +37,7 @@ namespace CleanArchitecture.Specification.Products
         {
             var models = table.CreateSet<ProductModel>().ToList();
 
-            for (var i = 0; i < models.Count(); i++)
+            for (var i = 0; i < models.Count; i++)
             {
                 var model = models[i];
 

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
 
 namespace CleanArchitecture.Presentation.Customers

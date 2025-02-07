@@ -3,11 +3,13 @@ using System.Linq;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
 using CleanArchitecture.Common.Dates;
-using CleanArchitecture.Specification.Common;
+using CleanArchitecture.Specification.Shared;
+using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using AppContext = CleanArchitecture.Specification.Shared.AppContext;
 
 namespace CleanArchitecture.Specification.Sales.CreateASale
 {
@@ -20,6 +22,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
         public CreateASaleSteps(AppContext context)
         {
             _context = context;
+            _model = new CreateSaleModel();
         }
 
         [Given(@"the following sale info:")]
@@ -31,9 +34,9 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
                 .Setup(p => p.GetDate())
                 .Returns(saleInfo.Date);
 
-            var mockDatabase = _context.Mocker.GetMock<IDatabaseService>();
+            var mockDatabase = _context.DatabaseService;
                
-            var lookup = new DatabaseLookup(mockDatabase.Object);
+            var lookup = new DatabaseLookup(mockDatabase);
 
             _model = new CreateSaleModel
             {
@@ -48,7 +51,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
         public void WhenICreateASale()
         {
             var command = _context.Container
-                .GetInstance<CreateSaleCommand>();
+                .GetService<ICreateSaleCommand>();
 
             command.Execute(_model);
         }
@@ -99,7 +102,7 @@ namespace CleanArchitecture.Specification.Sales.CreateASale
 
             var mockInventoryClient = _context.Mocker.GetMock<IInventoryService>();
 
-            mockInventoryClient.Verify(p => p.NotifySaleOcurred(
+            mockInventoryClient.Verify(p => p.NotifySaleOccurred(
                     notification.ProductId, 
                     notification.Quantity),
                 Times.Once);

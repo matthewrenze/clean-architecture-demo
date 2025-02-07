@@ -1,4 +1,4 @@
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Employees;
 using CleanArchitecture.Domain.Products;
@@ -8,13 +8,13 @@ namespace CleanArchitecture.Application.Interfaces
 {
     public interface IDatabaseService
     {
-        IDbSet<Customer> Customers { get; set; }
+        DbSet<Customer> Customers { get; set; }
 
-        IDbSet<Employee> Employees { get; set; }
+        DbSet<Employee> Employees { get; set; }
         
-        IDbSet<Product> Products { get; set; }
+        DbSet<Product> Products { get; set; }
         
-        IDbSet<Sale> Sales { get; set; }
+        DbSet<Sale> Sales { get; set; }
 
         void Save();
     }

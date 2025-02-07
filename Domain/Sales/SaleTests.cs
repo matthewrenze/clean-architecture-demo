@@ -17,9 +17,10 @@ namespace CleanArchitecture.Domain.Sales
         private Product _product;
 
         private const int Id = 1;
-        private static readonly DateTime Date = new DateTime(2001, 2, 3);
+        private static readonly DateTime Date = new(2001, 2, 3);
         private const decimal UnitPrice = 1.00m;
         private const int Quantity = 1;
+
 
         [SetUp]
         public void SetUp()

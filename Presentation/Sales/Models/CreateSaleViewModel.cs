@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CleanArchitecture.Presentation.Sales.Models
 {

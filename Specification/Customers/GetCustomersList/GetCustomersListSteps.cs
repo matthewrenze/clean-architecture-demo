@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.Application.Customers.Queries.GetCustomerList;
-using CleanArchitecture.Specification.Common;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using AppContext = CleanArchitecture.Specification.Shared.AppContext;
 
 namespace CleanArchitecture.Specification.Customers.GetCustomersList
 {
@@ -18,13 +19,14 @@ namespace CleanArchitecture.Specification.Customers.GetCustomersList
         public GetCustomersListSteps(AppContext context)
         {
             _context = context;
+            _results = new List<CustomerModel>();
         }
 
         [When(@"I request a list of customers")]
         public void WhenIRequestAListOfCustomers()
         {
             var query = _context.Container
-                .GetInstance<GetCustomersListQuery>();
+                .GetService<IGetCustomersListQuery>();
 
             _results = query.Execute();
         }
@@ -34,7 +36,7 @@ namespace CleanArchitecture.Specification.Customers.GetCustomersList
         {
             var models = table.CreateSet<CustomerModel>().ToList();
 
-            for (var i = 0; i < models.Count(); i++)
+            for (var i = 0; i < models.Count; i++)
             {
                 var model = models[i];
 

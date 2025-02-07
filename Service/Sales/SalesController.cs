@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+using Microsoft.AspNetCore.Mvc;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
 using CleanArchitecture.Application.Sales.Queries.GetSaleDetail;
 using CleanArchitecture.Application.Sales.Queries.GetSalesList;
 
 namespace CleanArchitecture.Service.Sales
 {
-    public class SalesController : ApiController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class SalesController : ControllerBase
     {
         private readonly IGetSalesListQuery _listQuery;
         private readonly IGetSaleDetailQuery _detailQuery;
@@ -26,11 +27,13 @@ namespace CleanArchitecture.Service.Sales
             _createCommand = createCommand;
         }
 
+        [HttpGet]
         public IEnumerable<SalesListItemModel> Get()
         {
             return _listQuery.Execute();
         }
 
+        [HttpGet("{id}")]
         public SaleDetailModel Get(int id)
         {
             return _detailQuery.Execute(id);

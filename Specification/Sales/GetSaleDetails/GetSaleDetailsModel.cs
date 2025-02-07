@@ -10,11 +10,11 @@ namespace CleanArchitecture.Specification.Sales.GetSaleDetails
 
         public DateTime Date { get; set; }
 
-        public string Customer { get; set; }
+        public string Customer { get; set; } = string.Empty;
 
-        public string Employee { get; set; }
+        public string Employee { get; set; } = string.Empty;
 
-        public string Product { get; set; }
+        public string Product { get; set; } = string.Empty;
 
         public decimal UnitPrice { get; set; }
 

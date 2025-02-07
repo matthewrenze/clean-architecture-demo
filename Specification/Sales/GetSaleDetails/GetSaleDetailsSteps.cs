@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using CleanArchitecture.Application.Sales.Queries.GetSaleDetail;
-using CleanArchitecture.Specification.Common;
+using CleanArchitecture.Specification.Shared;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using AppContext = CleanArchitecture.Specification.Shared.AppContext;
 
 namespace CleanArchitecture.Specification.Sales.GetSaleDetails
 {
@@ -18,13 +20,14 @@ namespace CleanArchitecture.Specification.Sales.GetSaleDetails
         public GetSaleDetailsSteps(AppContext context)
         {
             _context = context;
+            _result = new SaleDetailModel();
         }
 
         [When(@"I request the sale details for sale (.*)")]
         public void WhenIRequestTheSaleDetailsForSale(int saleId)
         {
             var query = _context.Container
-                .GetInstance<GetSaleDetailQuery>();
+                .GetService<IGetSaleDetailQuery>();
 
             _result = query.Execute(saleId);
         }
