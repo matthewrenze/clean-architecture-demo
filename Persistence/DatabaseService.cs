@@ -42,7 +42,7 @@ namespace CleanArchitecture.Persistence
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = _configuration.GetConnectionString("CleanArchitectureCore");
+            var connectionString = _configuration.GetConnectionString("CleanArchitecture");
 
             optionsBuilder.UseSqlServer(connectionString);
         }
